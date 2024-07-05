@@ -225,8 +225,9 @@ signature：由PayouCard RSA 私钥签名生成
 
 # 字典
 
-* 业务字典
-  dictionary_biz.pdf
+* 业务字典 
+  
+    ```/src/dictionary_biz.pdf```
 
 * 公用字典
 
@@ -234,10 +235,12 @@ signature：由PayouCard RSA 私钥签名生成
     * 手机区号字典
     * 国家字典
     * 城市字典
-      dictionary_common.xlsx
+    
+    ```/src/dictionary_common.xlsx```
 
 * java-sdk-demo
-  payoucard-demo.zip
+  
+    ```/src/payoucard-demo.zip```
 
 # REST API
 ## 公共API
@@ -248,9 +251,9 @@ signature：由PayouCard RSA 私钥签名生成
 
 POST /order/merchant/file/upload
 
-请求content-type：multipart/form-data
+**请求content-type：** multipart/form-data
 
-**限频：**100/5s
+**限频：** 100/5s
 
 **请求参数：**
 
@@ -303,19 +306,19 @@ POST /card/merchant/config/list
 
 **请求响应：**
 
-| 参数                     | 类型    | 是否必传 | 含义                 |
-|--------------------------|---------|----------|:---------------------|
-| id                       | Integer | Y        | 卡片类型ID           |
-| typeDesc                 | String  | Y        | 类型描述             |
-| cardDesc                 | String  | Y        | 卡名称               |
-| kycRequire               | Boolean | Y        | 是否需要KYC认证      |
-| rechargeCurrencyInfoList | List    | Y        | 可充值的币种列表配置 |
-| rechargeCurrencyInfoList.currency | String    | Y        | 充值币种 |
-| rechargeCurrencyInfoList.rechargeMinQuota | BigDecimal    | Y        | 充值最小额度 |
-| rechargeCurrencyInfoList.rechargeMaxQuota | BigDecimal    | Y        | 充值最大额度 |
-| rechargeCurrencyInfoList.digital | Long    | Y        | 精度 |
-| needPhotoForActiveCard | Boolean    | Y        | 激活卡片时是否需要手持护照和银行卡照 |
-| needPhotoForOperateCard | Boolean    | Y        | 找回密码时是否需要提供用户签名照 |
+| 参数                                        | 类型    | 是否必传 | 含义                 |
+|-------------------------------------------|---------|----------|:---------------------|
+| id                                        | Integer | Y        | 卡片类型ID           |
+| typeDesc                                  | String  | Y        | 类型描述             |
+| cardDesc                                  | String  | Y        | 卡名称               |
+| kycRequire                                | Boolean | Y        | 是否需要KYC认证      |
+| rechargeCurrencyInfoList                  | List    | Y        | 可充值的币种列表配置 |
+| rechargeCurrencyInfoList[0].currency      | String    | Y        | 充值币种 |
+| rechargeCurrencyInfoList[0].rechargeMinQuota | BigDecimal    | Y        | 充值最小额度 |
+| rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal    | Y        | 充值最大额度 |
+| rechargeCurrencyInfoList[0].digital          | Long    | Y        | 精度 |
+| needPhotoForActiveCard                    | Boolean    | Y        | 激活卡片时是否需要手持护照和银行卡照 |
+| needPhotoForOperateCard                   | Boolean    | Y        | 找回密码时是否需要提供用户签名照 |
 
 **响应示例：**
 
@@ -412,13 +415,13 @@ POST /user/merchant/register
 **响应示例：**
 ```JSON
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data":null,
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":null,
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -458,29 +461,29 @@ POST /user/merchant/info/update
 
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId":"U898IPO8KH65445F",
-"mobile": "+8617800001111",
-"email": "123@qq.com",
-"lastName": "wang",
-"firstName": "william",
-"birthday": "2002-01-01",
-"nationality": "CN",
-"sex": 1,
-"countryCode": "CN",
-"town": "CN_11",
-"address": "bei jing shi hai dian qu 123 hao",
-"postCode": "100000",
-"idnoType": "PASSPORT",
-"idno": "ES2324523",
-"idNoExpiryDate":"2050-11-01",
-"idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-"facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId":"U898IPO8KH65445F",
+        "mobile": "+8617800001111",
+        "email": "123@qq.com",
+        "lastName": "wang",
+        "firstName": "william",
+        "birthday": "2002-01-01",
+        "nationality": "CN",
+        "sex": 1,
+        "countryCode": "CN",
+        "town": "CN_11",
+        "address": "bei jing shi hai dian qu 123 hao",
+        "postCode": "100000",
+        "idnoType": "PASSPORT",
+        "idno": "ES2324523",
+        "idNoExpiryDate":"2050-11-01",
+        "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
+        "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -488,13 +491,13 @@ POST /user/merchant/info/update
 
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data":null,
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":null,
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -559,14 +562,14 @@ POST /user/merchant/submit/kyc/verification
 **请求示例：**
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId": "U898IPO8KH65445F",
-"cardTypeId": 1
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardTypeId": 1
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -672,15 +675,15 @@ POST /card/merchant/virtual/card/apply
 **响应示例：**
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data":{
-"orderNo":"203434343434343434"
-},
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":{
+      "orderNo":"203434343434343434"
+    },
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -699,13 +702,13 @@ POST /card/merchant/virtual/card/status
 
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"orderNo":"240123173818711000"
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+      "orderNo":"240123173818711000"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -750,15 +753,15 @@ POST /card/merchant/activation
 **请求示例：**
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId": "U898IPO8KH65445F",
-"cardNo": "12456782323",
-"activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardNo": "12456782323",
+        "activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -825,13 +828,13 @@ POST /order/merchant/recharge
 code为0则代表充值成功
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data": null,
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data": null,
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -915,15 +918,15 @@ POST /card/merchant/payment/password/set
 **请求示例：**
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId": "U898IPO8KH65445F",
-"cardNo": "12456782323",
-"signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardNo": "12456782323",
+        "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -932,13 +935,13 @@ POST /card/merchant/payment/password/set
 code 为0则代表设置成功
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data": null,
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data": null,
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ````
 
@@ -964,19 +967,19 @@ POST /card/merchant/trade/query
 **请求示例：**
 ```JSON
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId": "U898IPO8KH65445F",
-"cardNo": "12456782323",
-"currency": "EUR",
-"beginDate": "2024-01-01",
-"endDate": "2024-01-01",
-"pageNum": 1,
-"pageSize": 30
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardNo": "12456782323",
+        "currency": "EUR",
+        "beginDate": "2024-01-01",
+        "endDate": "2024-01-01",
+        "pageNum": 1,
+        "pageSize": 30
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -987,18 +990,18 @@ POST /card/merchant/trade/query
 | total | Long | Y        | 总页码  |
 | current | Long | Y        | 当前页  |
 | records | List | Y        | 数据集合  |
-| records.cardNo | String | Y        | 卡号  |
-| records.currency | String | Y        | 币种  |
-| records.amount | BigDecimal | Y        | 金额  |
-| records.fee | BigDecimal | Y        | 手续费  |
-| records.txnAmount | BigDecimal | Y        | 支付金额  |
-| records.businessDate | String | Y        | 业务日期  |
-| records.tradeId | String | Y        | 交易流水号  |
-| records.tradeType | Integer | Y        | 交易类型  |
-| records.tradeTypeStr | String | Y        | 交易类型描述 |
-| records.tradeStatus | String | Y        | 交易状态  |
-| records.tradeStatusStr | String | Y        | 交易状态描述  |
-| records.remark | String | Y        | 备注  |
+| records[0].cardNo | String | Y        | 卡号  |
+| records[0].currency | String | Y        | 币种  |
+| records[0].amount | BigDecimal | Y        | 金额  |
+| records[0].fee | BigDecimal | Y        | 手续费  |
+| records[0].txnAmount | BigDecimal | Y        | 支付金额  |
+| records[0].businessDate | String | Y        | 业务日期  |
+| records[0].tradeId | String | Y        | 交易流水号  |
+| records[0].tradeType | Integer | Y        | 交易类型  |
+| records[0].tradeTypeStr | String | Y        | 交易类型描述 |
+| records[0].tradeStatus | String | Y        | 交易状态  |
+| records[0].tradeStatusStr | String | Y        | 交易状态描述  |
+| records[0].remark | String | Y        | 备注  |
 
 **响应示例：**
 ```json
@@ -1107,15 +1110,15 @@ POST /card/merchant/unfreeze
 **请求示例：**
 ```json
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"uniqueId": "U898IPO8KH65445F",
-"cardNo": "12456782323",
-"signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardNo": "12456782323",
+        "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1132,17 +1135,17 @@ POST /card/merchant/unfreeze
 code为0代表解冻成功
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data":
-{
-"status": 1,
-"statusStr": "Success"
-},
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":
+    {
+        "status": 1,
+        "statusStr": "Success"
+    },
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1173,38 +1176,37 @@ POST /order/merchant/globalTransfer/queryBankConfig
 
 **请求响应：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| country | String | Y        | 国家代码  |
-| countryName | String | Y        | 国家名称  |
-| currency | String | Y        | 货币代码  |
-| currencyName | String | Y        | 货币名称  |
-| bankList | List | Y        | 银行列表  |
-| bankList.bankId | Long | Y        | 银行id  |
-| bankList.bankName | String | Y        | 银行名称  |
-| bankList.paymentType | Long | Y        | 交易类型。2：SEPA；15：速汇  |
-| bankList.feeRate | BigDecimal | Y        | 收取手续费率。例 2=2%  |
-| bankList.feeAmount | BigDecimal | Y   | 收取固定手续费金额。默认EUR  |
-| bankList.payeeParams | String | Y        | 收款人信息请求参数。每个银行需要的参数不一样，返回哪些参数就需要传递  |
-| payeeParams.benAccountNum | String | Y        | 收款人账号  |
-| payeeParams.benAccountName | String | Y        | 收款人户名  |
-| payeeParams.benCountryCode | String | N        | 收款人居住国家  |
-| payeeParams.benCityCode | String | N        | 收款人居住城市  |
-| payeeParams.benAddress | String | N        | 收款人地址  |
-| payeeParams.benPostCode | String | N        | 收款人邮编  |
-| payeeParams.benBankCode | String | N        | 收款人银行编码  |
-
-| payeeParams.benTransBankSwift | String | N        | 收款人中转行  |
-| payeeParams.benLastName | String | N        | 收款人姓  |
-| payeeParams.benFirstName | String | N        | 收款人名  |
-| payeeParams.benNationalityCountry | String | N        | 收款人国籍  |
-| payeeParams.benIdNoType | String | N        | 收款人证件类型  |
-| payeeParams.benIdNo | String | N        | 收款人证件号码 |
-| payeeParams.benIdExpirationDate | String | N  | 收款人证件有效期 |
-| payeeParams.benBirthday | String | N        | 收款人出生日期 |
-| payeeParams.benMobileCode | String | N        | 收款人手机区号 |
-| payeeParams.benMobile | String | N        | 收款人手机号 |
-| payeeParams.benBankAccountType | String | N   | 收款人银行账户类型 |
+| 参数     | 类型         | 是否必传 | 含义 |
+|----------|------------|----------|:-----|
+| country | String     | Y        | 国家代码  |
+| countryName | String     | Y        | 国家名称  |
+| currency | String     | Y        | 货币代码  |
+| currencyName | String     | Y        | 货币名称  |
+| bankList | List       | Y        | 银行列表  |
+| bankList[0].bankId | Long       | Y        | 银行id  |
+| bankList[0].bankName | String     | Y        | 银行名称  |
+| bankList[0].paymentType | Long       | Y        | 交易类型。2：SEPA；15：速汇  |
+| bankList[0].feeRate | BigDecimal | Y        | 收取手续费率。例 2=2%  |
+| bankList[0].feeAmount | BigDecimal | Y   | 收取固定手续费金额。默认EUR  |
+| bankList[0].payeeParams | List       | Y        | 收款人信息请求参数。每个银行需要的参数不一样，返回哪些参数就需要传递  |
+| payeeParams[0].benAccountNum | String     | Y        | 收款人账号  |
+| payeeParams[0].benAccountName | String     | Y        | 收款人户名  |
+| payeeParams[0].benCountryCode | String     | N        | 收款人居住国家  |
+| payeeParams[0].benCityCode | String     | N        | 收款人居住城市  |
+| payeeParams[0].benAddress | String     | N        | 收款人地址  |
+| payeeParams[0].benPostCode | String     | N        | 收款人邮编  |
+| payeeParams[0].benBankCode | String     | N        | 收款人银行编码  |
+| payeeParams[0].benTransBankSwift | String     | N        | 收款人中转行  |
+| payeeParams[0].benLastName | String     | N        | 收款人姓  |
+| payeeParams[0].benFirstName | String     | N        | 收款人名  |
+| payeeParams[0].benNationalityCountry | String     | N        | 收款人国籍  |
+| payeeParams[0].benIdNoType | String     | N        | 收款人证件类型  |
+| payeeParams[0].benIdNo | String     | N        | 收款人证件号码 |
+| payeeParams[0].benIdExpirationDate | String     | N  | 收款人证件有效期 |
+| payeeParams[0].benBirthday | String     | N        | 收款人出生日期 |
+| payeeParams[0].benMobileCode | String     | N        | 收款人手机区号 |
+| payeeParams[0].benMobile | String     | N        | 收款人手机号 |
+| payeeParams[0].benBankAccountType | String     | N   | 收款人银行账户类型 |
 
 **响应示例：**
 
@@ -1469,11 +1471,11 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 |----------|--------|----------|:-----|
 | orderNo | Long | Y | PayouCard订单号 |
 | transferInfos | List | N | 订单信息集合 |
-| transferInfos.code | String | N | 订单信息code。参见dictionary_biz.pdf（2.2. Transfer order info type） |
-| transferInfos.content | String | N | 订单信息内容。不支持中文字符 |
+| transferInfos[0].code | String | N | 订单信息code。参见dictionary_biz.pdf（2.2. Transfer order info type） |
+| transferInfos[0].content | String | N | 订单信息内容。不支持中文字符 |
 | transferFiles | List | N | 订单文件集合。参见dictionary_biz.pdf（2.3. Transfer order file type） |
-| transferFiles.code | String | N | 订单文件code |
-| transferFiles.content | String | N | 订单文件url。每个文件不能超过2M |
+| transferFiles[0].code | String | N | 订单文件code |
+| transferFiles[0].content | String | N | 订单文件url。每个文件不能超过2M |
 
 **请求示例：**
 
