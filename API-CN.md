@@ -1731,16 +1731,16 @@ POST /order/merchant/globalTransfer/getOrderResult
 |----------|--------|----------|:-----|
 | orderNo  | Long   | Y        | PayouCard订单号 |
 
+**请求示例：**
 ```json
-请求示例：
 {
-"requestId": "PYC20240325164529237",
-"marchantId": "88888888",
-"data":
-{
-"orderNo": 1234556778945342
-},
-"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+      "orderNo": 1234556778945342
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
