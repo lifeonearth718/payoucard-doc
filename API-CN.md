@@ -141,8 +141,8 @@ merchantId：商户ID。在商户后台系统-”商户基本信息” 菜单中
 | message    | String  | Y        | 信息                                            |
 ```json
 {
-"code": 0,
-"message": ""
+    "code": 0,
+    "message": ""
 }
 ```
 
@@ -166,9 +166,9 @@ signature：签名源字符串由除签名（signature）字段外的所有非�
     "marchant": "88888888",
     "data":
     {
-    "currency": "EUR",
-    "targetCurrency": "SGD",
-    "targetCountry": "SG"
+        "currency": "EUR",
+        "targetCurrency": "SGD",
+        "targetCountry": "SG"
     }
 }
 ```
@@ -197,9 +197,9 @@ signature：由PayouCard RSA 私钥签名生成
     "message": "success",
     "success": true,
     "data": {
-    "targetCurrency": "SGD",
-    "exchangeRate": "1.4567",
-    "currency": "EUR"
+        "targetCurrency": "SGD",
+        "exchangeRate": "1.4567",
+        "currency": "EUR"
     },
     "merchantId": "88888888",
     "signature": "SCHaOIDlAkyaad4VxBrd9ON27ZrSK0IpNCPbkjQEe8YR/2UaZUlYUViBRDmnkvhJCehxjBTwECCF9vr4qjG1epyTKYVy8fqcQdynzXyclT5MYs6N9uWu5AHQm/HQpvfBjRcK3y65TaqZdNkToREQ/XPg/PsAFpPueSugjYJ0/C0=",
