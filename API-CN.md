@@ -37,6 +37,7 @@
         - [查询速汇银行及相关配置](#查询速汇银行及相关配置)
         - [查询法币汇率](#查询法币汇率)
         - [代付](#代付)
+        - [用户订单列表](#用户订单列表)
         - [提交调单信息或文件](#提交调单信息或文件)
         - [查询订单结果](#查询订单结果)
     - [回调通知](#回调通知)
@@ -225,9 +226,9 @@ signature：由PayouCard RSA 私钥签名生成
 
 # 字典
 
-* 业务字典 
-  
-    ```/src/dictionary_biz.pdf```
+* 业务字典
+
+  ```/src/dictionary_biz.pdf```
 
 * 公用字典
 
@@ -235,12 +236,12 @@ signature：由PayouCard RSA 私钥签名生成
     * 手机区号字典
     * 国家字典
     * 城市字典
-    
-    ```/src/dictionary_common.xlsx```
+
+  ```/src/dictionary_common.xlsx```
 
 * java-sdk-demo
-  
-    ```/src/payoucard-demo.zip```
+
+  ```/src/payoucard-demo.zip```
 
 # REST API
 ## 公共API
@@ -1456,6 +1457,194 @@ POST /order/merchant/globalTransfer/payment
 }
 ```
 
+
+### 用户订单列表
+此接口用于查询用户的订单列表
+
+**HTTP请求**
+
+POST /order/merchant/globalTransfer/payment
+
+**限频：** 200/5s
+
+**请求参数：**
+
+| 参数     | 类型   | 是否必传 | 含义 |
+|----------|--------|----------|:-----|
+| uniqueId | String | Y        | 合作商用户的唯一ID。[1 .. 50 ] 个字符 |
+| originOrderNo | String | N | 商户业务订单号 |
+| orderNo | Long | N | Payoucard订单号 |
+| page | Long | Y | 当前页。默认1 |
+| pageSize | Long | Y | 每页数量。默认10，最大30 |
+
+
+**请求示例：**
+
+```json
+{
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "23242",
+        "originOrderNo": null,
+        "orderNo": 12345678934355462,
+        "page": 1,
+        "pageSize": 10
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
+**响应参数：**
+
+| 参数     | 类型   | 是否必传 | 含义 |
+|----------|--------|----------|:-----|
+| total | Long | Y        | 总数量 |
+| current | Long | Y | 当前页 |
+| size | Long | Y  | 每页数量 |
+| records | List | Y        | 数据 |
+| records[0].uniqueId | String | Y        | 合作商用户的唯一ID|
+| records[0].paymentType | String | Y        | 交易类型。2：SEPA；15：速汇 |
+| records[0].orderNo | Long | Y        | Payoucard订单号 |
+| records[0].originOrderNo | String | Y        | 商户订单号 |
+| records[0].status | String | Y | 订单状态。B1：待处理；B2：支付中；B3：支付成功；B4：支付失败；B6：退款；B11：调单_待提交；B12：调单_待审核；B13：调单_审核通过；B15：调单_审核拒绝 |
+| records[0].paymentCurrency | String | Y | 支付币种 |
+| records[0].paymentAmount | BigDecimal | Y | 支付金额 |
+| records[0].paymentFee | BigDecimal | Y | 支付总手续费 |
+| records[0].paymentFeeRate | BigDecimal | Y | 手续费率。2=2% |
+| records[0].paymentFeeRateAmount | BigDecimal | Y | 手续费率金额 |
+| records[0].paymentFixedFeeAmount | BigDecimal | Y | 固定手续费金额 |
+| records[0].receivedAccountNum | String | Y | 收款账号 |
+| records[0].receivedAccountName | String | Y | 收款账户名 |
+| records[0].receivedCurrency | String | Y | 收款币种 |
+| records[0].receivedAmount | BigDecimal | Y | 收款金额 |
+| records[0].receivedCountry | String | Y | 收款国家2位数代码 |
+| records[0].receivedCountryStr | String | Y | 收款国家英文名 |
+| records[0].resultMsg | String | N | 订单备注 |
+| records[0].transferOrderInfo | List | N | 调单订单信息code |
+| records[0].transferOrderFile | List | N | 调单订单文件code |
+| records[0].transferOrderDesc | String | N | 调单订单描述 |
+| records[0].postscript | String | Y | 交易附言 |
+| records[0].payer | Object | Y | 付款人信息 |
+| records[0].payer.payerType | String | Y | 付款人类型。INDIVIDUAL:个人 |
+| records[0].payer.payerLastName | String | Y | 付款人姓 |
+| records[0].payer.payerFirstName | String | Y | 付款人名 |
+| records[0].payer.payerIdNo | String | Y | 付款人证件号码 |
+| records[0].payer.payerIdNoType | String | Y | 付款人证件类型。EUROPEAN_ID.身份证; PASSPORT.护照 |
+| records[0].payer.payerIdCountry | String | Y | 付款人证件颁发国家。2位数code码 |
+| records[0].payer.payerBirthday | LocalDate | Y | 付款人出生日期 yyyy-MM-dd |
+| records[0].payer.payerNationalityCountry | String | Y | 付款人国籍。2位数code码 |
+| records[0].payer.payerMobile | String | Y | 付款人手机号码 |
+| records[0].payer.payerCountryCode | String | Y | 付款人居住国家代码 |
+| records[0].payer.payerCityCode | String | Y | 付款人居住城市代码 |
+| records[0].payer.payerAddress | String | Y | 付款人地址.英文地址 |
+| records[0].payer.payerPostCode | String | Y | 付款人邮编 |
+| records[0].payer.payerOccupation | String | Y | 付款人职业 |
+| records[0].payee | Object | Y | 收款人信息 |
+| records[0].payee.bankId | Long | Y | 收款银行id |
+| records[0].payee.bankName | String | Y | 收款银行 |
+| records[0].payee.benAccountNum | String | Y | 收款人帐号 |
+| records[0].payee.benAccountName | String | Y | 收款人户名。英文名称 |
+| records[0].payee.benCountryCode | String | N | 收款人居住国家代码 |
+| records[0].payee.benCityCode | String | N | 收款人居住城市代码 |
+| records[0].payee.benAddress | String | N | address。英文地址 |
+| records[0].payee.benPostCode | String | N | 邮编 |
+| records[0].payee.benBankCode | String | N | 银行编码 |
+| records[0].payee.benTransBankSwift | String | N | 中转行 |
+| records[0].payee.benLastName | String | N | 收款人姓 |
+| records[0].payee.benFirstName | String | N | 收款人名 |
+| records[0].payee.benNationalityCountry | String | N | 国籍代码 |
+| records[0].payee.benIdNoType | String | N | 证件类型。EUROPEAN_ID.身份证; PASSPORT.护照 |
+| records[0].payee.benIdNo | String | N | 证件号码 |
+| records[0].payee.benIdExpirationDate | LocalDate | N | 证件有效期。yyyy-MM-dd |
+| records[0].payee.benBirthday | LocalDate | N | 出生日期。yyyy-MM-dd |
+| records[0].payee.benBankAccountType | String | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type） |
+
+**响应示例：**
+
+```json
+{
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "total": 1,
+        "current": 1,
+        "size": 10,
+        "records": [
+          {
+            "uniqueId": "11029",
+            "paymentType": 15,
+            "orderNo": 12345678934355462,
+            "originOrderNo": "1777240103854825473",
+            "status": "B3",
+            "paymentCurrency": "EUR",
+            "paymentAmount": "1234",
+            "paymentFee": "4.5",
+            "paymentFeeRate": "2",
+            "paymentFeeRateAmount": "3",
+            "paymentFixedFeeAmount": "1.5",
+            "receivedAccountNum": "vbnnm",
+            "receivedAccountName": "bbmnnnz",
+            "receivedCurrency": "JPY",
+            "receivedAmount": "191243.59",
+            "receivedCountry": "JP",
+            "receivedCountryStr": "JAPAN",
+            "resultMsg": "test",
+            "transferOrderInfo": [
+              "1",
+              "2"
+            ],
+            "transferOrderFile": [
+              "1",
+              "2"
+            ],
+            "transferOrderDesc": "test",
+            "postscript": "lhhnvbbn",
+            "payer": {
+              "payerType": "INDIVIDUAL",
+              "payerLastName": "wqw",
+              "payerFirstName": "wqwq",
+              "payerIdNo": "213232312",
+              "payerIdNoType": "PASSPORT",
+              "payerIdCountry": "AL",
+              "payerBirthday": "2024-02-05",
+              "payerNationalityCountry": "AL",
+              "payerMobile": "19800001111",
+              "payerCountryCode": "AL",
+              "payerCityCode": "AL_BR",
+              "payerAddress": "eqwweqewq",
+              "payerPostCode": "212323",
+              "payerOccupation": "worker"
+            },
+            "payee": {
+              "bankId": 5143,
+              "bankName": "Mizuho Trust and Banking Co.,Ltd.",
+              "benAccountNum": "vbnnm",
+              "benAccountName": "bbmnnnz",
+              "benCountryCode": null,
+              "benCityCode": null,
+              "benAddress": null,
+              "benPostCode": null,
+              "benBankCode": "gjbvvbn",
+              "benTransBankSwift": null,
+              "benLastName": "vbjnnb",
+              "benFirstName": "gjgbjj",
+              "benNationalityCountry": "AL",
+              "benIdNoType": null,
+              "benIdNo": null,
+              "benIdExpirationDate": null,
+              "benBirthday": null,
+              "benBankAccountType": null
+            }
+          }
+        ]
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
 ### 提交调单信息或文件
 此接口用于提交调单信息或文件。当订单状态为B11、B15时订单进入调单模式，需要提交订单相关的信息进行审核才能继续速汇。请结合调单回调通知配合使用
 
@@ -1481,31 +1670,31 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "orderNo": 1234556778945342,
-        "transferInfos":
-        [
-            {
-                "code": "1",
-                "content": "tom"
-            },
-            {
-                "code": "16",
-                "content": "2002-10-10"
-            }
-        ],
-        "transferFiles":
-        [
-            {
-                "code": "26",
-                "content": "https://adfasfwe.cloudfront.net/media/88888888/123.png"
-            }
-        ]
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "orderNo": 1234556778945342,
+    "transferInfos":
+    [
+      {
+        "code": "1",
+        "content": "tom"
+      },
+      {
+        "code": "16",
+        "content": "2002-10-10"
+      }
+    ],
+    "transferFiles":
+    [
+      {
+        "code": "26",
+        "content": "https://adfasfwe.cloudfront.net/media/88888888/123.png"
+      }
+    ]
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1517,13 +1706,13 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1545,13 +1734,13 @@ POST /order/merchant/globalTransfer/getOrderResult
 ```json
 请求示例：
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "orderNo": 1234556778945342
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+"requestId": "PYC20240325164529237",
+"marchantId": "88888888",
+"data":
+{
+"orderNo": 1234556778945342
+},
+"signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1577,39 +1766,39 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```JSON
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "orderNo": 12343434232324,
-        "status": "B3",
-        "paymentCurrency": "EUR",
-        "paymentAmount": 10,
-        "payAccountNum": "1234",
-        "paymentFee": 1.5,
-        "receivedAccountNum": "es324353535",
-        "receivedAccountName": "tom z",
-        "receivedCurrency": "SGD",
-        "receivedAmount": 30.5,
-        "resultMsg": "success",
-        "transferOrderInfo":
-        [
-            "1",
-            "3",
-            "5"
-        ],
-        "transferOrderFile":
-        [
-            "21",
-            "23",
-            "24"
-        ],
-        "transferOrderDesc": ""    
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "orderNo": 12343434232324,
+    "status": "B3",
+    "paymentCurrency": "EUR",
+    "paymentAmount": 10,
+    "payAccountNum": "1234",
+    "paymentFee": 1.5,
+    "receivedAccountNum": "es324353535",
+    "receivedAccountName": "tom z",
+    "receivedCurrency": "SGD",
+    "receivedAmount": 30.5,
+    "resultMsg": "success",
+    "transferOrderInfo":
+    [
+      "1",
+      "3",
+      "5"
+    ],
+    "transferOrderFile":
+    [
+      "21",
+      "23",
+      "24"
+    ],
+    "transferOrderDesc": ""
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1652,24 +1841,24 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```JSON
 {
-    "data":
-    {
-        "orderNo": 12343434232324,
-        "status": "B3",
-        "paymentCurrency": "EUR",
-        "paymentAmount": 10,
-        "payAccountNum": "1234",
-        "paymentFee": 1.5,
-        "receivedAccountNum": "es324353535",
-        "receivedAccountName": "tom z",
-        "receivedCurrency": "SGD",
-        "receivedAmount": 30.5,
-        "resultMsg": "success"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 1
+  "data":
+  {
+    "orderNo": 12343434232324,
+    "status": "B3",
+    "paymentCurrency": "EUR",
+    "paymentAmount": 10,
+    "payAccountNum": "1234",
+    "paymentFee": 1.5,
+    "receivedAccountNum": "es324353535",
+    "receivedAccountName": "tom z",
+    "receivedCurrency": "SGD",
+    "receivedAmount": 30.5,
+    "resultMsg": "success"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 1
 }
 ```
 
@@ -1684,8 +1873,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
 
@@ -1708,28 +1897,28 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```json
 {
-    "data":
-    {
-        "orderNo": 12343434232324,
-        "status": "B11",
-        "transferOrderInfo":
-        [
-            "1",
-            "3",
-            "5"
-        ],
-        "transferOrderFile":
-        [
-            "21",
-            "23",
-            "24"
-        ],
-        "transferOrderDesc": ""
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 2
+  "data":
+  {
+    "orderNo": 12343434232324,
+    "status": "B11",
+    "transferOrderInfo":
+    [
+      "1",
+      "3",
+      "5"
+    ],
+    "transferOrderFile":
+    [
+      "21",
+      "23",
+      "24"
+    ],
+    "transferOrderDesc": ""
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 2
 }
 ```
 **响应参数：**
@@ -1742,8 +1931,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
 
@@ -1762,17 +1951,17 @@ POST /order/merchant/globalTransfer/getOrderResult
 **回调示例：**
 ```json
 {
-    "data":
-    {
-        "uniqueId": "T6789O067890",
-        "cardTypeId": 1,
-        "status": 1,
-        "statusDesc":"success"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 3
+  "data":
+  {
+    "uniqueId": "T6789O067890",
+    "cardTypeId": 1,
+    "status": 1,
+    "statusDesc":"success"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 3
 }
 ```
 
@@ -1785,8 +1974,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
 
@@ -1804,15 +1993,15 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```json
 {
-    "data":
-    {
-        "cardNo": "12456782323",
-        "status": 1
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 4
+  "data":
+  {
+    "cardNo": "12456782323",
+    "status": 1
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 4
 }
 ```
 
@@ -1826,8 +2015,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
 
@@ -1846,16 +2035,16 @@ POST /order/merchant/globalTransfer/getOrderResult
 **回调示例：**
 ```JSON
 {
-    "data":
-    {
-        "cardNo": "12456782323",
-        "status": 5,
-        "msg": null
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 5
+  "data":
+  {
+    "cardNo": "12456782323",
+    "status": 5,
+    "msg": null
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 5
 }
 ```
 
@@ -1869,8 +2058,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
 
@@ -1890,17 +2079,17 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 ```json
 {
-    "data":
-    {
-        "uniqueId": 502323,
-        "cardNo": "12456782323",
-        "status": 1,
-        "requestType": 1
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
-    "notifyType": 5
+  "data":
+  {
+    "uniqueId": 502323,
+    "cardNo": "12456782323",
+    "status": 1,
+    "requestType": 1
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 5
 }
 ```
 
@@ -1914,7 +2103,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success"
+  "code": 0,
+  "message": "success"
 }
 ```
