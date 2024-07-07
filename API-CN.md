@@ -2009,17 +2009,17 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 **响应参数：**
 
-| 参数             | 类型         | 是否必传 | 含义                     |
-|----------------|------------|------|:-----------------------|
-| cardNo         | String     | Y    | 卡号                     |
-| status         | Integer    | Y    | 卡片充值状态。1：成功；2：失败；3：处理中 |
-| orderNo        | Long       | Y    | Payoucard订单号           |
-| originOrderNo  | String     | Y    | 商户订单号                  |
-| currency       | String     | Y    | 币种                     |
-| rechargeAmount | BigDecimal | Y    | 充值金额                   |
-| receivedAmount | BigDecimal | N    | 到账金额                   |
-| totalFee       | BigDecimal | Y    | 手续费(扣充值金额之外的钱)         |
-| msg            | String     | N    | 错误信息                   |
+| 参数             | 类型         | 是否必传 | 含义                    |
+|----------------|------------|------|:----------------------|
+| cardNo         | String     | Y    | 卡号                    |
+| status         | Integer    | Y    | 卡片充值状态。1：成功；2：失败；     |
+| orderNo        | Long       | Y    | Payoucard订单号          |
+| originOrderNo  | String     | Y    | 商户订单号                 |
+| currency       | String     | Y    | 币种                    |
+| rechargeAmount | BigDecimal | Y    | 充值金额                  |
+| receivedAmount | BigDecimal | N    | 到账金额                  |
+| totalFee       | BigDecimal | Y    | 手续费(扣充值金额之外的钱)        |
+| msg            | String     | N    | 错误信息                  |
 
 **回调示例：**
 
@@ -2028,7 +2028,7 @@ POST /order/merchant/globalTransfer/getOrderResult
   "data":
   {
     "cardNo": "12456782323",
-    "status": 3,
+    "status": 1,
     "orderNo": 31389249927923,
     "originOrderNo": "2324a2dfga3435fg34353",
     "currency": "USDT",
