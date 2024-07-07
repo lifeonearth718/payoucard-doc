@@ -794,17 +794,17 @@ POST /card/merchant/activation
 
 **HTTP请求**
 
-POST /order/merchant/recharge
+POST /card/merchant/recharge
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| uniqueId | String | Y        | 合作商用户的唯一ID  |
-| cardNo | String | Y        | 银行卡号  |
-| amount | Double | Y        | 充值金额  |
-| currency | String | N        | 币种(默认USDT)。支持的币种请参考接口/card/merchant/config/list中的rechargeCurrencyInfoList集合  |
-| orderNo | String | Y        | 商户订单号  |
+| 参数     | 类型         | 是否必传 | 含义 |
+|----------|------------|----------|:-----|
+| uniqueId | String     | Y        | 合作商用户的唯一ID  |
+| cardNo | String     | Y        | 银行卡号  |
+| amount | BigDecimal | Y        | 充值金额  |
+| currency | String     | N        | 币种(默认USDT)。支持的币种请参考接口/card/merchant/config/list中的rechargeCurrencyInfoList集合  |
+| originOrderNo | String     | Y        | 商户订单号  |
 
 **请求示例：**
 
@@ -818,11 +818,26 @@ POST /order/merchant/recharge
         "cardNo": "12456782323",
         "currency": "USDT",
         "amount": "100",
-        "orderNo": "2324a2dfga3435fg34353"
+        "originOrderNo": "2324a2dfga3435fg34353"
     },
     "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
+
+**响应参数：**
+
+| 参数             | 类型         | 是否必传 | 含义                     |
+|----------------|------------|------|:-----------------------|
+| cardNo         | String     | Y    | 卡号                     |
+| status         | Integer    | Y    | 卡片充值状态。1：成功；2：失败；3：处理中 |
+| orderNo        | Long       | Y    | Payoucard订单号           |
+| originOrderNo  | String     | Y    | 商户订单号                  |
+| currency       | String     | Y    | 币种                     |
+| rechargeAmount | BigDecimal | Y    | 充值金额                   |
+| receivedAmount | BigDecimal | N    | 到账金额                   |
+| totalFee       | BigDecimal | Y    | 手续费(扣充值金额之外的钱)         |
+| msg            | String     | N    | 错误信息                   |
+
 
 **响应示例：**
 
@@ -832,7 +847,17 @@ code为0则代表充值成功
     "code": 0,
     "message": "success",
     "success": true,
-    "data": null,
+    "data": {
+      "cardNo": "12456782323",
+      "status": 3,
+      "orderNo": 31389249927923,
+      "originOrderNo": "2324a2dfga3435fg34353",
+      "currency": "USDT",
+      "rechargeAmount": 100,
+      "receivedAmount": 100,
+      "totalFee": "2",
+      "msg": "success"
+    },
     "requestId": "PYC20240325164529237",
     "merchantId": "88888888",
     "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
@@ -1982,12 +2007,19 @@ POST /order/merchant/globalTransfer/getOrderResult
 ### 银行卡-卡片充值结果回调通知
 此通知notifyType = 4
 
-**回调参数：**
+**响应参数：**
 
-| 参数 | 类型 | 是否必传 | 含义 |
-|------|------|------|:------|
-| cardNo | String    | Y    | 卡号 |
-| status | Integer    | Y    | 状态。-1：充值失败；1：充值成功 |
+| 参数             | 类型         | 是否必传 | 含义                     |
+|----------------|------------|------|:-----------------------|
+| cardNo         | String     | Y    | 卡号                     |
+| status         | Integer    | Y    | 卡片充值状态。1：成功；2：失败；3：处理中 |
+| orderNo        | Long       | Y    | Payoucard订单号           |
+| originOrderNo  | String     | Y    | 商户订单号                  |
+| currency       | String     | Y    | 币种                     |
+| rechargeAmount | BigDecimal | Y    | 充值金额                   |
+| receivedAmount | BigDecimal | N    | 到账金额                   |
+| totalFee       | BigDecimal | Y    | 手续费(扣充值金额之外的钱)         |
+| msg            | String     | N    | 错误信息                   |
 
 **回调示例：**
 
@@ -1996,7 +2028,14 @@ POST /order/merchant/globalTransfer/getOrderResult
   "data":
   {
     "cardNo": "12456782323",
-    "status": 1
+    "status": 3,
+    "orderNo": 31389249927923,
+    "originOrderNo": "2324a2dfga3435fg34353",
+    "currency": "USDT",
+    "rechargeAmount": 100,
+    "receivedAmount": 100,
+    "totalFee": "2",
+    "msg": "success"
   },
   "requestId": "PYC20240325164529237",
   "merchantId": "88888888",
