@@ -312,6 +312,7 @@ POST /card/merchant/config/list
 | 参数                                        | 类型    | 是否必传 | 含义                 |
 |-------------------------------------------|---------|----------|:---------------------|
 | id                                        | Integer | Y        | 卡片类型ID           |
+| type                                      | Integer  | Y        | 类型(0-Visa虚拟卡 1-Visa实体卡 2-MasterCard虚拟卡 3-MasterCard实体卡)            |
 | typeDesc                                  | String  | Y        | 类型描述             |
 | cardDesc                                  | String  | Y        | 卡名称               |
 | kycRequire                                | Boolean | Y        | 是否需要KYC认证      |
@@ -332,7 +333,8 @@ POST /card/merchant/config/list
     "success": true,
     "data":[
         {
-            "id":1
+            "id":1,
+            "type": 3,
             "typeDesc":"Master-实体卡",
             "cardName":"master 实体卡",
             "kycRequire":true,
@@ -355,7 +357,23 @@ POST /card/merchant/config/list
 ```
 
 ### 商户用户注册
-此接口用于商户的用户注册
+此接口用于商户的用户注册，注册的信息将用于提交银行做KYC申请；
+1、虚拟卡的申请需要提供手机号、手机国际区号、邮箱、姓、名和地址
+2、实体卡的申请所有信息均需要提供，另外特殊的卡需要提供手持证件号
+
+测试环境中提交KYC的要求:
+id==3 or id==9：手机号、手机区号、邮箱、姓、名和地址
+id==1 or id == 10：注册接口中所有的字段都不能为空
+id==2:注册接口中所有的字段都需要，上传手持证件照(通过附件上传)
+
+id == 1申请的国家必须为欧盟成员国，否则不支持
+EEA国家参考dictionary_common.xlsx中的EEA国家
+
+**建议所有的卡片注册用护照 **
+
+生产环境ID待提供
+
+
 
 **HTTP请求**
 
@@ -368,16 +386,16 @@ POST /user/merchant/register
 | uniqueId    | String | Y        | 合作商用户的唯一ID                                             |
 | areaCode    | String | Y        | 手机国际区号。例：+86                                           |
 | mobile      | String | Y        | 手机号                                                        |
-| email       | String | Y        | 邮箱                                                          |
-| lastName    | String | Y        | 姓                                                            |
-| firstName   | String | Y        | 名                                                            |
+| email       | String | Y        | 邮箱                                                         |
+| lastName    | String | Y        | 姓(只能是英文，单词之间支持一个英文空格, 长度不能超过64)                                                            |
+| firstName   | String | Y        | 名(只能是英文，单词之间支持一个英文空格, 长度不能超过64)                                                            |
 | birthday    | String | Y        | 生日 (yyyy-MM-dd)                                             |
 | nationality | String | N        | 国籍。2位数code码。参见dictionary_common.xlsx（sheet. regin）     |
 |             |        |          |                                                               |
 | sex         | String | N        | 性别 (1: 男, 2: 女)                                           |
 | country     | String | N        | 国家代码。2位数code码。参见dictionary_common.xlsx（sheet. regin） |
 | town    | String | N        | 城市code码。参见dictionary_common.xlsx（sheet. city）|
-| address    | String | Y        | 详细地址                                                            |
+| address    | String | Y        | 详细地址（英文地址,长度不能超过100)                                                            |
 | postCode    | String |N        | 邮编                                                           |
 | idType    | String | N        | 证件类型。参见dictionary_biz.pdf（1.1. Idno Type）。                                                            |
 | idNo   | String | N        | 证件号                                                          |
@@ -550,6 +568,9 @@ POST /user/merchant/kyc/attachments
 
 ### 提交KYC认证
 此接口用于KYC认证以便后续银行卡相关的业务操作
+
+虚拟卡KYC一般十分钟内有结果，可通过查询接口也可等待回调；
+实体卡KYC审核24内有结果；
 
 **HTTP请求**
 
@@ -1003,7 +1024,7 @@ POST /card/merchant/recharge/query
                 "currency": "USDT",
                 "amount": 100,
                 "fee": 1.5,
-                "time": "2024-07-05T14:53:06",
+                "time": "2024-07-05 14:53:06",
                 "receivedAmount": 98.5,
                 "status": 1
             }
