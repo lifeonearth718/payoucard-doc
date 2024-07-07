@@ -817,7 +817,7 @@ POST /card/merchant/recharge
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
         "currency": "USDT",
-        "amount": "100",
+        "amount": 100,
         "originOrderNo": "2324a2dfga3435fg34353"
     },
     "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
@@ -855,7 +855,7 @@ code为0则代表充值成功
       "currency": "USDT",
       "rechargeAmount": 100,
       "receivedAmount": 100,
-      "totalFee": "2",
+      "totalFee": 2,
       "msg": "success"
     },
     "requestId": "PYC20240325164529237",
@@ -2034,7 +2034,7 @@ POST /order/merchant/globalTransfer/getOrderResult
     "currency": "USDT",
     "rechargeAmount": 100,
     "receivedAmount": 100,
-    "totalFee": "2",
+    "totalFee": 2,
     "msg": "success"
   },
   "requestId": "PYC20240325164529237",
