@@ -864,6 +864,157 @@ code为0则代表充值成功
 }
 ```
 
+### 银行卡充值订单查询
+此接口用于查询银行卡充值订单状态
+
+**HTTP请求**
+
+POST /card/merchant/recharge/order/query
+
+**请求参数：**
+
+| 参数     | 类型         | 是否必传 | 含义 |
+|----------|------------|----------|:-----|
+| orderNo | String     | Y        | 订单  |
+
+**请求示例：**
+
+```json
+{
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "orderNo": "U898IPO8KH65445F"
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
+**请求响应：**
+
+| 参数     | 类型   | 是否必传 | 含义 |
+|----------|--------|----------|:-----|
+| orderNo | String | Y        | 订单号  |
+| cardNo | String | Y        | 卡号  |
+| currency | String | Y        | 币种  |
+| amount | BigDecimal | Y        | 充值金额  |
+| fee | BigDecimal | Y        | 充值手续费  |
+| receivedAmount | BigDecimal | Y | 到账金额  |
+| status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
+| time | String | Y        | 充值时间  |
+
+
+**响应示例：**
+
+```json
+{
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":
+    {
+        "orderNo": "1800420978108948480",
+        "cardNo": "4611990405493037",
+        "currency": "USDT",
+        "amount": 100,
+        "fee": 1.5,
+        "time": "2024-07-05T14:53:06",
+        "receivedAmount": 98.5,
+        "status": 1
+    },
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
+### 银行卡充值记录查询
+此接口用于查询银行卡充值的记录
+
+**HTTP请求**
+
+POST /card/merchant/recharge/query
+
+**请求参数：**
+
+| 参数     | 类型         | 是否必传 | 含义 |
+|----------|------------|----------|:-----|
+| uniqueId | String     | Y        | 合作商用户的唯一ID  |
+| cardNo | String       | N        | 银行卡号  |
+| currency | String     | N        | 币种(EUR/USDT)  |
+| beginTime | datetime  | N        | 开始时间(yyyy-MM-dd HH:mm:ss)  |
+| endTime   | datetime  | N        | 结束时间(yyyy-MM-dd HH:mm:ss)  |
+| page       | Integer  | Y        | 页码  |
+| pageSize | Integer    | Y        | 页大小  |
+
+**请求示例：**
+
+```json
+{
+    "requestId": "PYC20240325164529237",
+    "marchantId": "88888888",
+    "data":
+    {
+        "uniqueId": "U898IPO8KH65445F",
+        "cardNo": "12456782323",
+        "currency": "USDT",
+        "beginTime": "2024-07-01 00:00:00",
+        "endTime": "2024-07-07 00:00:00",
+        "page": 1,
+        "pageSize": 10
+    },
+    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+**请求响应：**
+
+| 参数     | 类型   | 是否必传 | 含义 |
+|----------|--------|----------|:-----|
+| total | Long | Y        | 总页码  |
+| current | Long | Y        | 当前页  |
+| records | List | Y        | 数据集合  |
+| records[0].orderNo | String | Y        | 订单号  |
+| records[0].cardNo | String | Y        | 卡号  |
+| records[0].currency | String | Y        | 币种  |
+| records[0].amount | BigDecimal | Y        | 充值金额  |
+| records[0].fee | BigDecimal | Y        | 充值手续费  |
+| records[0].receivedAmount | BigDecimal | Y | 到账金额  |
+| records[0].status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
+| records[0].time | String | Y        | 充值时间  |
+
+
+**响应示例：**
+
+```json
+{
+    "code": 0,
+    "message": "success",
+    "success": true,
+    "data":
+    {
+        "total": 1,
+        "current": 1,
+        "records":
+        [
+            {
+                "orderNo": "1800420978108948480",
+                "cardNo": "4611990405493037",
+                "currency": "USDT",
+                "amount": 100,
+                "fee": 1.5,
+                "time": "2024-07-05T14:53:06",
+                "receivedAmount": 98.5,
+                "status": 1
+            }
+        ]
+    },
+    "requestId": "PYC20240325164529237",
+    "merchantId": "88888888",
+    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
 ### 银行卡余额查询
 此接口用于查询银行卡余额
 
