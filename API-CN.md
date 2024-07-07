@@ -1162,23 +1162,23 @@ POST /card/merchant/trade/query
 
 **请求响应：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| total | Long | Y        | 总页码  |
-| current | Long | Y        | 当前页  |
-| records | List | Y        | 数据集合  |
-| records[0].cardNo | String | Y        | 卡号  |
-| records[0].currency | String | Y        | 币种  |
-| records[0].amount | BigDecimal | Y        | 金额  |
-| records[0].fee | BigDecimal | Y        | 手续费  |
-| records[0].txnAmount | BigDecimal | Y        | 支付金额  |
-| records[0].businessDate | String | Y        | 业务日期  |
-| records[0].tradeId | String | Y        | 交易流水号  |
-| records[0].tradeType | Integer | Y        | 交易类型  |
-| records[0].tradeTypeStr | String | Y        | 交易类型描述 |
-| records[0].tradeStatus | String | Y        | 交易状态  |
-| records[0].tradeStatusStr | String | Y        | 交易状态描述  |
-| records[0].remark | String | Y        | 备注  |
+| 参数     | 类型   | 是否必传 | 含义                                                                                      |
+|----------|--------|----------|:----------------------------------------------------------------------------------------|
+| total | Long | Y        | 总页码                                                                                     |
+| current | Long | Y        | 当前页                                                                                     |
+| records | List | Y        | 数据集合                                                                                    |
+| records[0].cardNo | String | Y        | 卡号                                                                                      |
+| records[0].currency | String | Y        | 币种                                                                                      |
+| records[0].amount | BigDecimal | Y        | 金额                                                                                      |
+| records[0].fee | BigDecimal | Y        | 手续费                                                                                     |
+| records[0].txnAmount | BigDecimal | Y        | 支付金额                                                                                    |
+| records[0].businessDate | String | Y        | 业务日期                                                                                    |
+| records[0].tradeId | String | Y        | 交易流水号                                                                                   |
+| records[0].tradeType | Integer | Y        | 交易类型。1-预授权；2-支付；3-充值；4-提现；5-转入；6-转出；7-结算调整；8-余额查询；9-手续费；10-消费；11-消费失败；12-退款；13-撤销；14-其他 |
+| records[0].tradeTypeStr | String | Y        | 交易类型描述                                                                                  |
+| records[0].tradeStatus | String | Y        | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货            |
+| records[0].tradeStatusStr | String | Y        | 交易状态描述                                                                                  |
+| records[0].remark | String | Y        | 备注                                                                                      |
 
 **响应示例：**
 ```json
