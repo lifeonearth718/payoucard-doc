@@ -1201,6 +1201,7 @@ POST /card/merchant/trade/query
                 "remark": "购买衣物",
                 "tradeStatus": "SUCCESS",
                 "tradeStatusStr": "成功",
+                "tradeType": 5,
                 "tradeTypeStr": "转入",
                 "txnAmount": 0.0
             }
