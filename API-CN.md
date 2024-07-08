@@ -1378,37 +1378,37 @@ POST /order/merchant/globalTransfer/queryBankConfig
 
 **请求响应：**
 
-| 参数     | 类型         | 是否必传 | 含义 |
-|----------|------------|----------|:-----|
-| country | String     | Y        | 国家代码  |
-| countryName | String     | Y        | 国家名称  |
-| currency | String     | Y        | 货币代码  |
-| currencyName | String     | Y        | 货币名称  |
-| bankList | List       | Y        | 银行列表  |
-| bankList[0].bankId | Long       | Y        | 银行id  |
-| bankList[0].bankName | String     | Y        | 银行名称  |
-| bankList[0].paymentType | Long       | Y        | 交易类型。2：SEPA；15：速汇  |
-| bankList[0].feeRate | BigDecimal | Y        | 收取手续费率。例 2=2%  |
-| bankList[0].feeAmount | BigDecimal | Y   | 收取固定手续费金额。默认EUR  |
-| bankList[0].payeeParams | List       | Y        | 收款人信息请求参数。每个银行需要的参数不一样，返回哪些参数就需要传递  |
-| payeeParams[0].benAccountNum | String     | Y        | 收款人账号  |
-| payeeParams[0].benAccountName | String     | Y        | 收款人户名  |
-| payeeParams[0].benCountryCode | String     | N        | 收款人居住国家  |
-| payeeParams[0].benCityCode | String     | N        | 收款人居住城市  |
-| payeeParams[0].benAddress | String     | N        | 收款人地址  |
-| payeeParams[0].benPostCode | String     | N        | 收款人邮编  |
-| payeeParams[0].benBankCode | String     | N        | 收款人银行编码  |
-| payeeParams[0].benTransBankSwift | String     | N        | 收款人中转行  |
-| payeeParams[0].benLastName | String     | N        | 收款人姓  |
-| payeeParams[0].benFirstName | String     | N        | 收款人名  |
-| payeeParams[0].benNationalityCountry | String     | N        | 收款人国籍  |
-| payeeParams[0].benIdNoType | String     | N        | 收款人证件类型  |
-| payeeParams[0].benIdNo | String     | N        | 收款人证件号码 |
-| payeeParams[0].benIdExpirationDate | String     | N  | 收款人证件有效期 |
-| payeeParams[0].benBirthday | String     | N        | 收款人出生日期 |
-| payeeParams[0].benMobileCode | String     | N        | 收款人手机区号 |
-| payeeParams[0].benMobile | String     | N        | 收款人手机号 |
-| payeeParams[0].benBankAccountType | String     | N   | 收款人银行账户类型 |
+| 参数     | 类型         | 是否必传 | 含义                                 |
+|----------|------------|----------|:-----------------------------------|
+| country | String     | Y        | 速汇到账国家代码                           |
+| countryName | String     | Y        | 速汇到账国家名称                               |
+| currency | String     | Y        | 速汇到账货币代码                               |
+| currencyName | String     | Y        | 速汇到账货币名称                               |
+| bankList | List       | Y        | 速汇到账银行列表                               |
+| bankList[0].bankId | Long       | Y        | 银行id                               |
+| bankList[0].bankName | String     | Y        | 银行名称                               |
+| bankList[0].paymentType | Long       | Y        | 交易类型。2：SEPA；15：速汇                  |
+| bankList[0].feeRate | BigDecimal | Y        | 收取手续费率。例 2=2%                      |
+| bankList[0].feeAmount | BigDecimal | Y   | 收取固定手续费金额。默认EUR                    |
+| bankList[0].payeeParams | List       | Y        | 收款人信息请求参数。每个银行需要的参数不一样，返回哪些参数就需要传递 |
+| payeeParams[0].benAccountNum | String     | Y        | 收款人账号                              |
+| payeeParams[0].benAccountName | String     | Y        | 收款人户名                              |
+| payeeParams[0].benCountryCode | String     | N        | 收款人居住国家                            |
+| payeeParams[0].benCityCode | String     | N        | 收款人居住城市                            |
+| payeeParams[0].benAddress | String     | N        | 收款人地址                              |
+| payeeParams[0].benPostCode | String     | N        | 收款人邮编                              |
+| payeeParams[0].benBankCode | String     | N        | 收款人银行编码                            |
+| payeeParams[0].benTransBankSwift | String     | N        | 收款人中转行                             |
+| payeeParams[0].benLastName | String     | N        | 收款人姓                               |
+| payeeParams[0].benFirstName | String     | N        | 收款人名                               |
+| payeeParams[0].benNationalityCountry | String     | N        | 收款人国籍                              |
+| payeeParams[0].benIdNoType | String     | N        | 收款人证件类型                            |
+| payeeParams[0].benIdNo | String     | N        | 收款人证件号码                            |
+| payeeParams[0].benIdExpirationDate | String     | N  | 收款人证件有效期                           |
+| payeeParams[0].benBirthday | String     | N        | 收款人出生日期                            |
+| payeeParams[0].benMobileCode | String     | N        | 收款人手机区号                            |
+| payeeParams[0].benMobile | String     | N        | 收款人手机号                             |
+| payeeParams[0].benBankAccountType | String     | N   | 收款人银行账户类型                          |
 
 **响应示例：**
 
