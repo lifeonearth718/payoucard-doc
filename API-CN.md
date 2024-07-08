@@ -313,8 +313,9 @@ POST /card/merchant/config/list
 |-------------------------------------------|---------|----------|:---------------------|
 | id                                        | Integer | Y        | 卡片类型ID           |
 | type                                      | Integer  | Y        | 类型(0-Visa虚拟卡 1-Visa实体卡 2-MasterCard虚拟卡 3-MasterCard实体卡)            |
-| typeDesc                                  | String  | Y        | 类型描述             |
-| cardDesc                                  | String  | Y        | 卡名称               |
+| typeDesc                                  | String  | Y        | 类型描述          |
+| cardName                                  | String  | Y        | 卡名称          |
+| cardDesc                                  | String  | Y        | 卡描述              |
 | kycRequire                                | Boolean | Y        | 是否需要KYC认证      |
 | rechargeCurrencyInfoList                  | List    | Y        | 可充值的币种列表配置 |
 | rechargeCurrencyInfoList[0].currency      | String    | Y        | 充值币种 |
