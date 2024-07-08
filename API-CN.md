@@ -742,6 +742,7 @@ POST /card/merchant/virtual/card/status
 |----------|--------|----------|:-----|
 | cardNo | String | Y        | 卡号    |
 | expire | String | Y        | 过期时间    |
+| cvv | String | Y        | cvv    |
 | status | Integer | Y        | 状态(0-处理中 1-开卡成功）    |
 
 **响应示例：**
@@ -752,9 +753,10 @@ POST /card/merchant/virtual/card/status
   "success": true,
   "data":{
     "cardNo":"4390789023456",
-    "expire":"08/26"
+    "expire":"08/26",
+    "cvv": "901",
     "status":1
-  }
+  },
   "requestId": "PYC20240325164529237",
   "merchantId": "88888888",
   "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
