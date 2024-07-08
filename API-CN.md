@@ -770,11 +770,11 @@ POST /card/merchant/activation
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| uniqueId | String | Y        | 合作商用户的唯一ID  |
-| cardNo | String | Y        | 银行卡号    |
-| activePhoto | String | N        | 手持护照和银行卡照图片  (URL格式)。不能大于2M。当用户进行kyc时，参数cardTypeId所代表的卡片类型needPhotoForActiveCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForActiveCard。请调用接口 /order/merchant/file/upload 获取图片路径    |
+| 参数     | 类型   | 是否必传 | 含义                                                                                                                                                                                                             |
+|----------|--------|----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| uniqueId | String | Y        | 合作商用户的唯一ID                                                                                                                                                                                                     |
+| cardNo | String | Y        | 银行卡号                                                                                                                                                                                                           |
+| activePhoto | String | N        | 手持护照和银行卡照图片  (URL格式)。不能大于2M，支持格式.png, .jpeg, .jpg。当用户进行kyc时，参数cardTypeId所代表的卡片类型needPhotoForActiveCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForActiveCard。请调用接口 /order/merchant/file/upload 获取图片路径 |
 
 **请求示例：**
 ```json
@@ -1108,11 +1108,11 @@ POST /card/merchant/payment/password/set
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| uniqueId | String | Y        | 合作商用户的唯一ID  |
-| cardNo | String | Y        | 银行卡号  |
-| signaturePhoto | String | Y        | 用户签名照片(URL格式)。不能大于2M。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
+| 参数     | 类型   | 是否必传 | 含义                                                                                                                                                               |
+|----------|--------|----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| uniqueId | String | Y        | 合作商用户的唯一ID                                                                                                                                                       |
+| cardNo | String | Y        | 银行卡号                                                                                                                                                             |
+| signaturePhoto | String | Y        | 用户签名照片(URL格式)。不能大于2M，支持格式.png, .jpeg, .jpg。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
 
 
 **请求示例：**
@@ -1245,11 +1245,11 @@ POST /card/merchant/freeze
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| uniqueId | String | Y        | 合作商用户的唯一ID  |
-| cardNo | String | Y        | 银行卡号  |
-| signaturePhoto | String | N        | 用户签名照片(URL格式)。不能大于2M。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
+| 参数     | 类型   | 是否必传 | 含义                                                                                                                                                               |
+|----------|--------|----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| uniqueId | String | Y        | 合作商用户的唯一ID                                                                                                                                                       |
+| cardNo | String | Y        | 银行卡号                                                                                                                                                             |
+| signaturePhoto | String | N        | 用户签名照片(URL格式)。不能大于2M，支持格式.png, .jpeg, .jpg。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
 
 **请求示例：**
 ```json
@@ -1302,11 +1302,11 @@ POST /card/merchant/unfreeze
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| uniqueId | String | Y        | 合作商用户的唯一ID  |
-| cardNo | String | Y        | 银行卡号  |
-| signaturePhoto | String | N        | 用户签名照片(URL格式)。不能大于2M。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
+| 参数     | 类型   | 是否必传 | 含义                                                                                                                                                               |
+|----------|--------|----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| uniqueId | String | Y        | 合作商用户的唯一ID                                                                                                                                                       |
+| cardNo | String | Y        | 银行卡号                                                                                                                                                             |
+| signaturePhoto | String | N        | 用户签名照片(URL格式)。不能大于2M，支持格式.png, .jpeg, .jpg。银行卡所代表的卡片类型needPhotoForOperateCard=true时才需要。见接口/card/merchant/config/list参数needPhotoForOperateCard。请调用接口 /order/merchant/file/upload 获取图片路径  |
 
 **请求示例：**
 ```json
@@ -1897,15 +1897,15 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 
 **请求参数：**
 
-| 参数     | 类型   | 是否必传 | 含义 |
-|----------|--------|----------|:-----|
-| orderNo | Long | Y | PayouCard订单号 |
-| transferInfos | List | N | 订单信息集合 |
+| 参数     | 类型   | 是否必传 | 含义                                                           |
+|----------|--------|----------|:-------------------------------------------------------------|
+| orderNo | Long | Y | PayouCard订单号                                                 |
+| transferInfos | List | N | 订单信息集合                                                       |
 | transferInfos[0].code | String | N | 订单信息code。参见dictionary_biz.pdf（2.2. Transfer order info type） |
-| transferInfos[0].content | String | N | 订单信息内容。不支持中文字符 |
-| transferFiles | List | N | 订单文件集合。参见dictionary_biz.pdf（2.3. Transfer order file type） |
-| transferFiles[0].code | String | N | 订单文件code |
-| transferFiles[0].content | String | N | 订单文件url。每个文件不能超过2M |
+| transferInfos[0].content | String | N | 订单信息内容。不支持中文字符，最多200个字符                                      |
+| transferFiles | List | N | 订单文件集合。参见dictionary_biz.pdf（2.3. Transfer order file type）   |
+| transferFiles[0].code | String | N | 订单文件code                                                     |
+| transferFiles[0].content | String | N | 订单文件url。每个文件不能超过2M                                           |
 
 **请求示例：**
 
