@@ -38,6 +38,7 @@
     - [全球速汇](#全球速汇)
         - [查询速汇银行及相关配置](#查询速汇银行及相关配置)
         - [查询法币汇率](#查询法币汇率)
+        - [代付校验](#代付校验)
         - [代付](#代付)
         - [用户订单列表](#用户订单列表)
         - [提交调单信息或文件](#提交调单信息或文件)
@@ -51,7 +52,6 @@
         - [银行卡-卡片充值结果回调通知](#银行卡卡片充值结果回调通知)
         - [银行卡-卡片激活结果回调通知](#银行卡卡片激活结果回调通知)
         - [银行卡-卡片冻结、解冻处理状态回调通知](#银行卡卡片冻结、解冻处理状态回调通知)
-
 
 # 简介
 欢迎使用PayouCard开发者文档。概述了商户对接应用开发接口。
@@ -97,10 +97,10 @@ merchantId：商户ID。在商户后台系统-”商户基本信息” 菜单中
 
 ```json
 {
-    "requestId": "128293243536342523",
-    "merchantId": "88888888",
-    "data": null,
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "requestId": "128293243536342523",
+  "merchantId": "88888888",
+  "data": null,
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -117,13 +117,13 @@ merchantId：商户ID。在商户后台系统-”商户基本信息” 菜单中
 
 ```JSON
 {
-    "code": 0,
-    "message": "",
-    "success": true,
-    "data": null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -143,8 +143,8 @@ merchantId：商户ID。在商户后台系统-”商户基本信息” 菜单中
 | message    | String  | Y        | 信息                                            |
 ```json
 {
-    "code": 0,
-    "message": ""
+  "code": 0,
+  "message": ""
 }
 ```
 
@@ -164,14 +164,14 @@ signature：签名源字符串由除签名（signature）字段外的所有非�
 * 例如：查询汇率请求数据
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchant": "88888888",
-    "data":
-    {
-        "currency": "EUR",
-        "targetCurrency": "SGD",
-        "targetCountry": "SG"
-    }
+  "requestId": "PYC20240325164529237",
+  "marchant": "88888888",
+  "data":
+  {
+    "currency": "EUR",
+    "targetCurrency": "SGD",
+    "targetCountry": "SG"
+  }
 }
 ```
 签名源字符串签名如下。签名源字符串使用商户RSA私钥签名生成签名。
@@ -195,17 +195,17 @@ signature：由PayouCard RSA 私钥签名生成
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": {
-        "targetCurrency": "SGD",
-        "exchangeRate": "1.4567",
-        "currency": "EUR"
-    },
-    "merchantId": "88888888",
-    "signature": "SCHaOIDlAkyaad4VxBrd9ON27ZrSK0IpNCPbkjQEe8YR/2UaZUlYUViBRDmnkvhJCehxjBTwECCF9vr4qjG1epyTKYVy8fqcQdynzXyclT5MYs6N9uWu5AHQm/HQpvfBjRcK3y65TaqZdNkToREQ/XPg/PsAFpPueSugjYJ0/C0=",
-    "requestId": "PYC20240325191750279"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": {
+    "targetCurrency": "SGD",
+    "exchangeRate": "1.4567",
+    "currency": "EUR"
+  },
+  "merchantId": "88888888",
+  "signature": "SCHaOIDlAkyaad4VxBrd9ON27ZrSK0IpNCPbkjQEe8YR/2UaZUlYUViBRDmnkvhJCehxjBTwECCF9vr4qjG1epyTKYVy8fqcQdynzXyclT5MYs6N9uWu5AHQm/HQpvfBjRcK3y65TaqZdNkToREQ/XPg/PsAFpPueSugjYJ0/C0=",
+  "requestId": "PYC20240325191750279"
 }
 ```
 
@@ -278,13 +278,13 @@ POST /order/merchant/file/upload
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "",
-    "success": true,
-    "data": "https://asfw2sfw.cloudfront.net/media/88888/test.png",
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "",
+  "success": true,
+  "data": "https://asfw2sfw.cloudfront.net/media/88888/test.png",
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -300,10 +300,10 @@ POST /card/merchant/config/list
 **请求参数：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":null,
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":null,
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -328,31 +328,31 @@ POST /card/merchant/config/list
 
 ```JSON
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":[
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":[
+    {
+      "id":1,
+      "type": 3,
+      "typeDesc":"Master-实体卡",
+      "cardName":"master 实体卡",
+      "kycRequire":true,
+      "rechargeCurrencyInfoList":[
         {
-            "id":1,
-            "type": 3,
-            "typeDesc":"Master-实体卡",
-            "cardName":"master 实体卡",
-            "kycRequire":true,
-            "rechargeCurrencyInfoList":[
-                {
-                    "currency": "USDT",
-                    "rechargeMinQuota": 10,
-                    "rechargeMaxQuota": 100000,
-                    "digital": 2
-                }
-            ],
-            "needPhotoForActiveCard" : false,
-            "needPhotoForOperateCard" : false
+          "currency": "USDT",
+          "rechargeMinQuota": 10,
+          "rechargeMaxQuota": 100000,
+          "digital": 2
         }
-    ],
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+      ],
+      "needPhotoForActiveCard" : false,
+      "needPhotoForOperateCard" : false
+    }
+  ],
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -407,42 +407,42 @@ POST /user/merchant/register
 
 ```JSON
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId":"U898IPO8KH65445F",
-        "mobile": "+8617800001111",
-        "email": "123@qq.com",
-        "lastName": "wang",
-        "firstName": "william",
-        "birthday": "2002-01-01",
-        "nationality": "CN",
-        "sex": 1,
-        "countryCode": "CN",
-        "town": "CN_11",
-        "address": "bei jing shi hai dian qu 123 hao",
-        "postCode": "100000",
-        "idnoType": "PASSPORT",
-        "idno": "ES2324523",
-        "idNoExpiryDate":"2050-11-01",
-        "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-        "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId":"U898IPO8KH65445F",
+    "mobile": "+8617800001111",
+    "email": "123@qq.com",
+    "lastName": "wang",
+    "firstName": "william",
+    "birthday": "2002-01-01",
+    "nationality": "CN",
+    "sex": 1,
+    "countryCode": "CN",
+    "town": "CN_11",
+    "address": "bei jing shi hai dian qu 123 hao",
+    "postCode": "100000",
+    "idnoType": "PASSPORT",
+    "idno": "ES2324523",
+    "idNoExpiryDate":"2050-11-01",
+    "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
+    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
 **响应示例：**
 ```JSON
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -482,29 +482,29 @@ POST /user/merchant/info/update
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId":"U898IPO8KH65445F",
-        "mobile": "+8617800001111",
-        "email": "123@qq.com",
-        "lastName": "wang",
-        "firstName": "william",
-        "birthday": "2002-01-01",
-        "nationality": "CN",
-        "sex": 1,
-        "countryCode": "CN",
-        "town": "CN_11",
-        "address": "bei jing shi hai dian qu 123 hao",
-        "postCode": "100000",
-        "idnoType": "PASSPORT",
-        "idno": "ES2324523",
-        "idNoExpiryDate":"2050-11-01",
-        "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-        "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId":"U898IPO8KH65445F",
+    "mobile": "+8617800001111",
+    "email": "123@qq.com",
+    "lastName": "wang",
+    "firstName": "william",
+    "birthday": "2002-01-01",
+    "nationality": "CN",
+    "sex": 1,
+    "countryCode": "CN",
+    "town": "CN_11",
+    "address": "bei jing shi hai dian qu 123 hao",
+    "postCode": "100000",
+    "idnoType": "PASSPORT",
+    "idno": "ES2324523",
+    "idNoExpiryDate":"2050-11-01",
+    "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
+    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -512,13 +512,13 @@ POST /user/merchant/info/update
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -541,28 +541,28 @@ POST /user/merchant/kyc/attachments
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId":"U898IPO8KH65445F",
-        "type": 2,
-        "data": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId":"U898IPO8KH65445F",
+    "type": 2,
+    "data": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -586,27 +586,27 @@ POST /user/merchant/submit/kyc/verification
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardTypeId": 1
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardTypeId": 1
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
 **响应示例：**
 ```json
 {
-"code": 0,
-"message": "success",
-"success": true,
-"data":null,
-"requestId": "PYC20240325164529237",
-"merchantId": "88888888",
-"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -628,14 +628,14 @@ POST /user/merchant/kyc/query
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardTypeId": 1
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardTypeId": 1
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -650,17 +650,17 @@ POST /user/merchant/kyc/query
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":{
-        "cardTypeId":1,
-        "status":2,
-        "statusDesc": "成功"
-    }
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":{
+    "cardTypeId":1,
+    "status":2,
+    "statusDesc": "成功"
+  }
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -679,14 +679,14 @@ POST /card/merchant/virtual/card/apply
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardTypeId": 1
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardTypeId": 1
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -699,15 +699,15 @@ POST /card/merchant/virtual/card/apply
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":{
-      "orderNo":"203434343434343434"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":{
+    "orderNo":"203434343434343434"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -726,13 +726,13 @@ POST /card/merchant/virtual/card/status
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-      "orderNo":"240123173818711000"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "orderNo":"240123173818711000"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -747,17 +747,17 @@ POST /card/merchant/virtual/card/status
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":{
-        "cardNo":"4390789023456",
-        "expire":"08/26"
-        "status":1
-    }
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":{
+    "cardNo":"4390789023456",
+    "expire":"08/26"
+    "status":1
+  }
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -777,15 +777,15 @@ POST /card/merchant/activation
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -798,17 +798,17 @@ POST /card/merchant/activation
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "status": 1,
-        "statusStr": "处理中"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "status": 1,
+    "statusStr": "处理中"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -833,17 +833,17 @@ POST /card/merchant/recharge
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "currency": "USDT",
-        "amount": 100,
-        "orderNo": "2324a2dfga3435fg34353"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "currency": "USDT",
+    "amount": 100,
+    "orderNo": "2324a2dfga3435fg34353"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -866,22 +866,22 @@ POST /card/merchant/recharge
 code为0则代表充值成功
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": {
-      "cardNo": "12456782323",
-      "status": 3,
-      "orderNo": "2324a2dfga3435fg34353",
-      "currency": "USDT",
-      "rechargeAmount": 100,
-      "receivedAmount": 100,
-      "fee": 2,
-      "msg": "success"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": {
+    "cardNo": "12456782323",
+    "status": 3,
+    "orderNo": "2324a2dfga3435fg34353",
+    "currency": "USDT",
+    "rechargeAmount": 100,
+    "receivedAmount": 100,
+    "fee": 2,
+    "msg": "success"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -902,13 +902,13 @@ POST /card/merchant/recharge/order/query
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "orderNo": "U898IPO8KH65445F"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "orderNo": "U898IPO8KH65445F"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -930,23 +930,23 @@ POST /card/merchant/recharge/order/query
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "orderNo": "1800420978108948480",
-        "cardNo": "4611990405493037",
-        "currency": "USDT",
-        "amount": 100,
-        "fee": 1.5,
-        "time": "2024-07-05T14:53:06",
-        "receivedAmount": 98.5,
-        "status": 1
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "orderNo": "1800420978108948480",
+    "cardNo": "4611990405493037",
+    "currency": "USDT",
+    "amount": 100,
+    "fee": 1.5,
+    "time": "2024-07-05T14:53:06",
+    "receivedAmount": 98.5,
+    "status": 1
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -973,19 +973,19 @@ POST /card/merchant/recharge/query
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "currency": "USDT",
-        "beginTime": "2024-07-01 00:00:00",
-        "endTime": "2024-07-07 00:00:00",
-        "page": 1,
-        "pageSize": 10
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "currency": "USDT",
+    "beginTime": "2024-07-01 00:00:00",
+    "endTime": "2024-07-07 00:00:00",
+    "page": 1,
+    "pageSize": 10
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 **请求响应：**
@@ -1009,30 +1009,30 @@ POST /card/merchant/recharge/query
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "total": 1,
-        "current": 1,
-        "records":
-        [
-            {
-                "orderNo": "1800420978108948480",
-                "cardNo": "4611990405493037",
-                "currency": "USDT",
-                "amount": 100,
-                "fee": 1.5,
-                "time": "2024-07-05 14:53:06",
-                "receivedAmount": 98.5,
-                "status": 1
-            }
-        ]
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "total": 1,
+    "current": 1,
+    "records":
+    [
+      {
+        "orderNo": "1800420978108948480",
+        "cardNo": "4611990405493037",
+        "currency": "USDT",
+        "amount": 100,
+        "fee": 1.5,
+        "time": "2024-07-05 14:53:06",
+        "receivedAmount": 98.5,
+        "status": 1
+      }
+    ]
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1054,14 +1054,14 @@ POST /card/merchant/balance/query
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1077,23 +1077,23 @@ POST /card/merchant/balance/query
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    [
-        {
-            "amount": "1000.90",
-            "currency": "USDT"
-        },
-        {
-            "amount": "800",
-            "currency": "EUR"
-        }
-    ],
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  [
+    {
+      "amount": "1000.90",
+      "currency": "USDT"
+    },
+    {
+      "amount": "800",
+      "currency": "EUR"
+    }
+  ],
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1116,15 +1116,15 @@ POST /card/merchant/payment/password/set
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1133,13 +1133,13 @@ POST /card/merchant/payment/password/set
 code 为0则代表设置成功
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ````
 
@@ -1165,19 +1165,19 @@ POST /card/merchant/trade/query
 **请求示例：**
 ```JSON
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "currency": "EUR",
-        "beginDate": "2024-01-01",
-        "endDate": "2024-01-01",
-        "pageNum": 1,
-        "pageSize": 30
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "currency": "EUR",
+    "beginDate": "2024-01-01",
+    "endDate": "2024-01-01",
+    "pageNum": 1,
+    "pageSize": 30
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1204,33 +1204,33 @@ POST /card/merchant/trade/query
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "total": 1,
-        "current": 1,
-        "records":
-        [
-            {
-                "amount": 8000.0,
-                "businessDate": 1710950400000,
-                "cardNo": "5554748800001227",
-                "currency": "EUR",
-                "fee": 1.0,
-                "remark": "购买衣物",
-                "tradeStatus": "SUCCESS",
-                "tradeStatusStr": "成功",
-                "tradeType": 5,
-                "tradeTypeStr": "转入",
-                "txnAmount": 0.0
-            }
-        ]
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "total": 1,
+    "current": 1,
+    "records":
+    [
+      {
+        "amount": 8000.0,
+        "businessDate": 1710950400000,
+        "cardNo": "5554748800001227",
+        "currency": "EUR",
+        "fee": 1.0,
+        "remark": "购买衣物",
+        "tradeStatus": "SUCCESS",
+        "tradeStatusStr": "成功",
+        "tradeType": 5,
+        "tradeTypeStr": "转入",
+        "txnAmount": 0.0
+      }
+    ]
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1252,15 +1252,15 @@ POST /card/merchant/freeze
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1278,16 +1278,16 @@ code为0则代表冻结成功
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": {
-        "status": 1,
-        "statusStr": "Success"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": {
+    "status": 1,
+    "statusStr": "Success"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1309,15 +1309,15 @@ POST /card/merchant/unfreeze
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "U898IPO8KH65445F",
-        "cardNo": "12456782323",
-        "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "U898IPO8KH65445F",
+    "cardNo": "12456782323",
+    "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1334,17 +1334,17 @@ POST /card/merchant/unfreeze
 code为0代表解冻成功
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "status": 1,
-        "statusStr": "Success"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "status": 1,
+    "statusStr": "Success"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1366,10 +1366,10 @@ POST /order/merchant/globalTransfer/queryBankConfig
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data": null,
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data": null,
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1411,50 +1411,50 @@ POST /order/merchant/globalTransfer/queryBankConfig
 
 ```JSON
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    [
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  [
+    {
+      "country": "SG",
+      "countryName": "新加坡",
+      "currency": "SGD",
+      "currencyName": "新加坡元",
+      "bankList":
+      [
         {
-            "country": "SG",
-            "countryName": "新加坡",
-            "currency": "SGD",
-            "currencyName": "新加坡元",
-            "bankList":
-            [
-                {
-                    "bankId": 2671,
-                    "bankName": "PayNow",
-                    "feeRate": 2,
-                    "feeAmount": 0.5,
-                    "payeeParams":
-                    [
-                        "benAccountNum",
-                        "benAccountName",
-                        "benFirstName",
-                        "benLastName"
-                    ]
-                },
-                {
-                    "bankId": 2670,
-                    "bankName": "Sing Investments & Finance Limited",
-                    "feeRate": 3,
-                    "feeAmount": 0.4,
-                    "payeeParams":
-                    [
-                        "benAccountNum",
-                        "benAccountName",
-                        "benFirstName",
-                        "benLastName"
-                    ]
-                }
-            ]
+          "bankId": 2671,
+          "bankName": "PayNow",
+          "feeRate": 2,
+          "feeAmount": 0.5,
+          "payeeParams":
+          [
+            "benAccountNum",
+            "benAccountName",
+            "benFirstName",
+            "benLastName"
+          ]
+        },
+        {
+          "bankId": 2670,
+          "bankName": "Sing Investments & Finance Limited",
+          "feeRate": 3,
+          "feeAmount": 0.4,
+          "payeeParams":
+          [
+            "benAccountNum",
+            "benAccountName",
+            "benFirstName",
+            "benLastName"
+          ]
         }
-    ],
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+      ]
+    }
+  ],
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1476,15 +1476,15 @@ POST /order/merchant/globalTransfer/getExchangeRate
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "currency": "EUR",
-        "targetCurrency": "SGD",
-        "targetCountry": "SG"
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "currency": "EUR",
+    "targetCurrency": "SGD",
+    "targetCountry": "SG"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1500,18 +1500,18 @@ POST /order/merchant/globalTransfer/getExchangeRate
 
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "currency": "EUR",
-        "targetCurrency": "SGD",
-        "exchangeRate": 1.4568  
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "currency": "EUR",
+    "targetCurrency": "SGD",
+    "exchangeRate": 1.4568
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1525,7 +1525,7 @@ POST /order/merchant/globalTransfer/paymentVerify
 **限频：** 200/5s
 
 **请求参数：**
-    
+
     和代付接口参数一样
 
 **响应示例：**
@@ -1533,13 +1533,13 @@ POST /order/merchant/globalTransfer/paymentVerify
 成功示例
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data": null,
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1615,58 +1615,58 @@ POST /order/merchant/globalTransfer/payment
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "bankId": 2671,
+    "uniqueId": "23242",
+    "originOrderNo": "12345678934355462",
+    "amount": 20,
+    "postscript": "test order",
+    "relationship": "OTHER",
+    "sourceFunds": "SAVINGS",
+    "payPurpose": "International trade",
+    "payer":
     {
-        "bankId": 2671,
-        "uniqueId": "23242",
-        "originOrderNo": "12345678934355462",
-        "amount": 20,
-        "postscript": "test order",
-        "relationship": "OTHER",
-        "sourceFunds": "SAVINGS",
-        "payPurpose": "International trade",
-        "payer":
-        {
-            "payerType": "INDIVIDUAL",
-            "payerLastName": "z",
-            "payerFirstName": "tom",
-            "payerIdNo": "ES123456",
-            "payerIdNoType": "PASSPORT",
-            "payerIdCountry": "SG",
-            "payerBirthday": "1990-10-10",
-            "payerNationalityCountry": "SG",
-            "payerMobile": "+65012345678",
-            "payerCountryCode": "SG",
-            "payerCityCode": "SG_1",
-            "payerAddress": "21 Tampines Ave 1, Singapore 529757",
-            "payerPostCode": "999002",
-            "payerOccupation": "worker"
-        },
-        "payee":
-        {
-            "benAccountNum": "123456",
-            "benAccountName": "123456",
-            "benCountryCode": "SG",
-            "benCityCode": "SG_1",
-            "benAddress": "21 Tampines Ave 1, Singapore 529757",
-            "benPostCode": "999002",
-            "benBankCode": "",
-            "benTransBankSwift": "",
-            "benLastName": "z",
-            "benFirstName": "alex",
-            "benNationalityCountry": "SG",
-            "benIdNoType": "PASSPORT",
-            "benIdNo": "13242424",
-            "benIdExpirationDate": "2030-01-01",
-            "benBirthday": "2001-01-01",
-            "benMobileCode": "+67",
-            "benMobile": "12345678",
-            "benBankAccountType": "SAVINGS"
-        }
+      "payerType": "INDIVIDUAL",
+      "payerLastName": "z",
+      "payerFirstName": "tom",
+      "payerIdNo": "ES123456",
+      "payerIdNoType": "PASSPORT",
+      "payerIdCountry": "SG",
+      "payerBirthday": "1990-10-10",
+      "payerNationalityCountry": "SG",
+      "payerMobile": "+65012345678",
+      "payerCountryCode": "SG",
+      "payerCityCode": "SG_1",
+      "payerAddress": "21 Tampines Ave 1, Singapore 529757",
+      "payerPostCode": "999002",
+      "payerOccupation": "worker"
     },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "payee":
+    {
+      "benAccountNum": "123456",
+      "benAccountName": "123456",
+      "benCountryCode": "SG",
+      "benCityCode": "SG_1",
+      "benAddress": "21 Tampines Ave 1, Singapore 529757",
+      "benPostCode": "999002",
+      "benBankCode": "",
+      "benTransBankSwift": "",
+      "benLastName": "z",
+      "benFirstName": "alex",
+      "benNationalityCountry": "SG",
+      "benIdNoType": "PASSPORT",
+      "benIdNo": "13242424",
+      "benIdExpirationDate": "2030-01-01",
+      "benBirthday": "2001-01-01",
+      "benMobileCode": "+67",
+      "benMobile": "12345678",
+      "benBankAccountType": "SAVINGS"
+    }
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1681,18 +1681,18 @@ POST /order/merchant/globalTransfer/payment
 **响应示例：**
 ```json
 {
-    "code": 0,
-    "message": "success",
-    "success": true,
-    "data":
-    {
-        "orderNo": 123456789655,
-        "originOrderNo": "asdfawe2324sfa",
-        "status": "B1"
-    },
-    "requestId": "PYC20240325164529237",
-    "merchantId": "88888888",
-    "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "orderNo": 123456789655,
+    "originOrderNo": "asdfawe2324sfa",
+    "status": "B1"
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
@@ -1721,17 +1721,17 @@ POST /order/merchant/globalTransfer/payment
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "uniqueId": "23242",
-        "originOrderNo": null,
-        "orderNo": 12345678934355462,
-        "page": 1,
-        "pageSize": 10
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "uniqueId": "23242",
+    "originOrderNo": null,
+    "orderNo": 12345678934355462,
+    "page": 1,
+    "pageSize": 10
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1804,83 +1804,83 @@ POST /order/merchant/globalTransfer/payment
 
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-        "total": 1,
-        "current": 1,
-        "size": 10,
-        "records": [
-          {
-            "uniqueId": "11029",
-            "paymentType": 15,
-            "orderNo": 12345678934355462,
-            "originOrderNo": "1777240103854825473",
-            "status": "B3",
-            "paymentCurrency": "EUR",
-            "paymentAmount": "1234",
-            "paymentFee": "4.5",
-            "paymentFeeRate": "2",
-            "paymentFeeRateAmount": "3",
-            "paymentFixedFeeAmount": "1.5",
-            "receivedAccountNum": "vbnnm",
-            "receivedAccountName": "bbmnnnz",
-            "receivedCurrency": "JPY",
-            "receivedAmount": "191243.59",
-            "receivedCountry": "JP",
-            "receivedCountryStr": "JAPAN",
-            "resultMsg": "test",
-            "transferOrderInfo": [
-              "1",
-              "2"
-            ],
-            "transferOrderFile": [
-              "1",
-              "2"
-            ],
-            "transferOrderDesc": "test",
-            "postscript": "lhhnvbbn",
-            "payer": {
-              "payerType": "INDIVIDUAL",
-              "payerLastName": "wqw",
-              "payerFirstName": "wqwq",
-              "payerIdNo": "213232312",
-              "payerIdNoType": "PASSPORT",
-              "payerIdCountry": "AL",
-              "payerBirthday": "2024-02-05",
-              "payerNationalityCountry": "AL",
-              "payerMobile": "19800001111",
-              "payerCountryCode": "AL",
-              "payerCityCode": "AL_BR",
-              "payerAddress": "eqwweqewq",
-              "payerPostCode": "212323",
-              "payerOccupation": "worker"
-            },
-            "payee": {
-              "bankId": 5143,
-              "bankName": "Mizuho Trust and Banking Co.,Ltd.",
-              "benAccountNum": "vbnnm",
-              "benAccountName": "bbmnnnz",
-              "benCountryCode": null,
-              "benCityCode": null,
-              "benAddress": null,
-              "benPostCode": null,
-              "benBankCode": "gjbvvbn",
-              "benTransBankSwift": null,
-              "benLastName": "vbjnnb",
-              "benFirstName": "gjgbjj",
-              "benNationalityCountry": "AL",
-              "benIdNoType": null,
-              "benIdNo": null,
-              "benIdExpirationDate": null,
-              "benBirthday": null,
-              "benBankAccountType": null
-            }
-          }
-        ]
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "total": 1,
+    "current": 1,
+    "size": 10,
+    "records": [
+      {
+        "uniqueId": "11029",
+        "paymentType": 15,
+        "orderNo": 12345678934355462,
+        "originOrderNo": "1777240103854825473",
+        "status": "B3",
+        "paymentCurrency": "EUR",
+        "paymentAmount": "1234",
+        "paymentFee": "4.5",
+        "paymentFeeRate": "2",
+        "paymentFeeRateAmount": "3",
+        "paymentFixedFeeAmount": "1.5",
+        "receivedAccountNum": "vbnnm",
+        "receivedAccountName": "bbmnnnz",
+        "receivedCurrency": "JPY",
+        "receivedAmount": "191243.59",
+        "receivedCountry": "JP",
+        "receivedCountryStr": "JAPAN",
+        "resultMsg": "test",
+        "transferOrderInfo": [
+          "1",
+          "2"
+        ],
+        "transferOrderFile": [
+          "1",
+          "2"
+        ],
+        "transferOrderDesc": "test",
+        "postscript": "lhhnvbbn",
+        "payer": {
+          "payerType": "INDIVIDUAL",
+          "payerLastName": "wqw",
+          "payerFirstName": "wqwq",
+          "payerIdNo": "213232312",
+          "payerIdNoType": "PASSPORT",
+          "payerIdCountry": "AL",
+          "payerBirthday": "2024-02-05",
+          "payerNationalityCountry": "AL",
+          "payerMobile": "19800001111",
+          "payerCountryCode": "AL",
+          "payerCityCode": "AL_BR",
+          "payerAddress": "eqwweqewq",
+          "payerPostCode": "212323",
+          "payerOccupation": "worker"
+        },
+        "payee": {
+          "bankId": 5143,
+          "bankName": "Mizuho Trust and Banking Co.,Ltd.",
+          "benAccountNum": "vbnnm",
+          "benAccountName": "bbmnnnz",
+          "benCountryCode": null,
+          "benCityCode": null,
+          "benAddress": null,
+          "benPostCode": null,
+          "benBankCode": "gjbvvbn",
+          "benTransBankSwift": null,
+          "benLastName": "vbjnnb",
+          "benFirstName": "gjgbjj",
+          "benNationalityCountry": "AL",
+          "benIdNoType": null,
+          "benIdNo": null,
+          "benIdExpirationDate": null,
+          "benBirthday": null,
+          "benBankAccountType": null
+        }
+      }
+    ]
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1973,13 +1973,13 @@ POST /order/merchant/globalTransfer/getOrderResult
 **请求示例：**
 ```json
 {
-    "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
-    "data":
-    {
-      "orderNo": 1234556778945342
-    },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "orderNo": 1234556778945342
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
