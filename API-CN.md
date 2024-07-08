@@ -1462,7 +1462,7 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```
 
 ### 查询法币汇率
-此接口用于查询法币之间的汇率
+此接口用于查询法币之间的汇率。供参考，最终实际到账以银行处理为准。
 
 **HTTP请求**
 
