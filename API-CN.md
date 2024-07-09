@@ -860,6 +860,8 @@ POST /card/merchant/recharge
 | currency       | String     | Y    | 币种                     |
 | rechargeAmount | BigDecimal | Y    | 充值金额                   |
 | receivedAmount | BigDecimal | N    | 到账金额                   |
+| receivedCurrency | String | Y | 到账币种  |
+| exchangeRate | String | Y | 兑换费率  |
 | fee            | BigDecimal | Y    | 手续费(扣充值金额之外的钱)         |
 | msg            | String     | N    | 错误信息                   |
 
@@ -878,7 +880,9 @@ code为0则代表充值成功
     "orderNo": "2324a2dfga3435fg34353",
     "currency": "USDT",
     "rechargeAmount": 100,
-    "receivedAmount": 100,
+    "receivedAmount": 99.67,
+    "receivedCurrency": "USD",
+    "exchangeRate": "0.99796725",
     "fee": 2,
     "msg": "success"
   },
@@ -2242,6 +2246,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 | currency       | String     | Y   | 币种                    |
 | rechargeAmount | BigDecimal | Y   | 充值金额                  |
 | receivedAmount | BigDecimal | N   | 到账金额                  |
+| receivedCurrency | String | N   | 到账币种                  |
+| exchangeRate | String | N   | 兑换费率                  |
 | fee            | BigDecimal | Y   | 手续费(扣充值金额之外的钱)        |
 | msg            | String     | N   | 错误信息                  |
 
@@ -2256,7 +2262,9 @@ POST /order/merchant/globalTransfer/getOrderResult
     "orderNo": "2324a2dfga3435fg34353",
     "currency": "USDT",
     "rechargeAmount": 100,
-    "receivedAmount": 100,
+    "receivedAmount": 99.67,
+    "receivedCurrency": "USD",
+    "exchangeRate": "0.99796725",
     "fee": 2,
     "msg": "success"
   },
