@@ -1705,7 +1705,7 @@ POST /order/merchant/globalTransfer/payment
 
 **HTTP请求**
 
-POST /order/merchant/globalTransfer/payment
+POST /order/merchant/globalTransfer/queryOrderPage
 
 **限频：** 200/5s
 
