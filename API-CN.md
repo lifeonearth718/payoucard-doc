@@ -658,7 +658,7 @@ POST /user/merchant/kyc/query
     "cardTypeId":1,
     "status":2,
     "statusDesc": "成功"
-  }
+  },
   "requestId": "PYC20240325164529237",
   "merchantId": "88888888",
   "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
@@ -925,6 +925,8 @@ POST /card/merchant/recharge/order/query
 | amount | BigDecimal | Y        | 充值金额  |
 | fee | BigDecimal | Y        | 充值手续费  |
 | receivedAmount | BigDecimal | Y | 到账金额  |
+| receivedCurrency | String | Y | 到账币种  |
+| exchangeRate | String | Y | 兑换费率  |
 | status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
 | time | String | Y        | 充值时间  |
 
@@ -942,9 +944,11 @@ POST /card/merchant/recharge/order/query
     "cardNo": "4611990405493037",
     "currency": "USDT",
     "amount": 100,
-    "fee": 1.5,
+    "fee": 2,
     "time": "2024-07-05T14:53:06",
-    "receivedAmount": 98.5,
+    "receivedAmount": 99.67,
+    "receivedCurrency": "USD",
+    "exchangeRate": "0.99796725",
     "status": 1
   },
   "requestId": "PYC20240325164529237",
@@ -1004,6 +1008,8 @@ POST /card/merchant/recharge/query
 | records[0].amount | BigDecimal | Y        | 充值金额  |
 | records[0].fee | BigDecimal | Y        | 充值手续费  |
 | records[0].receivedAmount | BigDecimal | Y | 到账金额  |
+| records[0].receivedCurrency | String | Y | 到账币种  |
+| records[0].exchangeRate | String | Y | 兑换费率  |
 | records[0].status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
 | records[0].time | String | Y        | 充值时间  |
 
@@ -1026,9 +1032,11 @@ POST /card/merchant/recharge/query
         "cardNo": "4611990405493037",
         "currency": "USDT",
         "amount": 100,
-        "fee": 1.5,
+        "fee": 2,
         "time": "2024-07-05 14:53:06",
-        "receivedAmount": 98.5,
+        "receivedAmount": 99.67,
+        "receivedCurrency": "USD",
+        "exchangeRate": "0.99796725",
         "status": 1
       }
     ]
