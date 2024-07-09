@@ -861,7 +861,7 @@ POST /card/merchant/recharge
 | rechargeAmount | BigDecimal | Y    | 充值金额                   |
 | receivedAmount | BigDecimal | N    | 到账金额                   |
 | receivedCurrency | String | Y | 到账币种  |
-| exchangeRate | String | Y | 兑换费率  |
+| exchangeRate | String | Y | 兑换汇率  |
 | fee            | BigDecimal | Y    | 手续费(扣充值金额之外的钱)         |
 | msg            | String     | N    | 错误信息                   |
 
@@ -930,7 +930,7 @@ POST /card/merchant/recharge/order/query
 | fee | BigDecimal | Y        | 充值手续费  |
 | receivedAmount | BigDecimal | Y | 到账金额  |
 | receivedCurrency | String | Y | 到账币种  |
-| exchangeRate | String | Y | 兑换费率  |
+| exchangeRate | String | Y | 兑换汇率  |
 | status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
 | time | String | Y        | 充值时间  |
 
@@ -1013,7 +1013,7 @@ POST /card/merchant/recharge/query
 | records[0].fee | BigDecimal | Y        | 充值手续费  |
 | records[0].receivedAmount | BigDecimal | Y | 到账金额  |
 | records[0].receivedCurrency | String | Y | 到账币种  |
-| records[0].exchangeRate | String | Y | 兑换费率  |
+| records[0].exchangeRate | String | Y | 兑换汇率  |
 | records[0].status | Integer | Y        | 充值状态(1-成功 2-失败 3-处理中)  |
 | records[0].time | String | Y        | 充值时间  |
 
@@ -2247,7 +2247,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | rechargeAmount | BigDecimal | Y   | 充值金额                  |
 | receivedAmount | BigDecimal | N   | 到账金额                  |
 | receivedCurrency | String | N   | 到账币种                  |
-| exchangeRate | String | N   | 兑换费率                  |
+| exchangeRate | String | N   | 兑换汇率                  |
 | fee            | BigDecimal | Y   | 手续费(扣充值金额之外的钱)        |
 | msg            | String     | N   | 错误信息                  |
 
