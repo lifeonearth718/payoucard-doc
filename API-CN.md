@@ -1532,18 +1532,96 @@ POST /order/merchant/globalTransfer/getExchangeRate
 }
 ```
 
-### 代付校验
-此接口用于全球速汇代付相关参数校验。
+### 代付付款人校验
+此接口用于全球速汇代付付款人相关参数校验。
 
 **HTTP请求**
 
-POST /order/merchant/globalTransfer/paymentVerify
+POST /order/merchant/globalTransfer/payerVerify
 
 **限频：** 200/5s
 
 **请求参数：**
 
-    和代付接口参数一样
+| 参数                            | 类型         | 是否必传 | 含义                                                                        |
+|-------------------------------|------------|----------|:--------------------------------------------------------------------------|
+| payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                                       |
+| payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                                |
+| payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                                |
+| payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[1 .. 60 ] 个字符                                             |
+| payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）                              |
+| payerIdCountry          | String     | Y | 付款人证件颁发国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
+| payerBirthday           | String     | Y | 付款人出生日期。yyyy-MM-dd                                                        |
+| payerNationalityCountry | String     | Y | 付款人国籍。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）     |
+| payerMobile             | String     | Y | 付款人手机号码。例如：+37012345678。[1 .. 20 ] 个字符                                    |
+| payerCountryCode        | String     | Y | 付款人居住国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
+| payerCityCode           | String     | Y | 付款人居住城市代码。[1 .. 10 ] 个字符。参见dictionary_common.xlsx（sheet. city）            |
+| payerAddress            | String     | Y | 付款人地址。不支持中文字符[1 .. 200 ] 个字符                                              |
+| payerPostCode           | String     | Y | 付款人邮编。[1 .. 20 ] 个字符                                                      |
+| payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                                 |
+
+
+**响应示例：**
+
+成功示例
+```json
+{
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
+失败示例
+```json
+{
+  "code": -1,
+  "message": "The parameter bankId cannot be empty",
+  "success": false,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
+### 代付收款人校验
+此接口用于全球速汇代付收款人相关参数校验。
+
+**HTTP请求**
+
+POST /order/merchant/globalTransfer/payeeVerify
+
+**限频：** 200/5s
+
+**请求参数：**
+
+| 参数                          | 类型     | 是否必传 | 含义                                                       |
+|-----------------------------|--------|----------|:---------------------------------------------------------|
+| bankId                      | Long   | Y | 银行id                                                     |
+| benAccountNum               | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                    |
+| benAccountName              | String | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                |
+| benCountryCode        | String | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
+| benCityCode           | String | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）          |
+| benAddress            | String | N | 收款人地址。英文地址[10 .. 100 ] 个字符                               |
+| benPostCode           | String | N | 收款人邮编。[0 .. 20 ] 个字符                                     |
+| benBankCode           | String | N | 收款人银行编码。[0 .. 20 ] 个字符                                   |
+| benTransBankSwift     | String | N | 收款人中转行。[0 .. 50 ] 个字符                                    |
+| benLastName           | String | N | 收款人姓。不支持中文字符[0 .. 60 ] 个字符                               |
+| benFirstName          | String | N | 收款人名。不支持中文字符[0 .. 60 ] 个字符                               |
+| benNationalityCountry | String | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
+| benIdNoType           | String | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）             |
+| benIdNo               | String | N | 收款人证件号码。[0 .. 50 ] 个字符                                   |
+| benIdExpirationDate   | String | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                             |
+| benBirthday           | String | N | 收款人出生日期。yyyy-MM-dd                                       |
+| benMobileCode         | String | N | 收款人手机区号。例：+86。[0 .. 10 ] 个字符                             |
+| benMobile             | String | N | 收款人手机号。[0 .. 20 ] 个字符                                    |
+| benBankAccountType    | String | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）   |
+
 
 **响应示例：**
 
@@ -1575,6 +1653,14 @@ POST /order/merchant/globalTransfer/paymentVerify
 
 ### 代付
 此接口用于全球速汇代付。EUR速汇至其他法币
+
+```text
+付款人
+1. 根据payerType、payerIdNo为唯一，如果存在会更新付款人信息
+
+收款人
+1. 根据bankId、ben_account_num为唯一，如果存在会更新收款人信息
+```
 
 **HTTP请求**
 
