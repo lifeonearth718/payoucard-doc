@@ -1561,6 +1561,33 @@ POST /order/merchant/globalTransfer/payerVerify
 | payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                                 |
 
 
+**请求示例：**
+
+```json
+{
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+      "payerType": "INDIVIDUAL",
+      "payerLastName": "z",
+      "payerFirstName": "tom",
+      "payerIdNo": "ES123456",
+      "payerIdNoType": "PASSPORT",
+      "payerIdCountry": "SG",
+      "payerBirthday": "1990-10-10",
+      "payerNationalityCountry": "SG",
+      "payerMobile": "+65012345678",
+      "payerCountryCode": "SG",
+      "payerCityCode": "SG_1",
+      "payerAddress": "21 Tampines Ave 1, Singapore 529757",
+      "payerPostCode": "999002",
+      "payerOccupation": "worker"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
 **响应示例：**
 
 成功示例
@@ -1622,6 +1649,38 @@ POST /order/merchant/globalTransfer/payeeVerify
 | benMobile             | String | N | 收款人手机号。[0 .. 20 ] 个字符                                    |
 | benBankAccountType    | String | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）   |
 
+
+**请求示例：**
+
+```json
+{
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "bankId": 2671,
+    "benAccountNum": "123456",
+    "benAccountName": "123456",
+    "benCountryCode": "SG",
+    "benCityCode": "SG_1",
+    "benAddress": "21 Tampines Ave 1, Singapore 529757",
+    "benPostCode": "999002",
+    "benBankCode": "",
+    "benTransBankSwift": "",
+    "benLastName": "z",
+    "benFirstName": "alex",
+    "benNationalityCountry": "SG",
+    "benIdNoType": "PASSPORT",
+    "benIdNo": "13242424",
+    "benIdExpirationDate": "2030-01-01",
+    "benBirthday": "2001-01-01",
+    "benMobileCode": "+67",
+    "benMobile": "12345678",
+    "benBankAccountType": "SAVINGS"
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
 
 **响应示例：**
 
