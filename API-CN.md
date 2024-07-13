@@ -1659,7 +1659,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 1. 根据payerType、payerIdNo为唯一，如果存在会更新付款人信息
 
 收款人
-1. 根据bankId、ben_account_num为唯一，如果存在会更新收款人信息
+1. 根据bankId、benAccountNum为唯一，如果存在会更新收款人信息
 ```
 
 **HTTP请求**
