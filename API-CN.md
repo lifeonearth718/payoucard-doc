@@ -1533,6 +1533,48 @@ POST /order/merchant/globalTransfer/getExchangeRate
 }
 ```
 
+
+### 代付校验
+此接口用于全球速汇代付相关参数校验。
+
+**HTTP请求**
+
+POST /order/merchant/globalTransfer/paymentVerify
+
+**限频：** 200/5s
+
+**请求参数：**
+
+    和代付接口参数一样
+
+**响应示例：**
+
+成功示例
+```json
+{
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
+失败示例
+```json
+{
+  "code": -1,
+  "message": "The parameter bankId cannot be empty",
+  "success": false,
+  "data": null,
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
 ### 代付付款人校验
 此接口用于全球速汇代付付款人相关参数校验。
 
