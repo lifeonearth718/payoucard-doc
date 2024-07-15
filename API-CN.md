@@ -27,6 +27,7 @@
         - [虚拟卡开卡申请](#虚拟卡开卡申请)
         - [虚拟卡开卡进度查询](#虚拟卡开卡进度查询)
         - [银行卡激活](#银行卡激活)
+        - [银行卡充值预估到账金额查询](#银行卡充值预估到账金额查询)
         - [银行卡充值](#银行卡充值)
         - [银行卡充值订单查询](#银行卡充值订单查询)
         - [银行卡充值记录查询](#银行卡充值记录查询)
@@ -54,6 +55,7 @@
         - [银行卡-卡片充值结果回调通知](#银行卡卡片充值结果回调通知)
         - [银行卡-卡片激活结果回调通知](#银行卡卡片激活结果回调通知)
         - [银行卡-卡片冻结、解冻处理状态回调通知](#银行卡卡片冻结、解冻处理状态回调通知)
+
 
 # 简介
 欢迎使用PayouCard开发者文档。概述了商户对接应用开发接口。
@@ -816,6 +818,67 @@ POST /card/merchant/activation
   "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
+
+
+### 银行卡充值预估到账金额查询
+此接口用于查询银行卡充值时查询预估到账金额
+
+**HTTP请求**
+
+POST /card/merchant/recharge/estimationCurrency
+
+**请求参数：**
+
+| 参数       | 类型         | 是否必传 | 含义 |
+|----------|------------|----------|:-----|
+| cardTypeId | Integer     | Y        | 卡片类型id  |
+| currency   | String     | Y        | 充值币种  |
+| amount   | BigDecimal | Y        | 充值金额。不能小于1  |
+
+**请求示例：**
+
+```json
+{
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":
+  {
+    "cardTypeId": 10,
+    "currency": "USDT",
+    "amount": 20
+  },
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
+**响应参数：**
+
+| 参数             | 类型         | 是否必传 | 含义                     |
+|----------------|------------|------|:-----------------------|
+| receivedCurrency | String | Y    | 到账币种                   |
+| receivedAmount | BigDecimal | N    | 到账金额                   |
+| exchangeRate       | BigDecimal     | Y    | 兑换汇率                     |
+
+
+**响应示例：**
+
+code为0则代表充值成功
+```json
+{
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data": {
+    "receivedAmount": 18.15,
+    "receivedCurrency": "EUR",
+    "exchangeRate": 0.90768152
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
 
 ### 银行卡充值
 此接口用于查询银行卡充值
