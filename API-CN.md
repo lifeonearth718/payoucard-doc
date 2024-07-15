@@ -38,7 +38,8 @@
     - [全球速汇](#全球速汇)
         - [查询速汇银行及相关配置](#查询速汇银行及相关配置)
         - [查询法币汇率](#查询法币汇率)
-        - [代付校验](#代付校验)
+        - [代付付款人校验](#代付付款人校验)
+        - [代付收款人校验](#代付收款人校验)
         - [代付](#代付)
         - [用户订单列表](#用户订单列表)
         - [提交调单信息或文件](#提交调单信息或文件)
@@ -1569,20 +1570,20 @@ POST /order/merchant/globalTransfer/payerVerify
   "marchantId": "88888888",
   "data":
   {
-      "payerType": "INDIVIDUAL",
-      "payerLastName": "z",
-      "payerFirstName": "tom",
-      "payerIdNo": "ES123456",
-      "payerIdNoType": "PASSPORT",
-      "payerIdCountry": "SG",
-      "payerBirthday": "1990-10-10",
-      "payerNationalityCountry": "SG",
-      "payerMobile": "+65012345678",
-      "payerCountryCode": "SG",
-      "payerCityCode": "SG_1",
-      "payerAddress": "21 Tampines Ave 1, Singapore 529757",
-      "payerPostCode": "999002",
-      "payerOccupation": "worker"
+    "payerType": "INDIVIDUAL",
+    "payerLastName": "z",
+    "payerFirstName": "tom",
+    "payerIdNo": "ES123456",
+    "payerIdNoType": "PASSPORT",
+    "payerIdCountry": "SG",
+    "payerBirthday": "1990-10-10",
+    "payerNationalityCountry": "SG",
+    "payerMobile": "+65012345678",
+    "payerCountryCode": "SG",
+    "payerCityCode": "SG_1",
+    "payerAddress": "21 Tampines Ave 1, Singapore 529757",
+    "payerPostCode": "999002",
+    "payerOccupation": "worker"
   },
   "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
