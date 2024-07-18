@@ -2327,6 +2327,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | 4          | 银行卡    | 卡片充值结果回调通知    |
 | 5          | 银行卡    | 卡片激活结果回调通知    |
 | 6          | 银行卡    | 卡片冻结、解冻处理状态回调通知    |
+| 7          | 银行卡    | 3DS校验    |
 
 ### 全球速汇-支付结果回调通知
 此通知notifyType = 1
@@ -2606,6 +2607,53 @@ POST /order/merchant/globalTransfer/getOrderResult
     "cardNo": "12456782323",
     "status": 1,
     "requestType": 1
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
+  "notifyType": 5
+}
+```
+
+**响应参数：**
+
+| 参数 | 类型 | 是否必传 | 含义 |
+|------|------|------|:------|
+| code | Integer    | Y    | 0。返回0后不会再重复发起回调通知 |
+| message | String    | N    | 信息 |
+
+**响应示例：**
+```json
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+### 银行卡-3DS校验
+此通知notifyType = 7
+
+**回调参数：**
+
+| 参数 | 类型 | 是否必传 | 含义 |
+|------|------|------|:------|
+| cardNo | String    | Y    | 卡号 |
+| otp | String    | Y    | 验证码 |
+| merchantName | String    | Y    | 商户名称 |
+| transactionAmount | String    | Y    | 交易金额 |
+| transactionCurrency | String    | Y    | 交易币种 |
+
+**回调示例：**
+
+```json
+{
+  "data":
+  {
+    "cardNo": "4611990424818446",
+    "otp": "890789",
+    "merchantName": "test",
+    "transactionAmount": "100",
+    "transactionCurrency": "EUR"
   },
   "requestId": "PYC20240325164529237",
   "merchantId": "88888888",
