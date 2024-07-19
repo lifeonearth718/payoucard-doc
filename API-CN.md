@@ -19,6 +19,7 @@
         - [上传文件](#上传文件)
     - [银行卡](#银行卡)
         - [卡片类型列表](#卡片类型列表)
+        - [商户账户查询](#商户账户查询)
         - [商户用户注册](#商户用户注册)
         - [商户用户信息更新](#商户用户信息更新)
         - [商户用户KYC附件上传](#商户用户kyc附件上传)
@@ -360,6 +361,56 @@ POST /card/merchant/config/list
   "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
+
+
+### 商户账户查询
+此接口用于查询商户的账户余额信息
+
+**HTTP请求**
+
+POST /user/merchant/account/query
+
+**请求示例：**
+
+```JSON
+{
+  "requestId": "PYC20240325164529237",
+  "marchantId": "88888888",
+  "data":{},
+  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+}
+```
+
+**请求响应：**
+
+| 参数                                        | 类型    | 是否必传 | 含义                 |
+|-------------------------------------------|---------|----------|:---------------------|
+| currency      | String    | Y        | 币种 |
+| balance | BigDecimal    | Y        | 余额 |
+
+
+**响应示例：**
+```JSON
+{
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":[
+    {
+      "currency": "EUR",
+      "balance": 0
+    },
+    {
+      "currency": "USDT",
+      "balance": 9989936.2
+    }
+  ],
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
 
 ### 商户用户注册
 此接口用于商户的用户注册，注册的信息将用于提交银行做KYC申请；
