@@ -1322,7 +1322,7 @@ POST /card/merchant/trade/query
 | records[0].txnAmount | BigDecimal | Y        | 支付金额                                                                                    |
 | records[0].businessDate | String | Y        | 业务日期                                                                                    |
 | records[0].tradeId | String | Y        | 交易流水号                                                                                   |
-| records[0].tradeType | Integer | Y        | 交易类型。1-预授权；2-支付；3-充值；4-提现；5-转入；6-转出；7-结算调整；8-余额查询；9-手续费；10-消费；11-消费失败；12-退款；13-撤销；14-其他 |
+| records[0].tradeType | Integer | Y        | 交易类型。1-预授权；2-支付；3-充值；4-提现；5-转入；6-转出；7-结算调整；8-余额查询；9-手续费；10-消费；11-消费失败；12-退款；13-撤销；14-其他 15-绑卡验证交易|
 | records[0].tradeTypeStr | String | Y        | 交易类型描述                                                                                  |
 | records[0].tradeStatus | String | Y        | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货            |
 | records[0].tradeStatusStr | String | Y        | 交易状态描述                                                                                  |
