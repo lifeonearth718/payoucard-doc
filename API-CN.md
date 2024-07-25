@@ -322,6 +322,7 @@ POST /card/merchant/config/list
 | cardName                                  | String  | Y        | 卡名称          |
 | cardDesc                                  | String  | Y        | 卡描述              |
 | kycRequire                                | Boolean | Y        | 是否需要KYC认证      |
+| status                                | Integer | Y        | 状态(0-可不用 1-可用)      |
 | rechargeCurrencyInfoList                  | List    | Y        | 可充值的币种列表配置 |
 | rechargeCurrencyInfoList[0].currency      | String    | Y        | 充值币种 |
 | rechargeCurrencyInfoList[0].rechargeMinQuota | BigDecimal    | Y        | 充值最小额度 |
@@ -344,6 +345,7 @@ POST /card/merchant/config/list
       "typeDesc":"Master-实体卡",
       "cardName":"master 实体卡",
       "kycRequire":true,
+      "status": 1,
       "rechargeCurrencyInfoList":[
         {
           "currency": "USDT",
@@ -1326,6 +1328,7 @@ POST /card/merchant/trade/query
 | records[0].tradeTypeStr | String | Y        | 交易类型描述                                                                                  |
 | records[0].tradeStatus | String | Y        | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货            |
 | records[0].tradeStatusStr | String | Y        | 交易状态描述                                                                                  |
+| records[0].originTransactionId | String | Y        | 源交易流水号                                                                                  |
 | records[0].remark | String | Y        | 备注                                                                                      |
 
 **响应示例：**
