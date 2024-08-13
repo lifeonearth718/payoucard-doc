@@ -62,8 +62,8 @@ Welcome to the PayouCard developer documentation. An overview of the merchant do
 
 REST API includes two business categories: bank card and global remittance
 
-#Basic Information
-##Glossary
+# Basic Information
+## Glossary
 merchant: merchant
 
 merchantId: Merchant ID. It can be viewed in the merchant's backend system - "Merchant Basic Information" menu.
@@ -71,7 +71,8 @@ merchantId: Merchant ID. It can be viewed in the merchant's backend system - "Me
 ## Request Frequency Limit
 The request frequency limit will be added to the specific interface, please check the specific API description.
 
-##API Server Address
+## API Server Address
+
 **test environment:**
 
 Server address (IP whitelist restriction): https://api-merchant-test.logtec.me
