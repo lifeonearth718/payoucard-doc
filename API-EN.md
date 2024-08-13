@@ -2,10 +2,10 @@
 - [Basic Information](#Basic Information)
     - [Glossary](#Glossary)
     - [Request Frequency Limit](#Request Frequency Limit)
-    - [API Server Address](#api Server Address)
+    - [API Server Address](#API Server Address)
     - [Connection Method](#Connection Method)
-    - [API Request Parameters and Template](#api Request Parameters and Template)
-    - [API Response Parameters and Template](#api Response Parameters and Template)
+    - [API Request Parameters and Template](#API Request Parameters and Template)
+    - [API Response Parameters and Template](#API Response Parameters and Template)
     - [Callback Notification Callback Parameters and Template](#Callback Notification Callback Parameters and Template)
     - [Callback Notification Response Parameters and Template](#Callback Notification Response Parameters and Template)
     - [Interface Authentication and Encryption and Decryption](#Interface Authentication and Encryption and Decryption)
@@ -14,17 +14,17 @@
         - [Verify Signature](#Verify Signature)
     - [Response Code](#Response Code)
 - [Dictionary](#Dictionary)
-- [REST API](#rest-api)
-    - [Public API](#public api)
+- [REST API](#REST API)
+    - [Public API](#Public API)
         - [Upload file](#Upload file)
     - [Bank card](#Bank card)
         - [Card type list](#Card type list)
         - [Merchant account query](#Merchant account query)
         - [Merchant user registration](#Merchant user registration)
         - [Merchant user information update](#Merchant user information update)
-        - [Merchant user KYC attachment upload](#Merchant user kyc attachment upload)
-        - [Submit KYC certification](#Submit kyc certification)
-        - [Query KYC certification](#Query kyc certification)
+        - [Merchant user KYC attachment upload](#Merchant user KYC attachment upload)
+        - [Submit KYC certification](#Submit KYC certification)
+        - [Query KYC certification](#Query KYC certification)
         - [Virtual card opening application](#Virtual card opening application)
         - [Virtual card opening progress query](#Virtual card opening progress query)
         - [Bank card activation](#Bank card activation)
@@ -49,28 +49,29 @@
     - [Callback notification](#Callback notification)
         - [Set callback notification url](#Set callback notification url)
         - [Callback notification type](#Callback notification type)
-        - [Global Express Remittance-Payment result callback notification](#Global Express Remittance payment result callback notification)
-        - [Global Express Remittance-Adjustment callback notification](#Global Express Remittance Adjustment callback notification)
+        - [Global Express Remittance Payment result callback notification](#Global Express Remittance Payment result callback notification)
+        - [Global Express Remittance Adjustment callback notification](#Global Express Remittance Adjustment callback notification)
         - [User KYC callback notification](#User KYC callback notification)
-        - [Bank card-Card recharge result callback notification](#Bank card recharge result callback notification)
-        - [Bank card-Card activation result callback notification](#Bank card activation result callback notification)
-        - [Bank card-Card freeze, thaw processing status callback notification](#Bank card card freeze, thaw processing status callback notification)
+        - [Bank card callback notification of card recharge result](#Bank card callback notification of card recharge result)
+        - [Bank card activation result callback notification](#Bank card activation result callback notification)
+        - [Bank card freeze thaw processing status callback notification](#Bank card freeze thaw processing status callback notification)
+        - [Bank card 3DS verification](#Bank card 3DS verification)
 
 # Introduction
 Welcome to the PayouCard developer documentation. An overview of the merchant docking application development interface.
 
 REST API includes two business categories: bank card and global remittance
 
-#Basic information
-## Glossary
+#Basic Information
+##Glossary
 merchant: merchant
 
 merchantId: Merchant ID. It can be viewed in the merchant's backend system - "Merchant Basic Information" menu.
 
-## Request frequency limit
+## Request Frequency Limit
 The request frequency limit will be added to the specific interface, please check the specific API description.
 
-## API server address
+##API Server Address
 **test environment:**
 
 Server address (IP whitelist restriction): https://api-merchant-test.logtec.me
@@ -83,12 +84,12 @@ Server address (IP whitelist restriction): https://api-merchant.payoucard.com
 
 Merchant backend system: https://merchant.payoucard.com
 
-## Connection method
+## Connection Method
 All APIs are called using POST method. content-type: application/json format
 
 **If an API request form is different, it will be marked in the specific API interface**
 
-## API request parameters and template
+## API Request Parameters and Template
 
 
 | Parameters | Type | Whether it is required | Meaning |
@@ -107,7 +108,7 @@ All APIs are called using POST method. content-type: application/json format
 }
 ```
 
-## API response parameters and template
+## API Response Parameters and Template
 | Parameters | Type | Whether it is required | Meaning |
 |------------|--------|------------|:-----------|
 | code | Integer | Y | response code |
@@ -130,7 +131,7 @@ All APIs are called using POST method. content-type: application/json format
 }
 ```
 
-## Callback notification callback parameters and template
+## Callback Notification Callback Parameters and Template
 | Parameters | Type | Whether it is required | Meaning |
 |------------|--------|------------|:-----------|
 | data | Object | Y | response body |
@@ -139,7 +140,7 @@ All APIs are called using POST method. content-type: application/json format
 | signature | String | Y | signature |
 | notifyType | Integer | Y | notification type |
 
-## Callback notification response parameters and template
+## Callback Notification Response Parameters and Template
 | Parameters | Type | Whether it is required | Meaning |
 |------------|--------|------------|:-----------|
 | code | Integer | Y | response code |
@@ -151,8 +152,8 @@ All APIs are called using POST method. content-type: application/json format
 }
 ```
 
-## Interface authentication and encryption and decryption
-### Create RSA public and private keys
+## Interface Authentication and Encryption and Decryption
+### Create RSA Public and Private Keys
 After becoming a merchant, the partner needs to log in to the merchant's backend system. Generate RSA public key and private key in the "Merchant Basic Information" menu, and PayouCard will also provide PayouCard's public key. Merchants are required to properly keep the public key, private key, and PayouCard public key. The parameters will be used in subsequent API requests.
 
 ### Signature
@@ -212,7 +213,7 @@ signature: generated by PayouCard RSA private key signature
 
 * It is composed of all non-empty field contents except the signature field (signature), sorted according to the ASCII code of the message field, and connected with the "&" symbol in the manner of "field name = field value". Signature verification through PayouCard RSA public key
 
-## Response code
+## Response Code
 
 | code | meaning |
 |------------|--------|------------|:-----------|
@@ -707,7 +708,7 @@ POST /user/merchant/kyc/query
 } 
 ```
 
-### Virtual card application
+### Virtual card opening application
 HTTP request
 
 POST /card/merchant/virtual/card/apply
@@ -852,7 +853,7 @@ POST /card/merchant/activation
 }
 ```
 
-### Query the estimated amount of bank card recharge
+### Bank card recharge estimated amount query
 This interface is used to query the estimated amount of bank card recharge
 
 **HTTP request**
@@ -1044,7 +1045,7 @@ POST /card/merchant/recharge/order/query
     "signature": "2sadfj23san finasdfnawesamdfasdfasdfwasfasdfa" 
 } 
 ```
-### Query bank card recharge record
+### Bank card recharge record query
 This interface is used to query bank card recharge records
 
 **HTTP request**
@@ -1182,7 +1183,7 @@ POST /card/merchant/balance/query
 } 
 ```
 
-### Retrieve password for bank card
+### Bank card password retrieval
 This interface is used to send a request to retrieve password. After receiving the request, the bank will send a link to set it according to the registered mobile phone or email address
 
 **HTTP request**
@@ -1422,8 +1423,8 @@ code 0 means successful unfreezing
 }
 ```
 
-## Global Express Remittance
-### Query Express Remittance Bank and Related Configuration
+## Global remittance
+### Query remittance bank and related configuration
 This interface is used to query all countries that support Express Remittance and the parameters, handling fee rates and other data that need to be filled in and passed by each bank
 
 **HTTP request**
@@ -1519,7 +1520,7 @@ Note when bankName=alipay
 2. The country and city of residence of the payee cannot be in China
 ```
 
-### Query the exchange rate of legal currency
+### Query legal currency exchange rate
 This interface is used to query the exchange rate between legal currencies. For reference only. The actual amount of money received is subject to the bank's processing.
 
 **HTTP request**
@@ -1615,7 +1616,7 @@ Failure example
 }
 ```
 
-### Payer verification
+### Payment payee verification
 This interface is used to verify the parameters of the global remittance payer.
 
 **HTTP request**
@@ -2119,7 +2120,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
 }
 ```
 
-### Submit transfer information or files
+### Submit order information or file
 This interface is used to submit transfer information or files. When the order status is B11 or B15, the order enters the transfer mode, and the order-related information needs to be submitted for review before the transfer can continue. Please use it in conjunction with the transfer callback notification
 
 ps: Please pass all the file information of the order for each request
@@ -2269,12 +2270,12 @@ POST /order/merchant/globalTransfer/getOrderResult
 ```
 
 ## Callback notification
-### Set callback notification URL
+### Set callback notification url
 This interface is used to set callback notification URL.
 
 Please set the callback notification address in the merchant basic information in the merchant backend system. All callback notifications share this URL, and use notifyType to distinguish different notification contents
 
-### callback notification type
+### Callback notification type
 
 | notifyType | business | meaning |
 |------------|------|------|
@@ -2286,7 +2287,7 @@ Please set the callback notification address in the merchant basic information i
 | 6 | Bank card | Card freeze, thaw processing status callback notification |
 | 7 | Bank card | 3DS verification |
 
-### Global Express-Payment result callback notification
+### Global Express Remittance Payment result callback notification
 This notification notifyType = 1
 
 **Callback parameters:**
@@ -2344,7 +2345,7 @@ This notification notifyType = 1
 }
 ```
 
-### Global Express Remittance - Transfer Order Callback Notification
+### Global Express Remittance Adjustment callback notification
 
 This notification notifyType = 2
 
@@ -2443,7 +2444,7 @@ This notification notifyType = 3
 }
 ```
 
-### Bank card - callback notification of card recharge result
+### Bank card callback notification of card recharge result
 This notification notifyType = 4
 
 **Response parameters:**
@@ -2495,7 +2496,7 @@ This notification notifyType = 4
 }
 ```
 
-### Bank card-Card activation result callback notification
+### Bank card activation result callback notification
 This notification notifyType = 5
 
 **Callback parameters:**
@@ -2536,7 +2537,7 @@ This notification notifyType = 5
 }
 ```
 
-### Bank card-card freeze, thaw processing status callback notification
+### Bank card freeze thaw processing status callback notification
 This notification notifyType = 6
 
 **Callback parameters:**
@@ -2580,7 +2581,7 @@ This notification notifyType = 6
 }
 ```
 
-### Bank card-3DS verification
+### Bank card 3DS verification
 This notification notifyType = 7
 
 **Callback parameters:**
