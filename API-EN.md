@@ -1788,7 +1788,7 @@ Failure example
 }
 ```
 
-### Payment on behalf of others
+### Payment
 This interface is used for global remittance payment. EUR to other fiat currencies
 
 ```text
