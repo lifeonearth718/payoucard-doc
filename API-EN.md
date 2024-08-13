@@ -2,7 +2,7 @@
 - [Basic Information](#Basic-Information)
     - [Glossary](#Glossary)
     - [Request Frequency Limit](#Request-Frequency-Limit)
-    - [API Server Address](#API Server Address)
+    - [API Server Address](#API-Server-Address)
     - [Connection Method](#Connection-Method)
     - [API Request Parameters and Template](#API-Request-Parameters-and-Template)
     - [API Response Parameters and Template](#API-Response-Parameters-and-Template)
