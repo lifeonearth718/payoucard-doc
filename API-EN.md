@@ -2409,7 +2409,7 @@ This notification notifyType = 3
 **Callback parameters:**
 
 | Parameter | Type | Required or not | Meaning |
-|------|------|------:------|
+|------|------|------|------|
 | uniqueId | String | Y | Unique ID of partner user |
 | cardTypeId | Integer | Y | Card type |
 | status | Integer | Y | Status |
