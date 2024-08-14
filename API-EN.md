@@ -2616,7 +2616,7 @@ This notification notifyType = 7
 **Response parameters:**
 
 | Parameter | Type | Required or not | Meaning |
-|------|------|------:------|
+|------|------|------|------|
 | code | Integer | Y | 0. After returning 0, callback notification will not be initiated repeatedly |
 | message | String | N | Information |
 
