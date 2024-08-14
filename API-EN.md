@@ -2432,8 +2432,9 @@ This notification notifyType = 3
 ```
 
 **Response parameters:**
+
 | Parameter | Type | Required or not | Meaning |
-|------|------|------:------|
+|------|------|------|:------|
 | code | Integer | Y | 0. After returning 0, callback notification will not be initiated repeatedly |
 | message | String | N | Information |
 
@@ -2451,7 +2452,7 @@ This notification notifyType = 4
 **Response parameters:**
 
 | Parameter | Type | Required | Meaning |
-|----------------|------------|-----|:----------------------|
+|------|------|------|:------|
 | cardNo | String | Y | Card number |
 | status | Integer | Y | Card recharge status. 1: Success; 2: Failure; |
 | orderNo | String | Y | Merchant order number |
