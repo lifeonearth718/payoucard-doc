@@ -2038,7 +2038,9 @@ POST /order/merchant/globalTransfer/queryOrderPage
 | records[0].payee.benIdExpirationDate | LocalDate | N | ID validity period. yyyy-MM-dd |
 | records[0].payee.benBirthday | LocalDate | N | Date of birth. yyyy-MM-dd |
 | records[0].payee.benBankAccountType | String | N | Payee bank account type. See dictionary_biz.pdf (2.1. Bank account type) | 
+
 **Response example:** 
+
 ```json
 {
   "requestId": "PYC20240325164529237",
