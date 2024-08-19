@@ -1273,10 +1273,11 @@ POST /card/merchant/trade/query
 | current | Long | Y | Current page |
 | records | List | Y | Data collection |
 | records[0].cardNo | String | Y | Card number |
-| records[0].currency | String | Y | Currency |
-| records[0].amount | BigDecimal | Y | Amount |
+| records[0].currency | String | Y | Transaction Currency |
+| records[0].amount | BigDecimal | Y | Transaction Amount |
 | records[0].fee | BigDecimal | Y | Handling fee |
-| records[0].txnAmount | BigDecimal | Y | Payment amount |
+| records[0].txnAmount | BigDecimal | Y | ActualActual Payment Amount |
+| records[0].currencyTxn | String | Y | Actual Payment Currency |
 | records[0].businessDate | String | Y | Business date |
 | records[0].tradeId | String | Y | Transaction serial number |
 | records[0].tradeType | Integer | Y | Transaction type. 1-Pre-authorization; 2-Payment; 3-Recharge; 4-Withdrawal; 5-Transfer in; 6-Transfer out; 7-Settlement adjustment; 8-Balance inquiry; 9-Service fee; 10-Consumption; 11-Consumption failure; 12-Refund; 13-Revocation; 14-Others 15-Card binding verification transaction|
@@ -1306,7 +1307,8 @@ POST /card/merchant/trade/query
             "tradeStatusStr": "Success",
             "tradeType": 5,
             "tradeTypeStr": "Transfer",
-            "txnAmount": 0.0
+            "txnAmount": 0.0,
+            "currencyTxn": "USD"
         }]
     },
     "requestId": "PYC20240325164529237",

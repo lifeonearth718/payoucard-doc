@@ -1319,10 +1319,11 @@ POST /card/merchant/trade/query
 | current | Long | Y        | 当前页                                                                                     |
 | records | List | Y        | 数据集合                                                                                    |
 | records[0].cardNo | String | Y        | 卡号                                                                                      |
-| records[0].currency | String | Y        | 币种                                                                                      |
-| records[0].amount | BigDecimal | Y        | 金额                                                                                      |
+| records[0].currency | String | Y        | 交易币种                                                                                      |
+| records[0].amount | BigDecimal | Y        | 交易金额                                                                                      |
 | records[0].fee | BigDecimal | Y        | 手续费                                                                                     |
-| records[0].txnAmount | BigDecimal | Y        | 支付金额                                                                                    |
+| records[0].txnAmount | BigDecimal | Y        | 实际支付金额                                                                                    |
+| records[0].currencyTxn | String | Y        | 实际支付币种                                                                                    |
 | records[0].businessDate | String | Y        | 业务日期                                                                                    |
 | records[0].tradeId | String | Y        | 交易流水号                                                                                   |
 | records[0].tradeType | Integer | Y        | 交易类型。1-预授权；2-支付；3-充值；4-提现；5-转入；6-转出；7-结算调整；8-余额查询；9-手续费；10-消费；11-消费失败；12-退款；13-撤销；14-其他 15-绑卡验证交易|
@@ -1355,7 +1356,8 @@ POST /card/merchant/trade/query
         "tradeStatusStr": "成功",
         "tradeType": 5,
         "tradeTypeStr": "转入",
-        "txnAmount": 0.0
+        "txnAmount": 1000,
+        "currencyTxn": "USD"
       }
     ]
   },
