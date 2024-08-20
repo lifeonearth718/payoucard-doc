@@ -1286,6 +1286,7 @@ POST /card/merchant/trade/query
 | records[0].tradeStatusStr | String | Y | Transaction status description |
 | records[0].originTransactionId | String | Y | Source transaction serial number |
 | records[0].remark | String | Y | Remarks |
+| records[0].transactionTime | Long       | N    | Transaction millisecond timestamp                                                                                         |
 
 **Response example:**
 ```json
@@ -1308,7 +1309,8 @@ POST /card/merchant/trade/query
             "tradeType": 5,
             "tradeTypeStr": "Transfer",
             "txnAmount": 0.0,
-            "currencyTxn": "USD"
+            "currencyTxn": "USD",
+            "transactionTime": 1724139032647
         }]
     },
     "requestId": "PYC20240325164529237",
