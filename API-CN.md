@@ -22,9 +22,9 @@
         - [商户账户查询](#商户账户查询)
         - [商户用户注册](#商户用户注册)
         - [商户用户信息更新](#商户用户信息更新)
-        - [商户用户KYC附件上传](#商户用户kyc附件上传)
-        - [提交KYC认证](#提交kyc认证)
-        - [查询KYC认证](#查询kyc认证)
+        - [商户用户KYC附件上传](#商户用户KYC附件上传)
+        - [提交KYC认证](#提交KYC认证)
+        - [查询KYC认证](#查询KYC认证)
         - [虚拟卡开卡申请](#虚拟卡开卡申请)
         - [虚拟卡开卡进度查询](#虚拟卡开卡进度查询)
         - [银行卡激活](#银行卡激活)
@@ -703,7 +703,7 @@ POST /user/merchant/kyc/query
 | 参数     | 类型   | 是否必传 | 含义 |
 |----------|--------|----------|:-----|
 | cardTypeId | Integer | Y        | 卡片类型ID    |
-| status | Integer | Y        | 状态(1-审核中 2-成功 3-拒绝) |
+| status | Integer | Y        | 状态(-1-不存在 1-审核中 2-成功 3-拒绝) |
 | statusDesc | String | Y        | 状态描述 |
 
 **响应示例：**
@@ -2512,7 +2512,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 |------|------|------|:------|
 | uniqueId | String    | Y    | 合作商用户的唯一ID |
 | cardTypeId | Integer    | Y    | 卡片类型 |
-| status | Integer    | Y    | 状态 |
+| status | Integer    | Y    | 状态(-1-不存在 1-审核中 2-成功 3-拒绝) |
 | statusDesc | String    | Y    | 状态描述 |
 
 **回调示例：**
