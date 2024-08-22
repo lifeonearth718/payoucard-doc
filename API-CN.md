@@ -2456,7 +2456,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | 参数 | 类型 | 是否必传 | 含义 |
 |------|------|------|:------|
 | orderNo | Long    | Y    | PayouCard订单号 |
-| status | String    | Y    | 订单状态。B11：调单_待提交；B12：调单_待审核；B13：调单_审核通过；B15：调单_审核拒绝 |
+| status | String    | Y    | 订单状态。B11：调单_待提交；B13：调单_审核通过；B15：调单_审核拒绝 |
 | transferOrderInfo | List    | N    | 调单订单信息。参见dictionary_biz.pdf（2.2. Transfer order info type） |
 | transferOrderFile | List    | N    | 调单订单文件。参见dictionary_biz.pdf（2.3. Transfer order file type） |
 | transferOrderDesc | String    | N    | 调单订单信息 |

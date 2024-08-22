@@ -2361,7 +2361,7 @@ This notification notifyType = 2
 | Parameter | Type | Required or not | Meaning |
 |------|------|------|:------|
 | orderNo | Long | Y | PayouCard order number |
-| status | String | Y | Order status. B11: Transfer order_pending submission; B12: Transfer order_pending review; B13: Transfer order_approved; B15: Transfer order_rejected |
+| status | String | Y | Order status. B11: Transfer order_pending submission; B13: Transfer order_approved; B15: Transfer order_rejected |
 | transferOrderInfo | List | N | Transfer order information. See dictionary_biz.pdf (2.2. Transfer order info type) |
 | transferOrderFile | List | N | Transfer order file. See dictionary_biz.pdf (2.3. Transfer order file type) |
 | transferOrderDesc | String | N | Transfer order information |
