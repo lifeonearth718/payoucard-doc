@@ -448,7 +448,7 @@ POST /user/merchant/register
 | email       | String | Y        | 邮箱                                                         |
 | lastName    | String | Y        | 姓(只能是英文，单词之间支持一个英文空格, 长度不能超过64)                                                            |
 | firstName   | String | Y        | 名(只能是英文，单词之间支持一个英文空格, 长度不能超过64)                                                            |
-| birthday    | String | Y        | 生日 (yyyy-MM-dd)                                             |
+| birthday    | String | N        | 生日 (yyyy-MM-dd)                                             |
 | nationality | String | N        | 国籍。2位数code码。参见dictionary_common.xlsx（sheet. regin）     |
 |             |        |          |                                                               |
 | sex         | String | N        | 性别 (1: 男, 2: 女)                                           |
@@ -522,7 +522,7 @@ POST /user/merchant/info/update
 | email       | String | Y        | 邮箱                                                          |
 | lastName    | String | Y        | 姓                                                            |
 | firstName   | String | Y        | 名                                                            |
-| birthday    | String | Y        | 生日 (yyyy-MM-dd)                                             |
+| birthday    | String | N        | 生日 (yyyy-MM-dd)                                             |
 | nationality | String | N        | 国籍。2位数code码。参见dictionary_common.xlsx（sheet. regin）     |
 |             |        |          |                                                               |
 | sex         | String | N        | 性别 (1: 男, 2: 女)                                           |

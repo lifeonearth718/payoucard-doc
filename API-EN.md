@@ -438,7 +438,7 @@ POST /user/merchant/register
 | email | String | Y | Email address |
 | lastName | String | Y | Last name (can only be in English, one English space is supported between words, and the length cannot exceed 64) |
 | firstName | String | Y | First name (can only be in English, one English space is supported between words, and the length cannot exceed 64) |
-| birthday | String | Y | Birthday (yyyy-MM-dd) |
+| birthday | String | N | Birthday (yyyy-MM-dd) |
 | nationality | String | N | Nationality. 2-digit code. See dictionary_common.xlsx (sheet. regin) |
 | | | | |
 | sex | String | N | Gender (1: male, 2: female) |
@@ -512,7 +512,7 @@ POST /user/merchant/info/update
 | email | String | Y | Email address |
 | lastName | String | Y | Surname |
 | firstName | String | Y | First name |
-| birthday | String | Y | Birthday (yyyy-MM-dd) |
+| birthday | String | N | Birthday (yyyy-MM-dd) |
 | nationality | String | N | Nationality. 2-digit code. See dictionary_common.xlsx (sheet. regin) |
 | | | | |
 | sex | String | N | Gender (1: male, 2: female) |
