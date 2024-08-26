@@ -1729,7 +1729,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 | benFirstName | String | N | Beneficiary's first name. Chinese characters are not supported [0 .. 60 ] characters |
 | benNationalityCountry | String | N | Nationality of the beneficiary. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
 | benIdNoType | String | N | Type of beneficiary ID. See dictionary_biz.pdf (1.1. Idno type) |
-| benIdNo | String | N | ID number of the beneficiary. [0 .. 50 ] characters |
+| benIdNo | String | N | ID number of the beneficiary. [0 .. 20 ] characters |
 | benIdExpirationDate | String | N | Validity date of the beneficiary ID. Cannot be less than the current time yyyy-MM-dd |
 | benBirthday | String | N | Date of birth of the beneficiary. yyyy-MM-dd |
 | benMobileCode | String | N | Area code of the beneficiary mobile phone. Example: +86. [0 .. 10 ] characters |

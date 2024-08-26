@@ -1808,7 +1808,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 | benFirstName          | String | N | 收款人名。不支持中文字符[0 .. 60 ] 个字符                               |
 | benNationalityCountry | String | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
 | benIdNoType           | String | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）             |
-| benIdNo               | String | N | 收款人证件号码。[0 .. 50 ] 个字符                                   |
+| benIdNo               | String | N | 收款人证件号码。[0 .. 20 ] 个字符                                   |
 | benIdExpirationDate   | String | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                             |
 | benBirthday           | String | N | 收款人出生日期。yyyy-MM-dd                                       |
 | benMobileCode         | String | N | 收款人手机区号。例：+86。[0 .. 10 ] 个字符                             |
