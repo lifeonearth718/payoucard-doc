@@ -1796,7 +1796,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 | 参数                    | 类型     | 是否必传 | 含义                                                       |
 |-----------------------|--------|----------|:---------------------------------------------------------|
 | bankId                | Long   | Y | 银行id                                                     |
-| benAccountNum         | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[16 .. 48 ] 个字符                   |
+| benAccountNum         | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                    |
 | benAccountName        | String | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                |
 | benCountryCode        | String | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
 | benCityCode           | String | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）          |
@@ -1812,7 +1812,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 | benIdExpirationDate   | String | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                             |
 | benBirthday           | String | N | 收款人出生日期。yyyy-MM-dd                                       |
 | benMobileCode         | String | N | 收款人手机区号。例：+86。[2 ..5 ] 个字符                               |
-| benMobile             | String | N | 收款人手机号。[5 .. 15 ] 个字符                                     |
+| benMobile             | String | N | 收款人手机号。[5 .. 15 ] 个字符                                    |
 | benBankAccountType    | String | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）   |
 
 
@@ -1921,7 +1921,7 @@ POST /order/merchant/globalTransfer/payment
 | payer.payerPostCode           | String     | Y | 付款人邮编。[3 .. 9 ] 个字符                                               |
 | payer.payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                         |
 | payee                         | Object     | Y | 收款人信息对象                                                           |
-| payee.benAccountNum           | String     | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[16 .. 48 ] 个字符                            |
+| payee.benAccountNum           | String     | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                             |
 | payee.benAccountName          | String     | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                         |
 | payee.benCountryCode          | String     | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）          |
 | payee.benCityCode             | String     | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）                   |
