@@ -1632,22 +1632,22 @@ POST /order/merchant/globalTransfer/payerVerify
 
 **Request parameters:**
 
-| Parameter | Type | Required or not | Meaning |
-|-------------------------------|------------|----------|:--------------------------------------------------------------------------|
-| payerType | String | Y | Payer type. INDIVIDUAL: individual |
-| payerLastName | String | Y | Payer's last name. Chinese characters [1 .. 50] characters are not supported |
-| payerFirstName | String | Y | Payer's first name. Chinese characters [1 .. 50] characters are not supported |
-| payerIdNo | String | Y | Payer's ID number. Chinese characters are not supported [1 .. 60 ] characters |
-| payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type) |
-| payerIdCountry | String | Y | Payer ID issuing country. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| payerBirthday | String | Y | Payer date of birth. yyyy-MM-dd |
-| payerNationalityCountry | String | Y | Payer nationality. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| payerMobile | String | Y | Payer mobile number. For example: +37012345678. [1 .. 20 ] characters |
-| payerCountryCode | String | Y | Payer's country of residence. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| payerCityCode | String | Y | Payer's city code of residence. [1 .. 10 ] characters. See dictionary_common.xlsx (sheet. city) |
-| payerAddress | String | Y | Payer's address. Chinese characters are not supported. [1 .. 200 ] characters |
-| payerPostCode | String | Y | Payer's postal code. [1 .. 20 ] characters |
-| payerOccupation | String | Y | Payer's occupation. Only English [3 .. 20] characters are supported |
+| Parameter | Type | Required or not | Meaning                                                                                          |
+|-------------------------------|------------|----------|:-------------------------------------------------------------------------------------------------|
+| payerType | String | Y | Payer type. INDIVIDUAL: individual                                                               |
+| payerLastName | String | Y | Payer's last name. Chinese characters [1 .. 50] characters are not supported                     |
+| payerFirstName | String | Y | Payer's first name. Chinese characters [1 .. 50] characters are not supported                    |
+| payerIdNo | String | Y | Payer's ID number. Chinese characters are not supported [6 .. 18 ] characters                    |
+| payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type)                                           |
+| payerIdCountry | String | Y | Payer ID issuing country. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)     |
+| payerBirthday | String | Y | Payer date of birth. yyyy-MM-dd                                                                  |
+| payerNationalityCountry | String | Y | Payer nationality. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)            |
+| payerMobile | String | Y | Payer mobile number. For example: +37012345678. [8 .. 15 ] characters                            |
+| payerCountryCode | String | Y | Payer's country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
+| payerCityCode | String | Y | Payer's city code of residence. See dictionary_common.xlsx (sheet. city)                         |
+| payerAddress | String | Y | Payer's address. Chinese characters are not supported. [10 .. 100 ] characters                   |
+| payerPostCode | String | Y | Payer's postal code. [3 ..9 ] characters                                                         |
+| payerOccupation | String | Y | Payer's occupation. Only English [3 .. 20] characters are supported                              |
 
 **Request example:**
 
@@ -1714,27 +1714,27 @@ POST /order/merchant/globalTransfer/payeeVerify
 
 **Request parameters:**
 
-| Parameter | Type | Required or not | Meaning |
-|-----------------------------|--------|----------|:---------------------------------------------------------|
-| bankId | Long | Y | Bank id |
-| benAccountNum | String | Y | Payee account number. Will be converted to uppercase. Chinese characters [2 .. 48 ] characters are not supported |
-| benAccountName | String | Y | Payee account name. English name [1 .. 100 ] characters |
-| benCountryCode | String | N | Payee country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| benCityCode | String | N | Beneficiary's city code. See dictionary_common.xlsx (sheet. city) |
-| benAddress | String | N | Beneficiary's address. English address [10 .. 100] characters |
-| benPostCode | String | N | Beneficiary's postal code. [0 .. 20] characters |
-| benBankCode | String | N | Beneficiary's bank code. [0 .. 20] characters |
-| benTransBankSwift | String | N | Beneficiary's transit bank. [0 .. 50] characters |
-| benLastName | String | N | Beneficiary's last name. Chinese characters are not supported [0 .. 60] characters |
-| benFirstName | String | N | Beneficiary's first name. Chinese characters are not supported [0 .. 60 ] characters |
-| benNationalityCountry | String | N | Nationality of the beneficiary. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| benIdNoType | String | N | Type of beneficiary ID. See dictionary_biz.pdf (1.1. Idno type) |
-| benIdNo | String | N | ID number of the beneficiary. [0 .. 20 ] characters |
-| benIdExpirationDate | String | N | Validity date of the beneficiary ID. Cannot be less than the current time yyyy-MM-dd |
-| benBirthday | String | N | Date of birth of the beneficiary. yyyy-MM-dd |
-| benMobileCode | String | N | Area code of the beneficiary mobile phone. Example: +86. [0 .. 10 ] characters |
-| benMobile | String | N | Beneficiary's mobile phone number. [0 .. 20 ] characters |
-| benBankAccountType | String | N | Beneficiary's bank account type. See dictionary_biz.pdf (2.1. Bank account type) | 
+| Parameter | Type | Required or not | Meaning                                                                                                           |
+|-----------------------------|--------|----------|:------------------------------------------------------------------------------------------------------------------|
+| bankId | Long | Y | Bank id                                                                                                           |
+| benAccountNum | String | Y | Payee account number. Will be converted to uppercase. Chinese characters [16 .. 48 ] characters are not supported |
+| benAccountName | String | Y | Payee account name. English name [1 .. 100 ] characters                                                           |
+| benCountryCode | String | N | Payee country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                    |
+| benCityCode | String | N | Beneficiary's city code. See dictionary_common.xlsx (sheet. city)                                                 |
+| benAddress | String | N | Beneficiary's address. English address [10 .. 100] characters                                                     |
+| benPostCode | String | N | Beneficiary's postal code. [3 .. 9] characters                                                                    |
+| benBankCode | String | N | Beneficiary's bank code. [6 .. 12] characters                                                                     |
+| benTransBankSwift | String | N | Beneficiary's transit bank. [8 .. 11] characters                                                                  |
+| benLastName | String | N | Beneficiary's last name. Chinese characters are not supported [2 .. 60] characters                                |
+| benFirstName | String | N | Beneficiary's first name. Chinese characters are not supported [2 .. 60 ] characters                              |
+| benNationalityCountry | String | N | Nationality of the beneficiary. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                |
+| benIdNoType | String | N | Type of beneficiary ID. See dictionary_biz.pdf (1.1. Idno type)                                                   |
+| benIdNo | String | N | ID number of the beneficiary. [6 ..18 ] characters                                                                |
+| benIdExpirationDate | String | N | Validity date of the beneficiary ID. Cannot be less than the current time yyyy-MM-dd                              |
+| benBirthday | String | N | Date of birth of the beneficiary. yyyy-MM-dd                                                                      |
+| benMobileCode | String | N | Area code of the beneficiary mobile phone. Example: +86. [2 .. 5 ] characters                                     |
+| benMobile | String | N | Beneficiary's mobile phone number. [5 .. 15 ] characters                                                          |
+| benBankAccountType | String | N | Beneficiary's bank account type. See dictionary_biz.pdf (2.1. Bank account type)                                  | 
 
 **Request example:** 
 ```json
@@ -1813,50 +1813,50 @@ POST /order/merchant/globalTransfer/payment
 
 **Request parameters:**
 
-| Parameter | Type | Required or not | Meaning                                                                                                                 |
-|-------------------------------|------------|----------|:------------------------------------------------------------------------------------------------------------------------|
-| bankId | Long | Y | Bank id                                                                                                                 |
-| uniqueId | String | Y | Unique ID of the partner user. [1 .. 50 ] characters                                                                    |
-| originOrderNo | String | Y | Merchant business order number. [12 .. 30 ] characters                                                                  |
-| amount | BigDecimal | Y | Amount of money transferred. Only supports EUR, minimum amount 100EUR, maximum 2 decimal places                         |
-| postscript | String | Y | Postscript. Only supports English [5 .. 64 ] characters                                                                 |
-| relationship | String | N | Payee and payee relationship. Required when paymentType=15. See dictionary_biz.pdf (2.4. Relationship)                  |
-| sourceFunds | String | N | Source of funds. Required when paymentType=15. See dictionary_biz.pdf (2.5. SourceFunds)                                |
-| payPurpose | String | N | Purpose of payment. See dictionary_biz.pdf (2.6. PayPurpose)                                                            |
-| payer | Object | Y | Payer information object                                                                                                |
-| payer.payerType | String | Y | Payer type. INDIVIDUAL: Individual                                                                                      |
-| payer.payerLastName | String | Y | Payer last name. Chinese characters are not supported [1 .. 50 ] characters                                             |
-| payer.payerFirstName | String | Y | Payer first name. Chinese characters are not supported [1 .. 50 ] characters                                            |
-| payer.payerIdNo | String | Y | Payer ID number. Chinese characters are not supported [1 .. 60 ] characters                                             |
-| payer.payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type)                                                                  |
-| payer.payerIdCountry | String | Y | Payer ID issuing country. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)     |
-| payer.payerBirthday | String | Y | Payer's date of birth. yyyy-MM-dd                                                                                       |
-| payer.payerNationalityCountry | String | Y | Payer's nationality. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)          |
-| payer.payerMobile | String | Y | Payer's mobile number. Example: +37012345678. [1 .. 20 ] characters                                                     |
-| payer.payerCountryCode | String | Y | Payer's country of residence. [1 .. 10 ] characters. Country code (2 digits). See dictionary_common.xlsx (sheet. regin) |
-| payer.payerCityCode | String | Y | Payer's city code of residence. [1 .. 10 ] characters. See dictionary_common.xlsx (sheet. city)                         |
-| payer.payerAddress | String | Y | Payer address. Chinese characters are not supported [1 .. 200 ] characters                                              |
-| payer.payerPostCode | String | Y | Payer postal code. [1 .. 20 ] characters                                                                                |
-| payer.payerOccupation | String | Y | Payer occupation. English only supported [3 .. 20 ] characters                                                          |
-| payee | Object | Y | Payee information object                                                                                                |
-| payee.benAccountNum | String | Y | Payee account number. Will be converted to uppercase. Chinese characters are not supported [2 .. 48 ] characters        |
-| payee.benAccountName | String | Y | Payee name. English name [1 .. 100 ] characters                                                                         |
-| payee.benCountryCode | String | N | Payee's country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                        |
-| payee.benCityCode | String | N | Payee's city code. See dictionary_common.xlsx (sheet. city)                                                             |
-| payee.benAddress | String | N | Payee address. English address [10 .. 100 ] characters                                                                  |
-| payee.benPostCode | String | N | Payee postal code. [0 .. 20 ] characters                                                                                |
-| payee.benBankCode | String | N | Payee bank code. [0 .. 20 ] characters                                                                                  |
-| payee.benTransBankSwift | String | N | Payee transit bank. [0 .. 50 ] characters                                                                               |
-| payee.benLastName | String | N | Payee surname. Chinese characters are not supported [0 .. 60 ] characters                                               |
-| payee.benFirstName | String | N | Payee first name. Chinese characters are not supported [0 .. 60 ] characters                                            |
-| payee.benNationalityCountry | String | N | Payee nationality. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                                   |
-| payee.benIdNoType | String | N | Payee ID type. See dictionary_biz.pdf (1.1. Idno type)                                                                  |
-| payee.benIdNo | String | N | Payee ID number. [0 .. 20 ] characters                                                                                  |
-| payee.benIdExpirationDate | String | N | Payee ID validity period. Cannot be less than the current time yyyy-MM-dd                                               |
-| payee.benBirthday | String | N | Payee date of birth. yyyy-MM-dd                                                                                         |
-| payee.benMobileCode | String | N | Payee mobile area code. Example: +86. [0 .. 10 ] characters                                                             |
-| payee.benMobile | String | N | Payee mobile number. [0 .. 20 ] characters                                                                              |
-| payee.benBankAccountType | String | N | Payee bank account type. See dictionary_biz.pdf (2.1. Bank account type)                                                |
+| Parameter | Type | Required or not | Meaning                                                                                                           |
+|-------------------------------|------------|----------|:------------------------------------------------------------------------------------------------------------------|
+| bankId | Long | Y | Bank id                                                                                                           |
+| uniqueId | String | Y | Unique ID of the partner user. [1 .. 50 ] characters                                                              |
+| originOrderNo | String | Y | Merchant business order number. [12 .. 30 ] characters                                                            |
+| amount | BigDecimal | Y | Amount of money transferred. Only supports EUR, minimum amount 100EUR, maximum 2 decimal places                   |
+| postscript | String | Y | Postscript. Only supports English [5 .. 64 ] characters                                                           |
+| relationship | String | N | Payee and payee relationship. Required when paymentType=15. See dictionary_biz.pdf (2.4. Relationship)            |
+| sourceFunds | String | N | Source of funds. Required when paymentType=15. See dictionary_biz.pdf (2.5. SourceFunds)                          |
+| payPurpose | String | N | Purpose of payment. See dictionary_biz.pdf (2.6. PayPurpose)                                                      |
+| payer | Object | Y | Payer information object                                                                                          |
+| payer.payerType | String | Y | Payer type. INDIVIDUAL: Individual                                                                                |
+| payer.payerLastName | String | Y | Payer last name. Chinese characters are not supported [1 .. 50 ] characters                                       |
+| payer.payerFirstName | String | Y | Payer first name. Chinese characters are not supported [1 .. 50 ] characters                                      |
+| payer.payerIdNo | String | Y | Payer ID number. Chinese characters are not supported [6 .. 18 ] characters                                       |
+| payer.payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type)                                                            |
+| payer.payerIdCountry | String | Y | Payer ID issuing country. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                      |
+| payer.payerBirthday | String | Y | Payer's date of birth. yyyy-MM-dd                                                                                 |
+| payer.payerNationalityCountry | String | Y | Payer's nationality. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                           |
+| payer.payerMobile | String | Y | Payer's mobile number. Example: +37012345678. [8 .. 15 ] characters                                               |
+| payer.payerCountryCode | String | Y | Payer's country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                  |
+| payer.payerCityCode | String | Y | Payer's city code of residence. See dictionary_common.xlsx (sheet. city)                                          |
+| payer.payerAddress | String | Y | Payer address. Chinese characters are not supported [10 .. 100 ] characters                                       |
+| payer.payerPostCode | String | Y | Payer postal code. [3 .. 9 ] characters                                                                           |
+| payer.payerOccupation | String | Y | Payer occupation. English only supported [3 .. 20 ] characters                                                    |
+| payee | Object | Y | Payee information object                                                                                          |
+| payee.benAccountNum | String | Y | Payee account number. Will be converted to uppercase. Chinese characters are not supported [16 .. 48 ] characters |
+| payee.benAccountName | String | Y | Payee name. English name [1 .. 100 ] characters                                                                   |
+| payee.benCountryCode | String | N | Payee's country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                  |
+| payee.benCityCode | String | N | Payee's city code. See dictionary_common.xlsx (sheet. city)                                                       |
+| payee.benAddress | String | N | Payee address. English address [10 .. 100 ] characters                                                            |
+| payee.benPostCode | String | N | Payee postal code. [3 .. 9 ] characters                                                                           |
+| payee.benBankCode | String | N | Payee bank code. [6 .. 12 ] characters                                                                            |
+| payee.benTransBankSwift | String | N | Payee transit bank. [8 .. 11 ] characters                                                                         |
+| payee.benLastName | String | N | Payee surname. Chinese characters are not supported [2 .. 60 ] characters                                         |
+| payee.benFirstName | String | N | Payee first name. Chinese characters are not supported [2 .. 60 ] characters                                      |
+| payee.benNationalityCountry | String | N | Payee nationality. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                             |
+| payee.benIdNoType | String | N | Payee ID type. See dictionary_biz.pdf (1.1. Idno type)                                                            |
+| payee.benIdNo | String | N | Payee ID number. [6 .. 18 ] characters                                                                            |
+| payee.benIdExpirationDate | String | N | Payee ID validity period. Cannot be less than the current time yyyy-MM-dd                                         |
+| payee.benBirthday | String | N | Payee date of birth. yyyy-MM-dd                                                                                   |
+| payee.benMobileCode | String | N | Payee mobile area code. Example: +86. [2 .. 5 ] characters                                                        |
+| payee.benMobile | String | N | Payee mobile number. [5 .. 15 ] characters                                                                        |
+| payee.benBankAccountType | String | N | Payee bank account type. See dictionary_biz.pdf (2.1. Bank account type)                                          |
 
 **Request example：**
 

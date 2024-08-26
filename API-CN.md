@@ -1709,22 +1709,22 @@ POST /order/merchant/globalTransfer/payerVerify
 
 **请求参数：**
 
-| 参数                            | 类型         | 是否必传 | 含义                                                                        |
-|-------------------------------|------------|----------|:--------------------------------------------------------------------------|
-| payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                                       |
-| payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                                |
-| payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                                |
-| payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[1 .. 60 ] 个字符                                             |
-| payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）                              |
-| payerIdCountry          | String     | Y | 付款人证件颁发国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
-| payerBirthday           | String     | Y | 付款人出生日期。yyyy-MM-dd                                                        |
-| payerNationalityCountry | String     | Y | 付款人国籍。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）     |
-| payerMobile             | String     | Y | 付款人手机号码。例如：+37012345678。[1 .. 20 ] 个字符                                    |
-| payerCountryCode        | String     | Y | 付款人居住国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
-| payerCityCode           | String     | Y | 付款人居住城市代码。[1 .. 10 ] 个字符。参见dictionary_common.xlsx（sheet. city）            |
-| payerAddress            | String     | Y | 付款人地址。不支持中文字符[1 .. 200 ] 个字符                                              |
-| payerPostCode           | String     | Y | 付款人邮编。[1 .. 20 ] 个字符                                                      |
-| payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                                 |
+| 参数                            | 类型         | 是否必传 | 含义                                                         |
+|-------------------------------|------------|----------|:-----------------------------------------------------------|
+| payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                        |
+| payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                 |
+| payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                 |
+| payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[6 .. 18 ] 个字符                              |
+| payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）               |
+| payerIdCountry          | String     | Y | 付款人证件颁发国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
+| payerBirthday           | String     | Y | 付款人出生日期。yyyy-MM-dd                                         |
+| payerNationalityCountry | String     | Y | 付款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）     |
+| payerMobile             | String     | Y | 付款人手机号码。例如：+37012345678。[8 .. 15 ] 个字符                     |
+| payerCountryCode        | String     | Y | 付款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
+| payerCityCode           | String     | Y | 付款人居住城市代码。参见dictionary_common.xlsx（sheet. city）            |
+| payerAddress            | String     | Y | 付款人地址。不支持中文字符[10 .. 100 ] 个字符                              |
+| payerPostCode           | String     | Y | 付款人邮编。[3 .. 9 ] 个字符                                        |
+| payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                  |
 
 
 **请求示例：**
@@ -1793,26 +1793,26 @@ POST /order/merchant/globalTransfer/payeeVerify
 
 **请求参数：**
 
-| 参数                          | 类型     | 是否必传 | 含义                                                       |
-|-----------------------------|--------|----------|:---------------------------------------------------------|
-| bankId                      | Long   | Y | 银行id                                                     |
-| benAccountNum               | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                    |
-| benAccountName              | String | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                |
+| 参数                    | 类型     | 是否必传 | 含义                                                       |
+|-----------------------|--------|----------|:---------------------------------------------------------|
+| bankId                | Long   | Y | 银行id                                                     |
+| benAccountNum         | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[16 .. 48 ] 个字符                   |
+| benAccountName        | String | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                |
 | benCountryCode        | String | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
 | benCityCode           | String | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）          |
 | benAddress            | String | N | 收款人地址。英文地址[10 .. 100 ] 个字符                               |
-| benPostCode           | String | N | 收款人邮编。[0 .. 20 ] 个字符                                     |
-| benBankCode           | String | N | 收款人银行编码。[0 .. 20 ] 个字符                                   |
-| benTransBankSwift     | String | N | 收款人中转行。[0 .. 50 ] 个字符                                    |
-| benLastName           | String | N | 收款人姓。不支持中文字符[0 .. 60 ] 个字符                               |
-| benFirstName          | String | N | 收款人名。不支持中文字符[0 .. 60 ] 个字符                               |
+| benPostCode           | String | N | 收款人邮编。[3 .. 9 ] 个字符                                      |
+| benBankCode           | String | N | 收款人银行编码。[6 .. 12 ] 个字符                                   |
+| benTransBankSwift     | String | N | 收款人中转行。[8 .. 11 ] 个字符                                    |
+| benLastName           | String | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符                               |
+| benFirstName          | String | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符                               |
 | benNationalityCountry | String | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
 | benIdNoType           | String | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）             |
-| benIdNo               | String | N | 收款人证件号码。[0 .. 20 ] 个字符                                   |
+| benIdNo               | String | N | 收款人证件号码。[6 .. 18 ] 个字符                                   |
 | benIdExpirationDate   | String | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                             |
 | benBirthday           | String | N | 收款人出生日期。yyyy-MM-dd                                       |
-| benMobileCode         | String | N | 收款人手机区号。例：+86。[0 .. 10 ] 个字符                             |
-| benMobile             | String | N | 收款人手机号。[0 .. 20 ] 个字符                                    |
+| benMobileCode         | String | N | 收款人手机区号。例：+86。[2 ..5 ] 个字符                               |
+| benMobile             | String | N | 收款人手机号。[5 .. 15 ] 个字符                                     |
 | benBankAccountType    | String | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）   |
 
 
@@ -1895,50 +1895,50 @@ POST /order/merchant/globalTransfer/payment
 
 **请求参数：**
 
-| 参数                            | 类型         | 是否必传 | 含义                                                                        |
-|-------------------------------|------------|----------|:--------------------------------------------------------------------------|
-| bankId                        | Long       | Y        | 银行id                                                                      |
-| uniqueId                      | String     | Y        | 合作商用户的唯一ID。[1 .. 50 ] 个字符                                                 |
-| originOrderNo                 | String     | Y | 商户业务订单号。[12 .. 30 ] 个字符                                                   |
-| amount                        | BigDecimal | Y  | 速汇金额。只支持EUR，最低金额100EUR，最多2位小数                                             |
-| postscript                    | String     | Y        | 附言。仅支持英文[5 .. 64 ] 个字符                                                    |
-| relationship                  | String     | N        | 收付款人关系。当paymentType=15时需要。参见dictionary_biz.pdf（2.4. Relationship）         |
-| sourceFunds                   | String     | N        | 资金来源。当paymentType=15时需要。参见dictionary_biz.pdf（2.5. SourceFunds）            |
-| payPurpose                    | String     | N        | 付款目的。参见dictionary_biz.pdf（2.6. PayPurpose）                                |
-| payer                         | Object     | Y | 付款人信息对象                                                                   |
-| payer.payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                                       |
-| payer.payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                                |
-| payer.payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                                |
-| payer.payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[1 .. 60 ] 个字符                                             |
-| payer.payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）                              |
-| payer.payerIdCountry          | String     | Y | 付款人证件颁发国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
-| payer.payerBirthday           | String     | Y | 付款人出生日期。yyyy-MM-dd                                                        |
-| payer.payerNationalityCountry | String     | Y | 付款人国籍。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）     |
-| payer.payerMobile             | String     | Y | 付款人手机号码。例如：+37012345678。[1 .. 20 ] 个字符                                    |
-| payer.payerCountryCode        | String     | Y | 付款人居住国家。[1 .. 10 ] 个字符。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
-| payer.payerCityCode           | String     | Y | 付款人居住城市代码。[1 .. 10 ] 个字符。参见dictionary_common.xlsx（sheet. city）            |
-| payer.payerAddress            | String     | Y | 付款人地址。不支持中文字符[1 .. 200 ] 个字符                                              |
-| payer.payerPostCode           | String     | Y | 付款人邮编。[1 .. 20 ] 个字符                                                      |
-| payer.payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                                 |
-| payee                         | Object     | Y | 收款人信息对象                                                                   |
-| payee.benAccountNum           | String     | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                                     |
-| payee.benAccountName          | String     | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                                 |
-| payee.benCountryCode          | String     | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）                  |
-| payee.benCityCode             | String     | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）                           |
-| payee.benAddress              | String     | N | 收款人地址。英文地址[10 .. 100 ] 个字符                                                |
-| payee.benPostCode             | String     | N | 收款人邮编。[0 .. 20 ] 个字符                                                      |
-| payee.benBankCode             | String     | N | 收款人银行编码。[0 .. 20 ] 个字符                                                    |
-| payee.benTransBankSwift       | String     | N | 收款人中转行。[0 .. 50 ] 个字符                                                     |
-| payee.benLastName             | String     | N | 收款人姓。不支持中文字符[0 .. 60 ] 个字符                                                |
-| payee.benFirstName            | String     | N | 收款人名。不支持中文字符[0 .. 60 ] 个字符                                                |
-| payee.benNationalityCountry   | String     | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）                    |
-| payee.benIdNoType             | String     | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）                              |
-| payee.benIdNo                 | String     | N | 收款人证件号码。[0 .. 20 ] 个字符                                                    |
-| payee.benIdExpirationDate     | String     | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                                              |
-| payee.benBirthday             | String     | N | 收款人出生日期。yyyy-MM-dd                                                        |
-| payee.benMobileCode           | String     | N | 收款人手机区号。例：+86。[0 .. 10 ] 个字符                                              |
-| payee.benMobile               | String     | N | 收款人手机号。[0 .. 20 ] 个字符                                                     |
-| payee.benBankAccountType      | String     | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）                    |
+| 参数                            | 类型         | 是否必传 | 含义                                                                |
+|-------------------------------|------------|---|:------------------------------------------------------------------|
+| bankId                        | Long       | Y | 银行id                                                              |
+| uniqueId                      | String     | Y | 合作商用户的唯一ID。[1 .. 50 ] 个字符                                         |
+| originOrderNo                 | String     | Y | 商户业务订单号。[12 .. 30 ] 个字符                                           |
+| amount                        | BigDecimal | Y | 速汇金额。只支持EUR，最低金额100EUR，最多2位小数                                     |
+| postscript                    | String     | Y | 附言。仅支持英文[5 .. 64 ] 个字符                                            |
+| relationship                  | String     | N | 收付款人关系。当paymentType=15时需要。参见dictionary_biz.pdf（2.4. Relationship） |
+| sourceFunds                   | String     | N | 资金来源。当paymentType=15时需要。参见dictionary_biz.pdf（2.5. SourceFunds）    |
+| payPurpose                    | String     | N | 付款目的。参见dictionary_biz.pdf（2.6. PayPurpose）                        |
+| payer                         | Object     | Y | 付款人信息对象                                                           |
+| payer.payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                               |
+| payer.payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                        |
+| payer.payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                        |
+| payer.payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[6 .. 18 ] 个字符                                     |
+| payer.payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）                      |
+| payer.payerIdCountry          | String     | Y | 付款人证件颁发国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）        |
+| payer.payerBirthday           | String     | Y | 付款人出生日期。yyyy-MM-dd                                                |
+| payer.payerNationalityCountry | String     | Y | 付款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）            |
+| payer.payerMobile             | String     | Y | 付款人手机号码。例如：+37012345678。[8 .. 15 ] 个字符                            |
+| payer.payerCountryCode        | String     | Y | 付款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）          |
+| payer.payerCityCode           | String     | Y | 付款人居住城市代码。参见dictionary_common.xlsx（sheet. city）                   |
+| payer.payerAddress            | String     | Y | 付款人地址。不支持中文字符[10 .. 100 ] 个字符                                     |
+| payer.payerPostCode           | String     | Y | 付款人邮编。[3 .. 9 ] 个字符                                               |
+| payer.payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                         |
+| payee                         | Object     | Y | 收款人信息对象                                                           |
+| payee.benAccountNum           | String     | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[16 .. 48 ] 个字符                            |
+| payee.benAccountName          | String     | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                         |
+| payee.benCountryCode          | String     | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）          |
+| payee.benCityCode             | String     | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）                   |
+| payee.benAddress              | String     | N | 收款人地址。英文地址[10 .. 100 ] 个字符                                        |
+| payee.benPostCode             | String     | N | 收款人邮编。[3 .. 9 ] 个字符                                               |
+| payee.benBankCode             | String     | N | 收款人银行编码。[6 .. 12 ] 个字符                                            |
+| payee.benTransBankSwift       | String     | N | 收款人中转行。[8 ..11 ] 个字符                                              |
+| payee.benLastName             | String     | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符                                        |
+| payee.benFirstName            | String     | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符                                        |
+| payee.benNationalityCountry   | String     | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）            |
+| payee.benIdNoType             | String     | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）                      |
+| payee.benIdNo                 | String     | N | 收款人证件号码。[6 ..  18] 个字符                                            |
+| payee.benIdExpirationDate     | String     | N | 收款人证件有效期。不能小于当前时间 yyyy-MM-dd                                      |
+| payee.benBirthday             | String     | N | 收款人出生日期。yyyy-MM-dd                                                |
+| payee.benMobileCode           | String     | N | 收款人手机区号。例：+86。[2 .. 5 ] 个字符                                       |
+| payee.benMobile               | String     | N | 收款人手机号。[5 .. 15 ] 个字符                                             |
+| payee.benBankAccountType      | String     | N | 收款人银行账户类型。参见dictionary_biz.pdf（2.1. Bank account type）            |
 
 **请求示例：**
 
