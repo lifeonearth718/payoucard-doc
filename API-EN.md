@@ -1635,8 +1635,8 @@ POST /order/merchant/globalTransfer/payerVerify
 | Parameter | Type | Required or not | Meaning                                                                                          |
 |-------------------------------|------------|----------|:-------------------------------------------------------------------------------------------------|
 | payerType | String | Y | Payer type. INDIVIDUAL: individual                                                               |
-| payerLastName | String | Y | Payer's last name. Chinese characters [1 .. 50] characters are not supported                     |
-| payerFirstName | String | Y | Payer's first name. Chinese characters [1 .. 50] characters are not supported                    |
+| payerLastName | String | Y | Payer's last name. Chinese characters [2 .. 50] characters are not supported                     |
+| payerFirstName | String | Y | Payer's first name. Chinese characters [2 .. 50] characters are not supported                    |
 | payerIdNo | String | Y | Payer's ID number. Chinese characters are not supported [6 .. 18 ] characters                    |
 | payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type)                                           |
 | payerIdCountry | String | Y | Payer ID issuing country. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)     |
@@ -1825,8 +1825,8 @@ POST /order/merchant/globalTransfer/payment
 | payPurpose | String | N | Purpose of payment. See dictionary_biz.pdf (2.6. PayPurpose)                                                      |
 | payer | Object | Y | Payer information object                                                                                          |
 | payer.payerType | String | Y | Payer type. INDIVIDUAL: Individual                                                                                |
-| payer.payerLastName | String | Y | Payer last name. Chinese characters are not supported [1 .. 50 ] characters                                       |
-| payer.payerFirstName | String | Y | Payer first name. Chinese characters are not supported [1 .. 50 ] characters                                      |
+| payer.payerLastName | String | Y | Payer last name. Chinese characters are not supported [2 .. 50 ] characters                                       |
+| payer.payerFirstName | String | Y | Payer first name. Chinese characters are not supported [2 .. 50 ] characters                                      |
 | payer.payerIdNo | String | Y | Payer ID number. Chinese characters are not supported [6 .. 18 ] characters                                       |
 | payer.payerIdNoType | String | Y | Payer ID type. See dictionary_biz.pdf (1.1. Idno Type)                                                            |
 | payer.payerIdCountry | String | Y | Payer ID issuing country. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                      |

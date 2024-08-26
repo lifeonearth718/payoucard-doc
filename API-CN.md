@@ -1712,8 +1712,8 @@ POST /order/merchant/globalTransfer/payerVerify
 | 参数                            | 类型         | 是否必传 | 含义                                                         |
 |-------------------------------|------------|----------|:-----------------------------------------------------------|
 | payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                        |
-| payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                 |
-| payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                 |
+| payerLastName           | String     | Y | 付款人姓。不支持中文字符[2 .. 50 ] 个字符                                 |
+| payerFirstName          | String     | Y | 付款人名。不支持中文字符[2 .. 50 ] 个字符                                 |
 | payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[6 .. 18 ] 个字符                              |
 | payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）               |
 | payerIdCountry          | String     | Y | 付款人证件颁发国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
@@ -1907,8 +1907,8 @@ POST /order/merchant/globalTransfer/payment
 | payPurpose                    | String     | N | 付款目的。参见dictionary_biz.pdf（2.6. PayPurpose）                        |
 | payer                         | Object     | Y | 付款人信息对象                                                           |
 | payer.payerType               | String     | Y | 付款人类型。INDIVIDUAL：个人                                               |
-| payer.payerLastName           | String     | Y | 付款人姓。不支持中文字符[1 .. 50 ] 个字符                                        |
-| payer.payerFirstName          | String     | Y | 付款人名。不支持中文字符[1 .. 50 ] 个字符                                        |
+| payer.payerLastName           | String     | Y | 付款人姓。不支持中文字符[2 .. 50 ] 个字符                                        |
+| payer.payerFirstName          | String     | Y | 付款人名。不支持中文字符[2 .. 50 ] 个字符                                        |
 | payer.payerIdNo               | String     | Y | 付款人证件号码。不支持中文字符[6 .. 18 ] 个字符                                     |
 | payer.payerIdNoType           | String     | Y | 付款人证件类型。参见dictionary_biz.pdf（1.1. Idno Type）                      |
 | payer.payerIdCountry          | String     | Y | 付款人证件颁发国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）        |
