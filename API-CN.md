@@ -270,7 +270,7 @@ POST /order/merchant/file/upload
 |------------|--------|------------|:-----------|
 | file       | file   | Y          | 文件       |
 | requestId  | String | Y          | 请求流水id |
-| marchantId | String | Y          | 商户id     |
+| merchantId | String | Y          | 商户id     |
 | signature   | String | Y          | 签名     |
 | data       | Object | N          | 业务数据   |
 

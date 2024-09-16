@@ -270,7 +270,7 @@ POST /order/merchant/file/upload
 |------------|--------|------------|:-----------|
 | file | file | Y | file |
 | requestId | String | Y | request flow id |
-| marchantId | String | Y | merchant id |
+| merchantId | String | Y | merchant id |
 | signature | String | Y | signature |
 | data | Object | N | business data |
 
