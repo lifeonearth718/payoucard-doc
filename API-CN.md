@@ -330,7 +330,7 @@ POST /card/merchant/config/list
 | rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal    | Y        | 充值最大额度 |
 | rechargeCurrencyInfoList[0].digital          | Long    | Y        | 精度 |
 | needPhotoForActiveCard                    | Boolean    | Y        | 激活卡片时是否需要手持护照和银行卡照 |
-| needPhotoForOperateCard                   | Boolean    | Y        | 找回密码时是否需要提供用户签名照 |
+| needPhotoForOperateCard                   | Boolean    | Y        | 冻结、解冻和找回密码时是否需要提供用户签名照 |
 
 **响应示例：**
 
@@ -535,6 +535,7 @@ POST /user/merchant/info/update
 | idNoExpiryDate   | String | N        | 证件过期时间(yyyy-MM-dd)                                                            |
 | idPicture   | String | N        | 证件照片 (URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
 | facePicture   | String | N        | 人脸照片(URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
+| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
 
 
 **请求示例：**
@@ -561,7 +562,8 @@ POST /user/merchant/info/update
     "idno": "ES2324523",
     "idNoExpiryDate":"2050-11-01",
     "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
+    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
   },
   "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }

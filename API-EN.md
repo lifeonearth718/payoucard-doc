@@ -329,7 +329,7 @@ POST /card/merchant/config/list
 | rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal | Y | Maximum recharge amount |
 | rechargeCurrencyInfoList[0].digital | Long | Y | Precision |
 | needPhotoForActiveCard | Boolean | Y | Is it necessary to hold a passport and bank card photo when activating the card? |
-| needPhotoForOperateCard | Boolean | Y | Is it necessary to provide a user signature photo when retrieving the password? |
+| needPhotoForOperateCard | Boolean | Y | Is it necessary to provide a user signature photo when freezing, unfreezing, or retrieving a password? |
 
 **Response example:**
 
