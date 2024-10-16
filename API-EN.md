@@ -451,6 +451,7 @@ POST /user/merchant/register
 | idNoExpiryDate | String | N | ID expiration date (yyyy-MM-dd) |
 | idPicture | String | N | ID photo (URL format). Please call the interface /order/merchant/file/upload to obtain the url |
 | facePicture | String | N | Face photo (URL format). Please call the interface /order/merchant/file/upload to get the url |
+| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
 
 **Request example:**
 
@@ -475,7 +476,8 @@ POST /user/merchant/register
         "idno": "ES2324523", 
         "idNoExpiryDate":"2050-11-01", 
         "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png", 
-        "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png" 
+        "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
+        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
     }, 
     "signture": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
@@ -525,6 +527,7 @@ POST /user/merchant/info/update
 | idNoExpiryDate | String | N | ID expiration date (yyyy-MM-dd) |
 | idPicture | String | N | ID photo (URL format). Please call the interface /order/merchant/file/upload to obtain the url |
 | facePicture | String | N | Face photo (URL format). Please call the interface /order/merchant/file/upload to get the url |
+| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
 
 **Request example:**
 
@@ -549,7 +552,8 @@ POST /user/merchant/info/update
         "idno": "ES2324523", 
         "idNoExpiryDate":"2050-11-01", 
         "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png", 
-        "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png" 
+        "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
+        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
      }, 
     "signture": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
