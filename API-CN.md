@@ -461,6 +461,8 @@ POST /user/merchant/register
 | idNoExpiryDate   | String | N        | 证件过期时间(yyyy-MM-dd)                                                            |
 | idPicture   | String | N        | 证件照片 (URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
 | facePicture   | String | N        | 人脸照片(URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
+| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
+
 
 **请求示例：**
 
@@ -486,7 +488,8 @@ POST /user/merchant/register
     "idno": "ES2324523",
     "idNoExpiryDate":"2050-11-01",
     "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
+    "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
+    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
   },
   "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
