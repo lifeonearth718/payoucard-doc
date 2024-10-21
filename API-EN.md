@@ -2645,6 +2645,8 @@ This notification notifyType = 7
 This notification notifyType = 8
 
 **Callback parameters:**
+| Parameter | Type | Required or not | Meaning |
+|------|------|------|:------|
 | cardNo | String | Y | Card number |
 | currency | String | Y | Transaction currency |
 | amount | BigDecimal | Y | Transaction amount |

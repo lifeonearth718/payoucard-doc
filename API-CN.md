@@ -2748,6 +2748,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 此通知notifyType = 8
 
 **回调参数：**
+| 参数 | 类型 | 是否必传 | 含义 |
+|------|------|------|:------|
 | cardNo | String     | Y    | 卡号                                                                                                |
 | currency | String     | Y    | 交易币种                                                                                              |
 | amount | BigDecimal | Y    | 交易金额                                                                                              |
