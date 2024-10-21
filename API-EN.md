@@ -56,6 +56,7 @@
         - [Bank card activation result callback notification](#Bank-card-activation-result-callback-notification)
         - [Bank card freeze thaw processing status callback notification](#Bank-card-freeze-thaw-processing-status-callback-notification)
         - [Bank card 3DS verification](#Bank-card-3DS-verification)
+        - [Bank card-consumption bill event](#Bank-card-consumption-bill-event)
 
 # Introduction
 Welcome to the PayouCard developer documentation. An overview of the merchant docking application development interface.
@@ -2297,6 +2298,7 @@ Please set the callback notification address in the merchant basic information i
 | 5 | Bank card | Card activation result callback notification |
 | 6 | Bank card | Card freeze, thaw processing status callback notification |
 | 7 | Bank card | 3DS verification |
+| 8 | Bank Card | Bank Card Consumption Statement |
 
 ### Global Express Remittance Payment result callback notification
 This notification notifyType = 1
@@ -2636,6 +2638,68 @@ This notification notifyType = 7
 {
     "code": 0,
     "message": "success"
+}
+```
+
+### Bank card consumption bill event
+This notification notifyType = 8
+
+**Callback parameters:**
+| cardNo | String | Y | Card number |
+| currency | String | Y | Transaction currency |
+| amount | BigDecimal | Y | Transaction amount |
+| fee | BigDecimal | Y | Handling fee |
+| txnAmount | BigDecimal | Y | Actual payment amount |
+| currencyTxn | String | Y | Actual payment currency |
+| businessDate | String | Y | Business date |
+| tradeId | String | Y | Transaction serial number |
+| tradeType | Integer | Y | Transaction type. 1-Pre-authorization; 2-Payment; 3-Recharge; 4-Withdrawal; 5-Transfer in; 6-Transfer out; 7-Settlement adjustment; 8-Balance inquiry; 9-Handling fee; 10-Consumption; 11-Consumption failure; 12-Refund; 13-Revocation; 14-Others 15-Card binding verification transaction |
+| tradeTypeStr | String | Y | Transaction type description |
+| tradeStatus | String | Y | Transaction status. SUCCESS-successful; REVERSAL-reversed; REVERSED-reversed; REJECTED-revoked; CANCELLED-revoked; REFUND-returned |
+| tradeStatusStr | String | Y | Transaction status description |
+| originTransactionId | String | Y | Source transaction serial number |
+| remark | String | Y | Remark |
+| transactionTime | Long | N | Transaction millisecond timestamp |
+
+**Response example:**
+```json
+{
+"code": 0,
+"message": "success",
+"success": true,
+"data":{
+    "amount": 8000.0,
+    "businessDate": 1710950400000,
+    "cardNo": "5554748800001227",
+    "currency": "EUR",
+    "fee": 1.0,
+    "remark": "Purchase clothing",
+    "tradeStatus": "SUCCESS",
+    "tradeStatusStr": "Success",
+    "tradeType": 5,
+    "tradeTypeStr": "Transfer",
+    "txnAmount": 1000,
+    "currencyTxn": "USD",
+    "transactionTime": 1724139032647
+},
+"requestId": "PYC20240325164529237",
+"merchantId": "88888888",
+"signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
+}
+```
+
+**Response parameters:**
+
+| Parameter | Type | Required or not | Meaning |
+|------|------|------|:------|
+| code | Integer | Y | 0. After returning 0, callback notification will not be repeated |
+| message | String | N | information |
+
+**Response example:**
+```json
+{
+"code": 0,
+"message": "success"
 }
 ```
 

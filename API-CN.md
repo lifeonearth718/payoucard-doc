@@ -57,6 +57,8 @@
         - [银行卡-卡片激活结果回调通知](#银行卡卡片激活结果回调通知)
         - [银行卡-卡片冻结、解冻处理状态回调通知](#银行卡卡片冻结、解冻处理状态回调通知)
         - [银行卡-3DS校验](#银行卡-3DS校验)
+        - [银行卡-消费账单事件](#银行卡-消费账单事件)
+        
 
 
 # 简介
@@ -2392,6 +2394,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | 5          | 银行卡    | 卡片激活结果回调通知    |
 | 6          | 银行卡    | 卡片冻结、解冻处理状态回调通知    |
 | 7          | 银行卡    | 3DS校验    |
+| 8          | 银行卡    | 银行卡消费账单    |
 
 ### 全球速汇-支付结果回调通知
 此通知notifyType = 1
@@ -2723,6 +2726,69 @@ POST /order/merchant/globalTransfer/getOrderResult
   "merchantId": "88888888",
   "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa",
   "notifyType": 5
+}
+```
+
+**响应参数：**
+
+| 参数 | 类型 | 是否必传 | 含义 |
+|------|------|------|:------|
+| code | Integer    | Y    | 0。返回0后不会再重复发起回调通知 |
+| message | String    | N    | 信息 |
+
+**响应示例：**
+```json
+{
+  "code": 0,
+  "message": "success"
+}
+```
+
+### 银行卡-消费账单事件
+此通知notifyType = 8
+
+**回调参数：**
+| cardNo | String     | Y    | 卡号                                                                                                |
+| currency | String     | Y    | 交易币种                                                                                              |
+| amount | BigDecimal | Y    | 交易金额                                                                                              |
+| fee | BigDecimal | Y    | 手续费                                                                                               |
+| txnAmount | BigDecimal | Y    | 实际支付金额                                                                                            |
+| currencyTxn | String     | Y    | 实际支付币种                                                                                            |
+| businessDate | String     | Y    | 业务日期                                                                                              |
+| tradeId | String     | Y    | 交易流水号                                                                                             |
+| tradeType | Integer    | Y    | 交易类型。1-预授权；2-支付；3-充值；4-提现；5-转入；6-转出；7-结算调整；8-余额查询；9-手续费；10-消费；11-消费失败；12-退款；13-撤销；14-其他 15-绑卡验证交易 |
+| tradeTypeStr | String     | Y    | 交易类型描述                                                                                            |
+| tradeStatus | String     | Y    | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货                      |
+| tradeStatusStr | String     | Y    | 交易状态描述                                                                                            |
+| originTransactionId | String     | Y    | 源交易流水号                                                                                            |
+| remark | String     | Y    | 备注                                                                                                |
+| transactionTime | Long       | N    | 交易毫秒时间戳                                                                                           |
+
+**响应示例：**
+```json
+{
+  "code": 0,
+  "message": "success",
+  "success": true,
+  "data":
+  {
+    "amount": 8000.0,
+    "businessDate": 1710950400000,
+    "cardNo": "5554748800001227",
+    "currency": "EUR",
+    "fee": 1.0,
+    "remark": "购买衣物",
+    "tradeStatus": "SUCCESS",
+    "tradeStatusStr": "成功",
+    "tradeType": 5,
+    "tradeTypeStr": "转入",
+    "txnAmount": 1000,
+    "currencyTxn": "USD",
+    "transactionTime": 1724139032647
+  },
+  "requestId": "PYC20240325164529237",
+  "merchantId": "88888888",
+  "signature": "2sadfj23sanfinasdfnawesamdfasdfasdfwasfasdfa"
 }
 ```
 
