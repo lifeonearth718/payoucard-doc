@@ -309,7 +309,7 @@ POST /card/merchant/config/list
     "requestId": "PYC20240325164529237",
     "marchantId": "88888888",
     "data":null,
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -480,7 +480,7 @@ POST /user/merchant/register
         "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
         "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
     }, 
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa" 
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
 ``` 
 
@@ -556,7 +556,7 @@ POST /user/merchant/info/update
         "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
         "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
      }, 
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa" 
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
 ``` 
 
@@ -600,7 +600,7 @@ POST /user/merchant/kyc/attachments
       "type": 2, 
       "data": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png" 
     }, 
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa" 
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
 ``` 
 
@@ -780,7 +780,7 @@ POST /card/merchant/virtual/card/status
     "data":{
       "orderNo":"240123173818711000"
     },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -834,7 +834,7 @@ POST /card/merchant/activation
         "cardNo": "12456782323",
         "activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
     },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1767,7 +1767,7 @@ POST /order/merchant/globalTransfer/payeeVerify
         "benMobile": "12345678",
         "benBankAccountType": "SAVINGS"
     },
-    "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+    "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1918,7 +1918,7 @@ POST /order/merchant/globalTransfer/payment
       "benBankAccountType": "SAVINGS"
     }
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 **Request Response：**
@@ -2128,7 +2128,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
       }
     ]
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
