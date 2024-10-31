@@ -309,9 +309,9 @@ POST /card/merchant/config/list
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":null,
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -380,9 +380,9 @@ POST /user/merchant/account/query
 ```JSON
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":{},
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -471,7 +471,7 @@ POST /user/merchant/register
 ```JSON
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId":"U898IPO8KH65445F",
@@ -493,7 +493,7 @@ POST /user/merchant/register
     "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
     "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -548,7 +548,7 @@ POST /user/merchant/info/update
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId":"U898IPO8KH65445F",
@@ -570,7 +570,7 @@ POST /user/merchant/info/update
     "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
     "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -608,14 +608,14 @@ POST /user/merchant/kyc/attachments
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId":"U898IPO8KH65445F",
     "type": 2,
     "data": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -653,13 +653,13 @@ POST /user/merchant/submit/kyc/verification
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardTypeId": 1
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -695,13 +695,13 @@ POST /user/merchant/kyc/query
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardTypeId": 1
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -746,13 +746,13 @@ POST /card/merchant/virtual/card/apply
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardTypeId": 1
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -793,12 +793,12 @@ POST /card/merchant/virtual/card/status
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "orderNo":"240123173818711000"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -846,14 +846,14 @@ POST /card/merchant/activation
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardNo": "12456782323",
     "activePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -901,14 +901,14 @@ POST /card/merchant/recharge/estimationCurrency
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "cardTypeId": 10,
     "currency": "USDT",
     "amount": 20
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -963,7 +963,7 @@ POST /card/merchant/recharge
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
@@ -972,7 +972,7 @@ POST /card/merchant/recharge
     "amount": 100,
     "orderNo": "2324a2dfga3435fg34353"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1032,12 +1032,12 @@ POST /card/merchant/recharge/order/query
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "orderNo": "U898IPO8KH65445F"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1107,7 +1107,7 @@ POST /card/merchant/recharge/query
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
@@ -1118,7 +1118,7 @@ POST /card/merchant/recharge/query
     "page": 1,
     "pageSize": 10
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 **请求响应：**
@@ -1192,13 +1192,13 @@ POST /card/merchant/balance/query
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardNo": "12456782323"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1254,14 +1254,14 @@ POST /card/merchant/payment/password/set
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardNo": "12456782323",
     "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1303,7 +1303,7 @@ POST /card/merchant/trade/query
 ```JSON
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
@@ -1314,7 +1314,7 @@ POST /card/merchant/trade/query
     "pageNum": 1,
     "pageSize": 30
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1395,14 +1395,14 @@ POST /card/merchant/freeze
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardNo": "12456782323",
     "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1452,14 +1452,14 @@ POST /card/merchant/unfreeze
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "U898IPO8KH65445F",
     "cardNo": "12456782323",
     "signaturePhoto": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1509,9 +1509,9 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data": null,
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1625,14 +1625,14 @@ POST /order/merchant/globalTransfer/getExchangeRate
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "currency": "EUR",
     "targetCurrency": "SGD",
     "targetCountry": "SG"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1739,7 +1739,7 @@ POST /order/merchant/globalTransfer/payerVerify
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "payerType": "INDIVIDUAL",
@@ -1757,7 +1757,7 @@ POST /order/merchant/globalTransfer/payerVerify
     "payerPostCode": "999002",
     "payerOccupation": "worker"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1828,7 +1828,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "bankId": 2671,
@@ -1851,7 +1851,7 @@ POST /order/merchant/globalTransfer/payeeVerify
     "benMobile": "12345678",
     "benBankAccountType": "SAVINGS"
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -1952,7 +1952,7 @@ POST /order/merchant/globalTransfer/payment
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "bankId": 2671,
@@ -2002,7 +2002,7 @@ POST /order/merchant/globalTransfer/payment
       "benBankAccountType": "SAVINGS"
     }
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -2058,7 +2058,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "uniqueId": "23242",
@@ -2067,7 +2067,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
     "page": 1,
     "pageSize": 10
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -2141,7 +2141,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "total": 1,
@@ -2216,7 +2216,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
       }
     ]
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -2246,7 +2246,7 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "orderNo": 1234556778945342,
@@ -2269,7 +2269,7 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
       }
     ]
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 
@@ -2310,12 +2310,12 @@ POST /order/merchant/globalTransfer/getOrderResult
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "orderNo": 1234556778945342
   },
-  "signture": "asfasdfjioasnfasdfasfiwaefasdfa"
+  "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
 ```
 

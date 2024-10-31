@@ -307,7 +307,7 @@ POST /card/merchant/config/list
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":null,
     "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
@@ -375,7 +375,7 @@ POST /user/merchant/account/query
 ```JSON
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{},
     "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
@@ -459,7 +459,7 @@ POST /user/merchant/register
 ```JSON
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId":"U898IPO8KH65445F",
         "mobile": "+8617800001111",
@@ -535,7 +535,7 @@ POST /user/merchant/info/update
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId":"U898IPO8KH65445F",
         "mobile": "+8617800001111",
@@ -594,7 +594,7 @@ POST /user/merchant/kyc/attachments
 ```json
 {
     "requestId": "PYC20240325164529237", 
-    "marchantId": "88888888", 
+    "merchantId": "88888888", 
     "data": {  
       "uniqueId":"U898IPO8KH65445F", 
       "type": 2, 
@@ -639,7 +639,7 @@ POST /user/merchant/submit/kyc/verification
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardTypeId": 1
@@ -680,7 +680,7 @@ POST /user/merchant/kyc/query
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardTypeId": 1
@@ -730,7 +730,7 @@ POST /card/merchant/virtual/card/apply
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardTypeId": 1
@@ -776,7 +776,7 @@ POST /card/merchant/virtual/card/status
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
       "orderNo":"240123173818711000"
     },
@@ -828,7 +828,7 @@ POST /card/merchant/activation
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -879,7 +879,7 @@ POST /card/merchant/recharge/estimationCurrency
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "cardTypeId": 10,
         "currency": "USDT",
@@ -937,7 +937,7 @@ POST /card/merchant/recharge
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1004,7 +1004,7 @@ POST /card/merchant/recharge/order/query
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
       "orderNo": "U898IPO8KH65445F"
     },
@@ -1075,7 +1075,7 @@ POST /card/merchant/recharge/query
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1153,7 +1153,7 @@ POST /card/merchant/balance/query
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323"
@@ -1208,7 +1208,7 @@ POST /card/merchant/payment/password/set
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1256,7 +1256,7 @@ POST /card/merchant/trade/query
 ```JSON
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1343,7 +1343,7 @@ POST /card/merchant/freeze
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1398,7 +1398,7 @@ POST /card/merchant/unfreeze
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "U898IPO8KH65445F",
         "cardNo": "12456782323",
@@ -1451,7 +1451,7 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data": null,
     "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
@@ -1549,7 +1549,7 @@ POST /order/merchant/globalTransfer/getExchangeRate
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "currency": "EUR",
         "targetCurrency": "SGD",
@@ -1659,7 +1659,7 @@ POST /order/merchant/globalTransfer/payerVerify
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "payerType": "INDIVIDUAL",
         "payerLastName": "z",
@@ -1745,7 +1745,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "bankId": 2671,
         "benAccountNum": "123456",
@@ -1868,7 +1868,7 @@ POST /order/merchant/globalTransfer/payment
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "bankId": 2671,
@@ -1971,7 +1971,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
         "uniqueId": "23242",
         "originOrderNo": null,
@@ -2053,7 +2053,7 @@ POST /order/merchant/globalTransfer/queryOrderPage
 ```json
 {
   "requestId": "PYC20240325164529237",
-  "marchantId": "88888888",
+  "merchantId": "88888888",
   "data":
   {
     "total": 1,
@@ -2158,7 +2158,7 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
     "orderNo": 1234556778945342,
     "transferInfos":[{
@@ -2215,7 +2215,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 ```json
 {
     "requestId": "PYC20240325164529237",
-    "marchantId": "88888888",
+    "merchantId": "88888888",
     "data":{
       "orderNo": 1234556778945342
     },
