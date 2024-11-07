@@ -409,17 +409,17 @@ POST /user/merchant/account/query
 ```
 
 ### Merchant User Registration
-This interface is used for merchant user registration. The registered information will be used to submit the KYC application to the bank;
-1. The application for a virtual card requires a mobile phone number, mobile phone international area code, email, surname, first name and address
-2. All information for the application of a physical card needs to be provided, and special cards need to provide a handheld ID number
+This interface is used for merchant user registration. The registered information will be used to submit the KYC application to the bank; <br>
+1. The application for a virtual card requires a mobile phone number, mobile phone international area code, email, surname, first name and address <br>
+2. All information for the application of a physical card needs to be provided, and special cards need to provide a handheld ID number <br>
 
-Requirements for submitting KYC in the test environment:
-id==3 or id==9: mobile phone number, mobile phone area code, email, surname, first name and address
-id==1 or id == 10: All fields in the registration interface cannot be empty
-id==2: All fields in the registration interface are required, upload a handheld ID photo (uploaded via attachment)
+Requirements for submitting KYC in the test environment: <br>
+id==3 or id==9: mobile phone number, mobile phone area code, email, surname, first name and address <br>
+id==1 or id == 10: All fields in the registration interface cannot be empty <br>
+id==2: All fields in the registration interface are required, Upload a photo of yourself holding your ID card and add it through the extended field extField <br>
 
-id == 1 The country of application must be a member of the European Union, otherwise it is not supported
-EEA countries refer to EEA countries in dictionary_common.xlsx
+id == 1 The country of application must be a member of the European Union, otherwise it is not supported <br>
+EEA countries refer to EEA countries in dictionary_common.xlsx <br>
 
 **It is recommended to register all cards with a passport**
 
@@ -452,7 +452,7 @@ POST /user/merchant/register
 | idNoExpiryDate | String | N | ID expiration date (yyyy-MM-dd) |
 | idPicture | String | N | ID photo (URL format). Please call the interface /order/merchant/file/upload to obtain the url |
 | facePicture | String | N | Face photo (URL format). Please call the interface /order/merchant/file/upload to get the url |
-| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
+| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg","signPhoto":"http://baidu.com/signPhoto.jpg"})	                                                            |
 
 **Request example:**
 
@@ -478,7 +478,7 @@ POST /user/merchant/register
         "idNoExpiryDate":"2050-11-01", 
         "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png", 
         "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
-        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
+        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\",\"signPhoto\":\"http://baidu.com/signPhoto.jpg\"}"
     }, 
     "signature": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 
@@ -528,7 +528,7 @@ POST /user/merchant/info/update
 | idNoExpiryDate | String | N | ID expiration date (yyyy-MM-dd) |
 | idPicture | String | N | ID photo (URL format). Please call the interface /order/merchant/file/upload to obtain the url |
 | facePicture | String | N | Face photo (URL format). Please call the interface /order/merchant/file/upload to get the url |
-| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
+| extField   | String | N        | Json format({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg","signPhoto":"http://baidu.com/signPhoto.jpg"})	                                                            |
 
 **Request example:**
 
@@ -554,7 +554,7 @@ POST /user/merchant/info/update
         "idNoExpiryDate":"2050-11-01", 
         "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png", 
         "facePicture": "https://waefdf23asdf.cloudfront. net/media/88888888/test.png",
-        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
+        "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\",\"signPhoto\":\"http://baidu.com/signPhoto.jpg\"}"
      }, 
     "signature": "asfasdfjioasnfasdfasfiwaefasdfa" 
 } 

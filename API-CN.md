@@ -418,17 +418,17 @@ POST /user/merchant/account/query
 
 
 ### 商户用户注册
-此接口用于商户的用户注册，注册的信息将用于提交银行做KYC申请；
-1、虚拟卡的申请需要提供手机号、手机国际区号、邮箱、姓、名和地址
-2、实体卡的申请所有信息均需要提供，另外特殊的卡需要提供手持证件号
+此接口用于商户的用户注册，注册的信息将用于提交银行做KYC申请；<br>
+1、虚拟卡的申请需要提供手机号、手机国际区号、邮箱、姓、名和地址 <br>
+2、实体卡的申请所有信息均需要提供，另外特殊的卡需要提供手持证件号 <br>
 
-测试环境中提交KYC的要求:
-id==3 or id==9：手机号、手机区号、邮箱、姓、名和地址
-id==1 or id == 10：注册接口中所有的字段都不能为空
-id==2:注册接口中所有的字段都需要，上传手持证件照(通过附件上传)
+测试环境中提交KYC的要求: <br>
+id==3 or id==9：手机号、手机区号、邮箱、姓、名和地址 <br>
+id==1 or id == 10：注册接口中所有的字段都不能为空 <br>
+id==2:注册接口中所有的字段都需要，上传手持证件照通过扩展字段extField增加 <br>
 
-id == 1申请的国家必须为欧盟成员国，否则不支持
-EEA国家参考dictionary_common.xlsx中的EEA国家
+id == 1申请的国家必须为欧盟成员国，否则不支持 <br>
+EEA国家参考dictionary_common.xlsx中的EEA国家 <br>
 
 **建议所有的卡片注册用护照 **
 
@@ -463,7 +463,7 @@ POST /user/merchant/register
 | idNoExpiryDate   | String | N        | 证件过期时间(yyyy-MM-dd)                                                            |
 | idPicture   | String | N        | 证件照片 (URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
 | facePicture   | String | N        | 人脸照片(URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
-| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
+| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg","signPhoto":"http://baidu.com/signPhoto.jpg"})	                                                            |
 
 
 **请求示例：**
@@ -491,7 +491,7 @@ POST /user/merchant/register
     "idNoExpiryDate":"2050-11-01",
     "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
     "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
+    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\",\"signPhoto\":\"http://baidu.com/signPhoto.jpg\"}"
   },
   "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
@@ -540,7 +540,7 @@ POST /user/merchant/info/update
 | idNoExpiryDate   | String | N        | 证件过期时间(yyyy-MM-dd)                                                            |
 | idPicture   | String | N        | 证件照片 (URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
 | facePicture   | String | N        | 人脸照片(URL格式)。请调用接口 /order/merchant/file/upload 获取url                                                            |
-| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg"})	                                                            |
+| extField   | String | N        | JSON格式({"eeaFileProof":"http://baidu.com/photo.jpg","handheldPhoto":"http://baidu.com/handheldPhoto.jpg","signPhoto":"http://baidu.com/signPhoto.jpg"})	                                                            |
 
 
 **请求示例：**
@@ -568,7 +568,7 @@ POST /user/merchant/info/update
     "idNoExpiryDate":"2050-11-01",
     "idPicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
     "facePicture": "https://waefdf23asdf.cloudfront.net/media/88888888/test.png",
-    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\"}"
+    "extField": "{\"eeaFileProof\":\"http://baidu.com/photo.jpg\",\"handheldPhoto\":\"http://baidu.com/handheldPhoto.jpg\",\"signPhoto\":\"http://baidu.com/signPhoto.jpg\"}"
   },
   "signature": "asfasdfjioasnfasdfasfiwaefasdfa"
 }
