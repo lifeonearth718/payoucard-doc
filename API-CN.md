@@ -1326,6 +1326,7 @@ POST /card/merchant/trade/query
 | current | Long       | Y    | 当前页                                                                                               |
 | records | List       | Y    | 数据集合                                                                                              |
 | records[0].cardNo | String     | Y    | 卡号                                                                                                |
+| records[0].cardTypeId | Integer     | Y    | 卡片类型ID                                                                                              |
 | records[0].currency | String     | Y    | 交易币种                                                                                              |
 | records[0].amount | BigDecimal | Y    | 交易金额                                                                                              |
 | records[0].fee | BigDecimal | Y    | 手续费                                                                                               |
@@ -1357,6 +1358,7 @@ POST /card/merchant/trade/query
         "amount": 8000.0,
         "businessDate": 1710950400000,
         "cardNo": "5554748800001227",
+        "cardTypeId": 1,
         "currency": "EUR",
         "fee": 1.0,
         "remark": "购买衣物",

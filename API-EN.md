@@ -1278,6 +1278,7 @@ POST /card/merchant/trade/query
 | current | Long | Y | Current page |
 | records | List | Y | Data collection |
 | records[0].cardNo | String | Y | Card number |
+| records[0].cardTypeId | Integer     | Y    | Card type id                                                                                              |
 | records[0].currency | String | Y | Transaction Currency |
 | records[0].amount | BigDecimal | Y | Transaction Amount |
 | records[0].fee | BigDecimal | Y | Handling fee |
@@ -1306,6 +1307,7 @@ POST /card/merchant/trade/query
             "amount": 8000.0,
             "businessDate": 1710950400000,
             "cardNo": "5554748800001227",
+            "cardTypeId": 1,
             "currency": "EUR",
             "fee": 1.0,
             "remark": "Purchase clothing",
