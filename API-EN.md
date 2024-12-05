@@ -2145,15 +2145,15 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 
 **Request parameters:**
 
-| Parameter | Type | Required | Meaning |
-|----------|--------|----------|:-------------------------------------------------------------|
-| orderNo | Long | Y | PayouCard order number |
-| transferInfos | List | N | Order information collection |
-| transferInfos[0].code | String | N | Order information code. See dictionary_biz.pdf (2.2. Transfer order info type) |
+| Parameter | Type | Required | Meaning                                                                                  |
+|----------|--------|----------|:-----------------------------------------------------------------------------------------|
+| orderNo | Long | Y | PayouCard order number                                                                   |
+| transferInfos | List | N | Order information collection                                                             |
+| transferInfos[0].code | String | N | Order information code. See dictionary_biz.pdf (2.2. Transfer order info type)           |
 | transferInfos[0].content | String | N | Order information content. Chinese characters are not supported. Maximum 200 characters. |
-| transferFiles | List | N | Order file collection. See dictionary_biz.pdf (2.3. Transfer order file type) |
-| transferFiles[0].code | String | N | Order file code |
-| transferFiles[0].content | String | N | Order file url. Each file cannot exceed 2M |
+| transferFiles | List | N | Order file collection. See dictionary_biz.pdf (2.3. Transfer order file type)            |
+| transferFiles[0].code | String | N | Order file code                                                                          |
+| transferFiles[0].content | String | N | Order file url. Each file cannot exceed 2M, Only supports image formats .png, jpg, jpeg  |
 
 **Request example:**
 

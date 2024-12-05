@@ -2241,7 +2241,7 @@ POST /order/merchant/globalTransfer/submitTransferOrderInfo
 | transferInfos[0].content | String | N | 订单信息内容。不支持中文字符，最多200个字符                                      |
 | transferFiles | List | N | 订单文件集合。参见dictionary_biz.pdf（2.3. Transfer order file type）   |
 | transferFiles[0].code | String | N | 订单文件code                                                     |
-| transferFiles[0].content | String | N | 订单文件url。每个文件不能超过2M                                           |
+| transferFiles[0].content | String | N | 订单文件url。每个文件不能超过2M，只支持图片格式.png，jpg，jpeg                      |
 
 **请求示例：**
 
