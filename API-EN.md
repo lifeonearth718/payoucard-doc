@@ -1287,11 +1287,13 @@ POST /card/merchant/trade/query
 | records[0].businessDate | String | Y | Business date |
 | records[0].tradeId | String | Y | Transaction serial number |
 | records[0].tradeType | Integer | Y | Transaction type. 1-Pre-authorization; 2-Payment; 3-Recharge; 4-Withdrawal; 5-Transfer in; 6-Transfer out; 7-Settlement adjustment; 8-Balance inquiry; 9-Service fee; 10-Consumption; 11-Consumption failure; 12-Refund; 13-Revocation; 14-Others 15-Card binding verification transaction|
+| records[0].dataType | String | Y | A-Auth S-Settle |
 | records[0].tradeTypeStr | String | Y | Transaction type description |
 | records[0].tradeStatus | String | Y | Transaction status. SUCCESS-successful; REVERSAL-reversed; REVERSED-reversed; REJECTED-revoked; CANCELLED-revoked; REFUND-returned |
 | records[0].tradeStatusStr | String | Y | Transaction status description |
 | records[0].originTransactionId | String | Y | Source transaction serial number |
 | records[0].remark | String | Y | Remarks |
+| records[0].reason | String | Y | Reasons for consumption failure |
 | records[0].transactionTime | Long       | N    | Transaction millisecond timestamp                                                                                         |
 
 **Response example:**
@@ -1311,9 +1313,11 @@ POST /card/merchant/trade/query
             "currency": "EUR",
             "fee": 1.0,
             "remark": "Purchase clothing",
+            "reason": "",
             "tradeStatus": "SUCCESS",
             "tradeStatusStr": "Success",
             "tradeType": 5,
+            "dataType": "S",
             "tradeTypeStr": "Transfer",
             "txnAmount": 0.0,
             "currencyTxn": "USD",
