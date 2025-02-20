@@ -54,7 +54,7 @@
         - [User KYC callback notification](#User-KYC-callback-notification)
         - [Bank card callback notification of card recharge result](#Bank-card-callback-notification-of-card-recharge-result)
         - [Bank card activation result callback notification](#Bank-card-activation-result-callback-notification)
-        - [Bank card freeze thaw processing status callback notification](#Bank-card-freeze-thaw-processing-status-callback-notification)
+        - [Bank card freeze, unfreeze and reset PIN processing status callback notification](#Bank-card-freeze-unfreeze-and-reset-PIN-processing-status-callback-notification)
         - [Bank card 3DS verification](#Bank-card-3DS-verification)
         - [Bank card-consumption bill event](#Bank-card-consumption-bill-event)
 
@@ -2557,7 +2557,7 @@ This notification notifyType = 5
 }
 ```
 
-### Bank card freeze thaw processing status callback notification
+### Bank card freeze, unfreeze and reset PIN processing status callback notification
 This notification notifyType = 6
 
 **Callback parameters:**
@@ -2567,7 +2567,7 @@ This notification notifyType = 6
 | uniqueId | String | Y | Unique ID of the partner user |
 | cardNo | String | Y | Card number |
 | status | Integer | Y | Status. 1: Success; 2: Failure |
-| requestType | Integer | Y | Type. 1: Freeze; 2: Unfreeze |
+| requestType | Integer | Y | Type. 1: Freeze; 2: Unfreeze; 6:reset PIN |
 
 **Callback example:**
 

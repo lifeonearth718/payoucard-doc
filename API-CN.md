@@ -2658,7 +2658,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 }
 ```
 
-### 银行卡-卡片冻结、解冻处理状态回调通知
+### 银行卡-卡片冻结、解冻、重发PIN处理状态回调通知
 此通知notifyType = 6
 
 **回调参数：**
@@ -2668,7 +2668,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | uniqueId | String    | Y    | 合作商用户的唯一ID |
 | cardNo | String    | Y    | 卡号 |
 | status | Integer    | Y    | 状态。1: 成功；2: 失败 |
-| requestType | Integer    | Y    | 类型。1: 冻结；2: 解冻 |
+| requestType | Integer    | Y    | 类型。1: 冻结；2: 解冻; 6： 重发PIN|
 
 **回调示例：**
 
