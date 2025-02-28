@@ -1296,6 +1296,7 @@ POST /card/merchant/trade/query
 | currency | String | N        | 币种。支持EUR/USDT，默认EUR |
 | beginDate | String | Y        | 开始日期(yyyy-MM-dd) |
 | endDate | String | Y        | 结束日期(yyyy-MM-dd) 。起始结束时间最大间隔 30 天 |
+| dataType | String | N        | 数据类型(A-预授权 S-结算) |
 | page | Long | Y        | 页码 |
 | pageSize | Long | Y        | 页大小。最大 30 条 |
 
@@ -1311,6 +1312,7 @@ POST /card/merchant/trade/query
     "currency": "EUR",
     "beginDate": "2024-01-01",
     "endDate": "2024-01-01",
+    "dataType": "S",
     "pageNum": 1,
     "pageSize": 30
   },
@@ -1339,6 +1341,7 @@ POST /card/merchant/trade/query
 | records[0].tradeTypeStr | String     | Y    | 交易类型描述                                                                                            |
 | records[0].tradeStatus | String     | Y    | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货                      |
 | records[0].tradeStatusStr | String     | Y    | 交易状态描述                                                                                            |
+| records[0].dataType | String     | Y    | 数据类型。A -预授权 S-结算                     |
 | records[0].originTransactionId | String     | Y    | 源交易流水号                                                                                            |
 | records[0].remark | String     | Y    | 备注                                                                                                |
 | records[0].reason | String     | Y    | 消费失败原因                                                                                                |
@@ -2768,6 +2771,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | tradeTypeStr | String     | Y    | 交易类型描述                                                                                            |
 | tradeStatus | String     | Y    | 交易状态。SUCCESS-成功；REVERSAL-冲正；REVERSED-被冲正；REJECTED-被撤销；CANCELLED-撤销；REFUND-退货                      |
 | tradeStatusStr | String     | Y    | 交易状态描述                                                                                            |
+| dataType | String     | Y    | 数据类型。A -预授权 S-结算                     |
 | originTransactionId | String     | Y    | 源交易流水号                                                                                            |
 | remark | String     | Y    | 备注                                                                                                |
 | transactionTime | Long       | N    | 交易毫秒时间戳                                                                                           |
@@ -2790,6 +2794,7 @@ POST /order/merchant/globalTransfer/getOrderResult
     "tradeStatusStr": "成功",
     "tradeType": 5,
     "tradeTypeStr": "转入",
+    "dataType": "S",
     "txnAmount": 1000,
     "currencyTxn": "USD",
     "transactionTime": 1724139032647

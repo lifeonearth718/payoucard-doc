@@ -1249,6 +1249,7 @@ POST /card/merchant/trade/query
 | currency | String | N | Currency. Supports EUR/USDT, default EUR |
 | beginDate | String | Y | Start date (yyyy-MM-dd) |
 | endDate | String | Y | End date (yyyy-MM-dd). The maximum interval between the start and end time is 30 days |
+| dataType | String | N        | data type(A-Auth S-Settle) |
 | page | Long | Y | Page number |
 | pageSize | Long | Y | Page size. Maximum 30 |
 
@@ -1263,6 +1264,7 @@ POST /card/merchant/trade/query
         "currency": "EUR",
         "beginDate": "2024-01-01",
         "endDate": "2024-01-01",
+        "dataType": "S",
         "pageNum": 1,
         "pageSize": 30
     },
@@ -1287,10 +1289,10 @@ POST /card/merchant/trade/query
 | records[0].businessDate | String | Y | Business date |
 | records[0].tradeId | String | Y | Transaction serial number |
 | records[0].tradeType | Integer | Y | Transaction type. 1-Pre-authorization; 2-Payment; 3-Recharge; 4-Withdrawal; 5-Transfer in; 6-Transfer out; 7-Settlement adjustment; 8-Balance inquiry; 9-Service fee; 10-Consumption; 11-Consumption failure; 12-Refund; 13-Revocation; 14-Others 15-Card binding verification transaction 16-Management Fee|
-| records[0].dataType | String | Y | A-Auth S-Settle |
 | records[0].tradeTypeStr | String | Y | Transaction type description |
 | records[0].tradeStatus | String | Y | Transaction status. SUCCESS-successful; REVERSAL-reversed; REVERSED-reversed; REJECTED-revoked; CANCELLED-revoked; REFUND-returned |
 | records[0].tradeStatusStr | String | Y | Transaction status description |
+| records[0].dataType | String | Y | A-Auth S-Settle |
 | records[0].originTransactionId | String | Y | Source transaction serial number |
 | records[0].remark | String | Y | Remarks |
 | records[0].reason | String | Y | Reasons for consumption failure |
@@ -2666,6 +2668,7 @@ This notification notifyType = 8
 | tradeStatus | String | Y | Transaction status. SUCCESS-successful; REVERSAL-reversed; REVERSED-reversed; REJECTED-revoked; CANCELLED-revoked; REFUND-returned |
 | tradeStatusStr | String | Y | Transaction status description |
 | originTransactionId | String | Y | Source transaction serial number |
+| dataType | String | Y | data type(A-Auth S-Settle) |
 | remark | String | Y | Remark |
 | transactionTime | Long | N | Transaction millisecond timestamp |
 
@@ -2686,6 +2689,7 @@ This notification notifyType = 8
     "tradeStatusStr": "Success",
     "tradeType": 5,
     "tradeTypeStr": "Transfer",
+    "dataType": "S",
     "txnAmount": 1000,
     "currencyTxn": "USD",
     "transactionTime": 1724139032647
