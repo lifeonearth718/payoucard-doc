@@ -1818,7 +1818,7 @@ POST /order/merchant/globalTransfer/payeeVerify
 |-----------------------|--------|----------|:---------------------------------------------------------|
 | bankId                | Long   | Y | 银行id                                                     |
 | benAccountNum         | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                    |
-| benAccountName        | String | Y | 收款人户名（银行卡号户名）。英文名称[1 .. 100 ] 个字符；CNY币种请填写汉字             |
+| benAccountName        | String | Y | 收款人户名（银行卡号户名）。英文名称[1 .. 100 ] 个字符；**CNY币种请填写汉字**             |
 | benCountryCode        | String | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
 | benCityCode           | String | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）          |
 | benAddress            | String | N | 收款人地址。英文地址[10 .. 100 ] 个字符                               |
