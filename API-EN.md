@@ -58,7 +58,7 @@
         - [Bank card 3DS verification](#Bank-card-3DS-verification)
         - [Bank card-consumption bill event](#Bank-card-consumption-bill-event)
 
-# 更新日志
+# Update Log
 2025-03-05
 - Global remittance
     1. CNY currency launched
