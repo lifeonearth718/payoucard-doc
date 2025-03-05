@@ -58,8 +58,13 @@
         - [银行卡-卡片冻结、解冻处理状态回调通知](#银行卡卡片冻结、解冻处理状态回调通知)
         - [银行卡-3DS校验](#银行卡-3DS校验)
         - [银行卡-消费账单事件](#银行卡-消费账单事件)
-        
 
+# 更新日志
+2025-03-05
+  - 全球速汇
+    1. 上线CNY币种
+    2. 速汇至CNY币种时，收款人信息中 benAccountName、benLastName、benFirstName参数支持中文
+    3. dictionary_biz.pdf（1.1. Idno type）中 code=EUROPEAN_ID 描述调整为身份证
 
 # 简介
 欢迎使用PayouCard开发者文档。概述了商户对接应用开发接口。
@@ -1610,7 +1615,7 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```
 
 ```text
-bankName=alipay时注意
+速汇币种=CNY时注意
 1. 单次汇款到账金额不能大于50000RMB
 2. 付款人居住国家及城市不能在中国
 ```
@@ -1813,15 +1818,15 @@ POST /order/merchant/globalTransfer/payeeVerify
 |-----------------------|--------|----------|:---------------------------------------------------------|
 | bankId                | Long   | Y | 银行id                                                     |
 | benAccountNum         | String | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                    |
-| benAccountName        | String | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                |
+| benAccountName        | String | Y | 收款人户名（银行卡号户名）。英文名称[1 .. 100 ] 个字符；CNY币请填写汉字              |
 | benCountryCode        | String | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin） |
 | benCityCode           | String | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）          |
 | benAddress            | String | N | 收款人地址。英文地址[10 .. 100 ] 个字符                               |
 | benPostCode           | String | N | 收款人邮编。[3 .. 9 ] 个字符                                      |
 | benBankCode           | String | N | 收款人银行编码。[6 .. 12 ] 个字符                                   |
 | benTransBankSwift     | String | N | 收款人中转行。[8 .. 11 ] 个字符                                    |
-| benLastName           | String | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符                               |
-| benFirstName          | String | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符                               |
+| benLastName           | String | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符；CNY币请填写汉字                          |
+| benFirstName          | String | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符；CNY币请填写汉字                      |
 | benNationalityCountry | String | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）   |
 | benIdNoType           | String | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）             |
 | benIdNo               | String | N | 收款人证件号码。[6 .. 18 ] 个字符                                   |
@@ -1938,15 +1943,15 @@ POST /order/merchant/globalTransfer/payment
 | payer.payerOccupation         | String     | Y | 付款人职业。仅支持英文[3 .. 20 ] 个字符                                         |
 | payee                         | Object     | Y | 收款人信息对象                                                           |
 | payee.benAccountNum           | String     | Y | 收款人帐号。会进行大写转换处理。不支持中文字符[2 .. 48 ] 个字符                             |
-| payee.benAccountName          | String     | Y | 收款人户名。英文名称[1 .. 100 ] 个字符                                         |
+| payee.benAccountName          | String     | Y | 收款人户名（银行卡号户名）。英文名称[1 .. 100 ] 个字符；CNY币请填写汉字                        |
 | payee.benCountryCode          | String     | N | 收款人居住国家。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）          |
 | payee.benCityCode             | String     | N | 收款人居住城市代码。参见dictionary_common.xlsx（sheet. city）                   |
 | payee.benAddress              | String     | N | 收款人地址。英文地址[10 .. 100 ] 个字符                                        |
 | payee.benPostCode             | String     | N | 收款人邮编。[3 .. 9 ] 个字符                                               |
 | payee.benBankCode             | String     | N | 收款人银行编码。[6 .. 12 ] 个字符                                            |
 | payee.benTransBankSwift       | String     | N | 收款人中转行。[8 ..11 ] 个字符                                              |
-| payee.benLastName             | String     | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符                                        |
-| payee.benFirstName            | String     | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符                                        |
+| payee.benLastName             | String     | N | 收款人姓。不支持中文字符[2 .. 60 ] 个字符；CNY币请填写汉字                                            |
+| payee.benFirstName            | String     | N | 收款人名。不支持中文字符[2 .. 60 ] 个字符；CNY币请填写汉字                                            |
 | payee.benNationalityCountry   | String     | N | 收款人国籍。国家代码（2位数）。参见dictionary_common.xlsx（sheet. regin）            |
 | payee.benIdNoType             | String     | N | 收款人证件类型。参见dictionary_biz.pdf（1.1. Idno type）                      |
 | payee.benIdNo                 | String     | N | 收款人证件号码。[6 ..  18] 个字符                                            |
