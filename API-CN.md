@@ -1617,7 +1617,6 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```text
 速汇币种=CNY时注意
 1. 单次汇款到账金额不能大于50000RMB
-2. 付款人居住国家及城市不能在中国
 ```
 
 ### 查询法币汇率

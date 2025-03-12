@@ -1542,7 +1542,6 @@ POST /order/merchant/globalTransfer/queryBankConfig
 ```text
 Note when currency=CNY
 1. The amount of a single remittance cannot be greater than 50,000 RMB
-2. The country and city of residence of the payee cannot be in China
 ```
 
 ### Query legal currency exchange rate
