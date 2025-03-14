@@ -1836,7 +1836,7 @@ POST /order/merchant/globalTransfer/payment
 |-------------------------------|------------|----------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bankId | Long | Y | Bank id                                                                                                                                                |
 | uniqueId | String | Y | Unique ID of the partner user. [1 .. 50 ] characters                                                                                                   |
-| originOrderNo | String | Y | Merchant business order number. [12 .. 30 ] characters                                                                                                 |
+| originOrderNo | String | Y | Merchant business order number. [12 .. 35 ] characters                                                                                                 |
 | amount | BigDecimal | Y | Amount of money transferred. Only supports EUR, minimum amount 100EUR, maximum 2 decimal places                                                        |
 | postscript | String | Y | Postscript. Only supports English [5 .. 64 ] characters                                                                                                |
 | relationship | String | N | Payee and payee relationship. Required when paymentType=15. See dictionary_biz.pdf (2.4. Relationship)                                                 |
@@ -1859,7 +1859,7 @@ POST /order/merchant/globalTransfer/payment
 | payer.payerOccupation | String | Y | Payer occupation. English only supported [3 .. 20 ] characters                                                                                         |
 | payee | Object | Y | Payee information object                                                                                                                               |
 | payee.benAccountNum | String | Y | Payee account number. Will be converted to uppercase. English characters [2 .. 48 ] characters; Please fill in the Chinese characters for CNY currency |
-| payee.benAccountName | String | Y | Payee name. English name [1 .. 100 ] characters; Please fill in the Chinese characters for CNY currency                                                                                                      |
+| payee.benAccountName | String | Y | Payee name. English name [1 .. 100 ] characters; Please fill in the Chinese characters for CNY currency                                                |
 | payee.benCountryCode | String | N | Payee's country of residence. Country code (2 digits). See dictionary_common.xlsx (sheet. regin)                                                       |
 | payee.benCityCode | String | N | Payee's city code. See dictionary_common.xlsx (sheet. city)                                                                                            |
 | payee.benAddress | String | N | Payee address. English address [10 .. 100 ] characters                                                                                                 |
