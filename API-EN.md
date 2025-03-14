@@ -2301,6 +2301,8 @@ This interface is used to set callback notification URL.
 
 Please set the callback notification address in the merchant basic information in the merchant backend system. All callback notifications share this URL, and use notifyType to distinguish different notification contents
 
+When the transaction has a final result, the development platform will send a transaction notification to the merchant through the webhook configuration. When the acceptance is unsuccessful or the sending fails, the transaction will be sent 6 more times with time intervals of 1m, 5m, 20m, 1h, 12h, and 24h.
+
 ### Callback notification type
 
 | notifyType | business | meaning |

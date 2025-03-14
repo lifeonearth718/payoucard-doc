@@ -2396,6 +2396,8 @@ POST /order/merchant/globalTransfer/getOrderResult
 
 请商户在商户后台系统中 商户基本信息 处设置回调通知地址。所有的回调通知共用此url，通过notifyType区分不同的通知内容
 
+当交易有最终结果后，通过webhook配置，开发平台会发送交易通知给商户，当接受不成功或者发送失败时， 交易会再发6次，时间间隔为1m，5m，20m，1h，12h，24h。
+
 ### 回调通知类型
 
 | notifyType | 业务 | 含义 |
