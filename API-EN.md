@@ -2534,7 +2534,7 @@ This notification notifyType = 5
 | Parameter | Type | Is it required | Meaning |
 |------|------|------|:------|
 | cardNo | String | Y | Card number |
-| status | Integer | Y | Status. 5: Activation successful; 12: Activation review failed |
+| status | Integer | Y | Statut. 5 : Activation réussie ; 7 : Annulation de la carte ; 12 : Échec de la vérification de l'activation |
 | msg | String | N | Error message |
 
 **Callback example:**

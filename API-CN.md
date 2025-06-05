@@ -2632,7 +2632,7 @@ POST /order/merchant/globalTransfer/getOrderResult
 | 参数 | 类型 | 是否必传 | 含义 |
 |------|------|------|:------|
 | cardNo | String    | Y    | 卡号 |
-| status | Integer    | Y    | 状态。5：激活成功；12：激活审核失败 |
+| status | Integer    | Y    | 状态。5：激活成功；7： 销卡 12：激活审核失败 |
 | msg | String    | N    | 错误信息 |
 
 
