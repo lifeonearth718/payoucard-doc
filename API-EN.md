@@ -1553,7 +1553,7 @@ POST /order/merchant/globalTransfer/queryBankConfig
 
 ```text
 Note when currency=CNY
-1. The amount of a single remittance cannot be greater than 50,000 RMB
+1. The amount of a single remittance cannot be greater than 29999 RMB
 ```
 
 ### Query legal currency exchange rate
