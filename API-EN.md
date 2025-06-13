@@ -329,6 +329,10 @@ POST /card/merchant/config/list
 | typeDesc | String | Y | Type description |
 | cardName | String | Y | Card name |
 | cardDesc | String | Y | Card description |
+| cardPrice | BigDecimal  | Y| Card price |
+| atmWithdrawRate | String  | Y | ATM withdraw rate|
+| purchaseRate    | String  | Y | Purchase rate|
+| annualFee | String  | Y | Annual fee |
 | kycRequire | Boolean | Y | Whether KYC certification is required |
 | status | Integer | Y | Status (0-optional 1-available) |
 | rechargeCurrencyInfoList | List | Y | Rechargeable currency list configuration |
@@ -351,6 +355,10 @@ POST /card/merchant/config/list
         "type": 3,
         "typeDesc":"Master-Physical Card",
         "cardName":"master Physical Card",
+        "cardPrice": 10,
+        "atmWithdrawRate": "0",
+        "purchaseRate": "1%",
+        "annualFee": "Free",
         "kycRequire":true,
         "status": 1,
         "rechargeCurrencyInfoList":[

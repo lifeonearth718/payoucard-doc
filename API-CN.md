@@ -329,6 +329,10 @@ POST /card/merchant/config/list
 | typeDesc                                  | String  | Y        | 类型描述          |
 | cardName                                  | String  | Y        | 卡名称          |
 | cardDesc                                  | String  | Y        | 卡描述              |
+| cardPrice                                 | BigDecimal  | Y    |卡片价格              |
+| atmWithdrawRate                           | String  | Y        | ATM提现费率           |
+| purchaseRate                              | String  | Y        | 消费费率              |
+| annualFee                                 | String  | Y        | 年费              |
 | kycRequire                                | Boolean | Y        | 是否需要KYC认证      |
 | status                                | Integer | Y        | 状态(0-可不用 1-可用)      |
 | rechargeCurrencyInfoList                  | List    | Y        | 可充值的币种列表配置 |
@@ -336,6 +340,7 @@ POST /card/merchant/config/list
 | rechargeCurrencyInfoList[0].rechargeMinQuota | BigDecimal    | Y        | 充值最小额度 |
 | rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal    | Y        | 充值最大额度 |
 | rechargeCurrencyInfoList[0].digital          | Long    | Y        | 精度 |
+| rechargeCurrencyInfoList[0].firstDepositAmount          | BigDecimal    | Y        | 首充金额 |
 | needPhotoForActiveCard                    | Boolean    | Y        | 激活卡片时是否需要手持护照和银行卡照 |
 | needPhotoForOperateCard                   | Boolean    | Y        | 冻结、解冻和找回密码时是否需要提供用户签名照 |
 
@@ -352,6 +357,11 @@ POST /card/merchant/config/list
       "type": 3,
       "typeDesc":"Master-实体卡",
       "cardName":"master 实体卡",
+      "cardDesc": "dfdfdfd",
+      "cardPrice": 10,
+      "atmWithdrawRate": "0",
+      "purchaseRate": "1%",
+      "annualFee": "Free",
       "kycRequire":true,
       "status": 1,
       "rechargeCurrencyInfoList":[
