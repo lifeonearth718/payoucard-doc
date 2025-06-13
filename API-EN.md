@@ -337,9 +337,11 @@ POST /card/merchant/config/list
 | status | Integer | Y | Status (0-optional 1-available) |
 | rechargeCurrencyInfoList | List | Y | Rechargeable currency list configuration |
 | rechargeCurrencyInfoList[0].currency | String | Y | Recharge currency |
+| rechargeCurrencyInfoList[0].rechargeRate | String | Y| Recharge rate |
 | rechargeCurrencyInfoList[0].rechargeMinQuota | BigDecimal | Y | Minimum recharge amount |
 | rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal | Y | Maximum recharge amount |
 | rechargeCurrencyInfoList[0].digital | Long | Y | Precision |
+| rechargeCurrencyInfoList[0].firstDepositAmount| BigDecimal | Y| First deposit amount |
 | needPhotoForActiveCard | Boolean | Y | Is it necessary to hold a passport and bank card photo when activating the card? |
 | needPhotoForOperateCard | Boolean | Y | Is it necessary to provide a user signature photo when freezing, unfreezing, or retrieving a password? |
 
@@ -363,10 +365,12 @@ POST /card/merchant/config/list
         "status": 1,
         "rechargeCurrencyInfoList":[
             {
-            "currency": "USDT",
-            "rechargeMinQuota": 10,
-            "rechargeMaxQuota": 100000,
-            "digital": 2
+              "currency": "USDT",
+              "rechargeRate": "1.8%",
+              "rechargeMinQuota": 10,
+              "rechargeMaxQuota": 100000,
+              "digital": 2,
+              "firstDepositAmount": 0
             }
         ],
         "needPhotoForActiveCard" : false,

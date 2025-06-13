@@ -337,6 +337,7 @@ POST /card/merchant/config/list
 | status                                | Integer | Y        | 状态(0-可不用 1-可用)      |
 | rechargeCurrencyInfoList                  | List    | Y        | 可充值的币种列表配置 |
 | rechargeCurrencyInfoList[0].currency      | String    | Y        | 充值币种 |
+| rechargeCurrencyInfoList[0].rechargeRate      | String    | Y        | 充值费率 |
 | rechargeCurrencyInfoList[0].rechargeMinQuota | BigDecimal    | Y        | 充值最小额度 |
 | rechargeCurrencyInfoList[0].rechargeMaxQuota | BigDecimal    | Y        | 充值最大额度 |
 | rechargeCurrencyInfoList[0].digital          | Long    | Y        | 精度 |
@@ -367,9 +368,11 @@ POST /card/merchant/config/list
       "rechargeCurrencyInfoList":[
         {
           "currency": "USDT",
+          "rechargeRate": "1.8%",
           "rechargeMinQuota": 10,
           "rechargeMaxQuota": 100000,
-          "digital": 2
+          "digital": 2,
+          "firstDepositAmount": 0
         }
       ],
       "needPhotoForActiveCard" : false,
